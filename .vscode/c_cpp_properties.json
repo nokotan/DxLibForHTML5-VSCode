@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Emscripten",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/DxLibForHTML5",
+                "${env:EMSDK_PATH}/upstream/emscripten/system/include",
+                "${env:EMSDK_PATH}/upstream/emscripten/system/include/libc",
+                "${env:EMSDK_PATH}/upstream/emscripten/system/include/libcxx"
+            ],
+            "defines": [
+                "_DEBUG",
+                "EMSCRIPTEN"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x86"
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,102 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build Debug",
+            "command": "em++",
+            "args": [
+                // Input
+                "Main.cpp", 
+
+                // Output
+                "-o", "index.html",
+
+                // Compiler Flags
+                "-O1", "-std=c++11", "-g4",
+
+                // Include & Library Directory
+                "-IDxLibForHTML5",  "-LDxLibForHTML5",
+
+                // Dependent Libraries
+                "-lbullet", "-lfreetype", "-logg", "-lpng", "-lvorbis", "-lz",
+                "-lDxDrawFunc", "-lDxUseCLib", "-lDxLib",
+
+                // em++ Specific Configurations
+                "--emrun",
+                "-s", "ASSERTIONS=1",
+                "-s", "MAIN_MODULE=1",
+                "-s", "FULL_ES3=1",
+                "-s", "ALLOW_MEMORY_GROWTH=1",
+
+                // Packaging Configurations
+                "--source-map-base", "http://localhost:8080/",
+                "--preload-file", "assets",
+                "--shell-file", "template.html"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Build Release",
+            "command": "em++",
+            "args": [
+                // Input
+                "Main.cpp", 
+
+                // Output
+                "-o", "Build/index.html",
+
+                // Compiler Flags
+                "-O3", "-std=c++11",
+
+                // Include & Library Directory
+                "-IDxLibForHTML5",  "-LDxLibForHTML5",
+
+                // Dependent Libraries
+                "-lbullet", "-lfreetype", "-logg", "-lpng", "-lvorbis", "-lz",
+                "-lDxDrawFunc", "-lDxUseCLib", "-lDxLib",
+
+                // em++ Specific Configurations
+                "--emrun",
+                "-s", "ASSERTIONS=0",
+                "-s", "MAIN_MODULE=1",
+                "-s", "FULL_ES3=1",
+                "-s", "ALLOW_MEMORY_GROWTH=1",
+
+                // Packaging Configurations
+                "--preload-file", "assets",
+                "--shell-file", "template.html"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "Run Local Server and Open Browser",
+            "command": "emrun",
+            "args": [
+                "--port", "8080",
+                "--serve_after_close",
+                "index.html"
+            ],
+            "group": "none"
+        },
+        {
+            "type": "shell",
+            "label": "Run Local Server",
+            "command": "emrun",
+            "args": [
+                "--hostname", "localhost",
+                "--port", "8080",
+                "--no_browser",
+                "index.html"
+            ],
+            "group": "none"
+        }
+    ]
+}
