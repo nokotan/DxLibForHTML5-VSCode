@@ -15,7 +15,7 @@
                 "-o", "index.html",
 
                 // Compiler Flags
-                "-O1", "-std=c++11", "-g4",
+                "-O1", "-std=c++17", "-g4",
 
                 // Include & Library Directory
                 "-IDxLibForHTML5",  "-LDxLibForHTML5",
@@ -53,7 +53,7 @@
                 "-o", "Build/index.html",
 
                 // Compiler Flags
-                "-O3", "-std=c++11",
+                "-O3", "-std=c++17",
 
                 // Include & Library Directory
                 "-IDxLibForHTML5",  "-LDxLibForHTML5",
