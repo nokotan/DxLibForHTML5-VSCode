@@ -8,16 +8,16 @@ emscripten, DxLib for HTML5 を使って WebGL + WebAssembly アプリケーシ�
 ## 前提要件
 
 - Visual Studio Code (1.42.1 で動作確認済み)
-- emscripten SDK
+- [emscripten SDK](https://emscripten.org)
 
-emscripten の導入は <https://nanka.hateblo.jp/entry/2017/04/11/005318> や
+emscripten の導入は <https://qiita.com/nokotan/items/5fa6f2d39ff7bb6641e8> や
 <https://www.slideshare.net/llamerada-jp/cmu29> (やや読破難度高いスライド) が参考になると思います.
 
 ## 推奨インストール
 
-- C/C++ VSCode Extension
-- Debugger for Chrome
-- Debugger for Firefox
+- [C/C++ VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+- [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 
 ## ビルド
 
