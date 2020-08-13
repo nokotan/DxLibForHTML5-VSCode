@@ -49,7 +49,7 @@ int main () {
 		return -1;
     }
 
-    ChangeFont("assets/07LogoTypeGothic7.ttf");
+    ChangeFont("07LogoTypeGothic7.ttf");
 	SetDrawScreen(DX_SCREEN_BACK);
 
 #ifdef EMSCRIPTEN
