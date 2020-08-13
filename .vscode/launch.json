@@ -9,14 +9,18 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:8080/index.html",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "Run Local Server",
+            "postDebugTask": "Stop Local Server"
         },
         {
             "type": "firefox",
             "request": "launch",
             "name": "Launch FireFox against localhost",
             "url": "http://localhost:8080/index.html",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "Run Local Server",
+            "postDebugTask": "Stop Local Server"
         }
     ]
 }

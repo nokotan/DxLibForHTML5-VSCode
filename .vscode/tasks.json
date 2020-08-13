@@ -5,20 +5,42 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "Build Debug",
+            "label": "Build: Compile (Debug)",
             "command": "em++",
             "args": [
                 // Input
                 "Main.cpp", 
+
+                // Output
+                "-c", "-o", "Main.o",
+
+                // Compiler Flags
+                "-O0", "-std=c++17", "-g4",
+
+                // Include Directory
+                "-IDxLibForHTML5",  
+
+                // em++ Specific Configurations
+            ],
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "Build: Link (Debug)",
+            "command": "em++",
+            "args": 
+            [
+                // Input
+                "Main.o",
 
                 // Output
                 "-o", "index.html",
 
                 // Compiler Flags
-                "-O1", "-std=c++17", "-g4",
+                "-O0", "-std=c++17", "-g4",
 
-                // Include & Library Directory
-                "-IDxLibForHTML5",  "-LDxLibForHTML5",
+                // Library Directory
+                "-LDxLibForHTML5",
 
                 // Dependent Libraries
                 "-lbullet", "-lfreetype", "-logg", "-lpng", "-lvorbis", "-lz",
@@ -26,37 +48,54 @@
 
                 // em++ Specific Configurations
                 "--emrun",
-                "-s", "ASSERTIONS=1",
-                "-s", "MAIN_MODULE=1",
-                "-s", "FULL_ES3=1",
+                "-s", "FULL_ES2=1",
                 "-s", "ALLOW_MEMORY_GROWTH=1",
 
                 // Packaging Configurations
                 "--source-map-base", "http://localhost:8080/",
-                "--preload-file", "assets",
+                "--preload-file", "assets@/",
                 "--shell-file", "template.html"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "group": "build"
         },
         {
             "type": "shell",
-            "label": "Build Release",
+            "label": "Build: Compile (Release)",
             "command": "em++",
             "args": [
                 // Input
                 "Main.cpp", 
 
                 // Output
-                "-o", "Build/index.html",
+                "-c", "-o", "Main.o",
 
                 // Compiler Flags
-                "-O3", "-std=c++17",
+                "-O2", "-std=c++17",
 
-                // Include & Library Directory
-                "-IDxLibForHTML5",  "-LDxLibForHTML5",
+                // Include Directory
+                "-IDxLibForHTML5",  
+
+                // em++ Specific Configurations
+            ],
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "Build: Link (Release)",
+            "command": "em++",
+            "args": 
+            [
+                // Input
+                "Main.o",
+
+                // Output
+                "-o", "index.html",
+
+                // Compiler Flags
+                "-O2", "-std=c++17",
+
+                // Library Directory
+                "-LDxLibForHTML5",
 
                 // Dependent Libraries
                 "-lbullet", "-lfreetype", "-logg", "-lpng", "-lvorbis", "-lz",
@@ -64,15 +103,37 @@
 
                 // em++ Specific Configurations
                 "--emrun",
-                "-s", "ASSERTIONS=0",
-                "-s", "MAIN_MODULE=1",
-                "-s", "FULL_ES3=1",
+                "-s", "FULL_ES2=1",
                 "-s", "ALLOW_MEMORY_GROWTH=1",
 
                 // Packaging Configurations
-                "--preload-file", "assets",
+                "--source-map-base", "http://localhost:8080/",
+                "--preload-file", "assets@/",
                 "--shell-file", "template.html"
             ],
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "Build: Debug",
+            "dependsOn": 
+            [
+                    "Build: Compile (Debug)", "Build: Link (Debug)",
+            ],
+            "dependsOrder": "sequence",
+            "group":{
+                    "kind": "build",
+                    "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Build: Release",
+            "dependsOn": 
+            [
+                    "Build: Compile (Release)", "Build: Link (Release)",
+            ],
+            "dependsOrder": "sequence",
             "group": "build"
         },
         {
@@ -90,13 +151,46 @@
             "type": "shell",
             "label": "Run Local Server",
             "command": "emrun",
-            "args": [
+            "args": 
+            [
                 "--hostname", "localhost",
                 "--port", "8080",
                 "--no_browser",
                 "index.html"
             ],
+            "isBackground": true,
+            "problemMatcher": [
+                {
+                    "pattern": [
+                        {
+                            "regexp": ".",
+                            "file": 1,
+                            "location": 2,
+                            "message": 3
+                        }
+                    ],
+                    "background": {
+                        "activeOnStart": true,
+                        "beginsPattern": ".",
+                        "endsPattern": "Now listening at",
+                    }
+                }
+            ],
             "group": "none"
+        },
+        {
+            "label": "Stop Local Server",
+            "type": "shell",
+            "command": "echo ${input:terminate}",
+            "group": "none"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "terminate",
+            "type": "command",
+            "command": "workbench.action.tasks.terminate",
+            "args": "Run Local Server"
         }
     ]
 }
