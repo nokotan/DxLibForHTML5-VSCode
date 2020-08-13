@@ -5,9 +5,9 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/DxLibForHTML5",
-                "${env:EMSDK_PATH}/upstream/emscripten/system/include",
-                "${env:EMSDK_PATH}/upstream/emscripten/system/include/libc",
-                "${env:EMSDK_PATH}/upstream/emscripten/system/include/libcxx"
+                "${env:EMSDK}/upstream/emscripten/system/include",
+                "${env:EMSDK}/upstream/emscripten/system/include/libc",
+                "${env:EMSDK}/upstream/emscripten/system/include/libcxx"
             ],
             "defines": [
                 "_DEBUG",
