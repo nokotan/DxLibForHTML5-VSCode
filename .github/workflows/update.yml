@@ -1,0 +1,38 @@
+name: Auto-Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: Trigger reason
+        required: true
+        default: 'Auto-Update'
+      url:
+        description: Release URL
+        required: true
+        default: 'https://github.com/nokotan/DxLibForHTML5/releases/download/3.22a-emscripten-2.0.4/DxLibForHTML5.tgz'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Launch Shell
+        run: |
+          chmod +x UpdateDxLib.sh
+          ./UpdateDxLib.sh "${{ github.event.inputs.url }}"
+
+      - name: Set Bot Profile
+        run: |
+          git config user.email "kamenokonokotan@gmail.com"
+          git config user.name "Kamenoko Auto-Commit bot"
+
+      - name: Make Commit
+        run: |
+          git add *
+          git commit -m "${{ github.event.inputs.name }}"
+          git push
