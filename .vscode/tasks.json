@@ -18,7 +18,7 @@
                 "-O0", "-std=c++17", "-g4",
 
                 // Include Directory
-                "-IDxLibForHTML5",  
+                "-IDxLibForHTML5/include",  
 
                 // em++ Specific Configurations
             ],
@@ -40,10 +40,12 @@
                 "-O0", "-std=c++17", "-g4",
 
                 // Library Directory
-                "-LDxLibForHTML5",
+                "-LDxLibForHTML5/lib",
 
                 // Dependent Libraries
-                "-lbullet", "-lfreetype", "-logg", "-lpng", "-lvorbis", "-lz",
+                "-s", "USE_BULLET=1", "-s", "USE_FREETYPE=1", 
+                "-s", "USE_OGG=1", "-s", "USE_LIBPNG=1", 
+                "-s", "USE_VORBIS=1", "-s", "USE_ZLIB=1",
                 "-lDxDrawFunc", "-lDxUseCLib", "-lDxLib",
 
                 // em++ Specific Configurations
@@ -73,7 +75,7 @@
                 "-O2", "-std=c++17",
 
                 // Include Directory
-                "-IDxLibForHTML5",  
+                "-IDxLibForHTML5/include",  
 
                 // em++ Specific Configurations
             ],
@@ -95,10 +97,12 @@
                 "-O2", "-std=c++17",
 
                 // Library Directory
-                "-LDxLibForHTML5",
+                "-LDxLibForHTML5/lib",
 
                 // Dependent Libraries
-                "-lbullet", "-lfreetype", "-logg", "-lpng", "-lvorbis", "-lz",
+                "-s", "USE_BULLET=1", "-s", "USE_FREETYPE=1", 
+                "-s", "USE_OGG=1", "-s", "USE_LIBPNG=1", 
+                "-s", "USE_VORBIS=1", "-s", "USE_ZLIB=1",
                 "-lDxDrawFunc", "-lDxUseCLib", "-lDxLib",
 
                 // em++ Specific Configurations
