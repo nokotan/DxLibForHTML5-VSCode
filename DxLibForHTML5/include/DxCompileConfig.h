@@ -2,7 +2,7 @@
 //
 //		ＤＸライブラリ　コンパイルコンフィグヘッダファイル
 //
-//				Ver 3.22c
+//				Ver 3.23 
 //
 // ----------------------------------------------------------------------------
 
@@ -17,6 +17,9 @@
 #define DXCOMPILECONFIG_H
 
 // スタティックライブラリ生成時ライブラリ機能制限用定義 -----------------------
+
+// C言語用としてコンパイルする場合は次のコメントを外してください
+//#define DX_COMPILE_TYPE_C_LANGUAGE
 
 // namespace DxLib を使用しない場合は次のコメントを外してください
 //#define DX_NON_NAMESPACE
@@ -40,10 +43,13 @@
 
 // ＤＸアーカイブがいらない方は次のコメントを外してください
 // ( ＤＸアーカイブを無効にすると、ＤＸアーカイブを内部で使っている関係上 DX_NON_MODEL と DX_NON_FILTER と DX_NON_MOVIE と DX_NON_NORMAL_DRAW_SHADER も有効になります )
-//#define DX_NON_DXA
+// #define DX_NON_DXA
 
 // ムービー機能がいらない方は次のコメントを外してください
 #define DX_NON_MOVIE
+
+// ＢＭＰ画像の読み込み機能がいらない方は次のコメントを外してください
+// #define DX_NON_BMPREAD
 
 // ＴＧＡ画像の読み込み機能がいらない方は次のコメントを外してください
 // #define DX_NON_TGA
@@ -54,7 +60,7 @@
 
 // ＰＮＧ画像の読みこみ機能がいらない方は次のコメントを外してください
 // ※DxUseCLib.lib も再コンパイルする必要があります
-//#define DX_NON_PNGREAD
+#define DX_NON_PNGREAD
 
 // ＴＩＦＦ画像の読みこみ機能がいらない方は次のコメントを外してください
 // ※DxUseCLib.lib も再コンパイルする必要があります
@@ -75,6 +81,9 @@
 // 標準 WAVE ファイル以外の音声ファイルを使用しない方は次のコメントを外してください
 //#define DX_NON_ACM
 
+// 標準 WAVE ファイルを使用しない方は次のコメントを外してください
+// #define DX_NON_WAVE
+
 // DirectShow を使用した MP3 ファイルのデコードを行わない場合は次のコメントをはずしてください
 //#define DX_NON_DSHOW_MP3
 
@@ -94,7 +103,7 @@
 #define DX_NON_NETWORK
 
 // マスク機能がいらない方は次のコメントを外してください
-//#define DX_NON_MASK
+// #define DX_NON_MASK
 
 // Ｏｇｇ Ｖｏｒｂｉｓ データを使用しない方は次のコメントをはずしてください
 // ※DxUseCLib.lib も再コンパイルする必要があります
@@ -153,6 +162,9 @@
 // フォント描画機能を無効にする場合は次のコメントを外して下さい
 //#define DX_NON_FONT
 
+// ブラウザ依存のフォント描画機能を有効にする場合は次のコメントを外して下さい
+// #define DX_USE_BROWSER_FONT
+
 // サウンド再生機能( ソフトウエアサウンド、MIDI含む )を無効にする場合は次のコメントを外して下さい
 //#define DX_NON_SOUND
 
@@ -179,6 +191,18 @@
 
 // Live2D Cubism 4 関連の機能を使用しない場合は次のコメントを外してください
 #define DX_NON_LIVE2D_CUBISM4
+
+#ifndef __cplusplus
+	#ifndef DX_COMPILE_TYPE_C_LANGUAGE
+		#define DX_COMPILE_TYPE_C_LANGUAGE
+	#endif // DX_COMPILE_TYPE_C_LANGUAGE
+#endif // __cplusplus
+
+#ifdef DX_COMPILE_TYPE_C_LANGUAGE
+	#ifndef DX_NON_NAMESPACE
+		#define DX_NON_NAMESPACE
+	#endif // DX_NON_NAMESPACE
+#endif // DX_COMPILE_TYPE_C_LANGUAGE
 
 #ifndef __APPLE__
 #ifndef __ANDROID__
@@ -388,7 +412,7 @@
 
 
 
-#if defined( _WIN64 ) || defined( __ANDROID__ ) || defined( __APPLE__ ) || defined( EMSCRIPTEN )
+#if defined( _WIN64 ) || defined( __ANDROID__ ) || defined( __APPLE__ ) || defined( DX_GCC_COMPILE ) || defined( EMSCRIPTEN )
 	#ifndef DX_NON_INLINE_ASM
 		#define DX_NON_INLINE_ASM
 	#endif
