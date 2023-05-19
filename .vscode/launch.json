@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "wasm-chrome",
+            "request": "launch",
+            "name": "WebAssembly Debug",
+            "url": "http://localhost:8080/",
+            "preLaunchTask": "Run Local Server",
+            "postDebugTask": "Stop Local Server"
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
