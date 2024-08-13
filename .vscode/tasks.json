@@ -6,7 +6,7 @@
         {
             "type": "shell",
             "label": "Build: Compile (Debug)",
-            "command": "em++",
+            "command": "emcc",
             "args": [
                 // Input
                 "Main.cpp", 
@@ -15,7 +15,8 @@
                 "-c", "-o", "Main.o",
 
                 // Compiler Flags
-                "-O0", "-std=c++17", "-g4",
+                "-O0", "-std=c++17", "-g3",
+                "-pthread", "-fwasm-exceptions",
 
                 // Include Directory
                 "-IDxLibForHTML5/include",  
@@ -27,7 +28,7 @@
         {
             "type": "shell",
             "label": "Build: Link (Debug)",
-            "command": "em++",
+            "command": "emcc",
             "args": 
             [
                 // Input
@@ -37,33 +38,37 @@
                 "-o", "index.html",
 
                 // Compiler Flags
-                "-O0", "-std=c++17", "-g4",
+                "-O0", "-std=c++17", "-g3",
+                "-pthread", "-fwasm-exceptions",
 
                 // Library Directory
                 "-LDxLibForHTML5/lib",
 
                 // Dependent Libraries
-                "-s", "USE_BULLET=1", "-s", "USE_FREETYPE=1", 
-                "-s", "USE_OGG=1", "-s", "USE_LIBPNG=1", 
-                "-s", "USE_VORBIS=1", "-s", "USE_ZLIB=1",
+                "-sUSE_BULLET=1", "-sUSE_FREETYPE=1", 
+                "-sUSE_OGG=1", "-sUSE_LIBPNG=1", "-sUSE_LIBJPEG=1", 
+                "-sUSE_VORBIS=1", "-sUSE_ZLIB=1",
                 "-lDxDrawFunc", "-lDxUseCLib", "-lDxLib",
 
                 // em++ Specific Configurations
                 "--emrun",
-                "-s", "FULL_ES2=1",
-                "-s", "ALLOW_MEMORY_GROWTH=1",
+                "-sFULL_ES2=1",
+                "-sALLOW_MEMORY_GROWTH=1",
+                "-sPROXY_TO_PTHREAD=1",
+                "-sOFFSCREEN_FRAMEBUFFER=1",
+                "-sEXIT_RUNTIME=1",
+                "-sSTACK_SIZE=1MB",
 
                 // Packaging Configurations
-                "--source-map-base", "http://localhost:8080/",
+                // "--source-map-base", "http://localhost:8080/",
                 "--preload-file", "assets@/",
-                "--shell-file", "template.html"
             ],
             "group": "build"
         },
         {
             "type": "shell",
             "label": "Build: Compile (Release)",
-            "command": "em++",
+            "command": "emcc",
             "args": [
                 // Input
                 "Main.cpp", 
@@ -73,6 +78,7 @@
 
                 // Compiler Flags
                 "-O2", "-std=c++17",
+                "-pthread", "-fwasm-exceptions",
 
                 // Include Directory
                 "-IDxLibForHTML5/include",  
@@ -84,7 +90,7 @@
         {
             "type": "shell",
             "label": "Build: Link (Release)",
-            "command": "em++",
+            "command": "emcc",
             "args": 
             [
                 // Input
@@ -95,25 +101,29 @@
 
                 // Compiler Flags
                 "-O2", "-std=c++17",
+                "-pthread", "-fwasm-exceptions",
 
                 // Library Directory
                 "-LDxLibForHTML5/lib",
 
                 // Dependent Libraries
-                "-s", "USE_BULLET=1", "-s", "USE_FREETYPE=1", 
-                "-s", "USE_OGG=1", "-s", "USE_LIBPNG=1", 
-                "-s", "USE_VORBIS=1", "-s", "USE_ZLIB=1",
+                "-sUSE_BULLET=1", "-sUSE_FREETYPE=1", 
+                "-sUSE_OGG=1", "-sUSE_LIBPNG=1", "-sUSE_LIBJPEG=1", 
+                "-sUSE_VORBIS=1", "-sUSE_ZLIB=1",
                 "-lDxDrawFunc", "-lDxUseCLib", "-lDxLib",
 
                 // em++ Specific Configurations
                 "--emrun",
-                "-s", "FULL_ES2=1",
-                "-s", "ALLOW_MEMORY_GROWTH=1",
+                "-sFULL_ES2=1",
+                "-sALLOW_MEMORY_GROWTH=1",
+                "-sPROXY_TO_PTHREAD=1",
+                "-sOFFSCREEN_FRAMEBUFFER=1",
+                "-sEXIT_RUNTIME=1",
+                "-sSTACK_SIZE=1MB",
 
                 // Packaging Configurations
-                "--source-map-base", "http://localhost:8080/",
+                // "--source-map-base", "http://localhost:8080/",
                 "--preload-file", "assets@/",
-                "--shell-file", "template.html"
             ],
             "group": "build"
         },

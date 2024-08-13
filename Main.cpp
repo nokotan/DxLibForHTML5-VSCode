@@ -9,35 +9,6 @@
 
 #include "DxLib.h"
 
-#ifdef EMSCRIPTEN
-#  include <emscripten.h>
-#endif
-
-static bool shouldExit = false;
-
-void mainLoop() {
-	if (ProcessMessage() == -1) {
-		shouldExit = true;
-	}
-
-	ClearDrawScreen();
-
-	{
-		int MouseX, MouseY;
-		int CircleColor = (GetMouseInput() & MOUSE_INPUT_LEFT) ? GetColor(255, 255, 0) : GetColor(255, 0, 0);
-
-		GetMousePoint(&MouseX, &MouseY);
-		DrawCircle(MouseX, MouseY, 64, CircleColor);
-	}
-
-	{
-		int StringColor = CheckHitKey(KEY_INPUT_SPACE) ? GetColor(0, 255, 0) : GetColor(255, 255, 255);
-		DrawString(3, 3, "Hello DxLib on HTML5!", StringColor);
-	}
-
-	ScreenFlip();
-}
-
 #ifdef _WIN32
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 #else
@@ -52,15 +23,26 @@ int main () {
     ChangeFont("07LogoTypeGothic7.ttf");
 	SetDrawScreen(DX_SCREEN_BACK);
 
-#ifdef EMSCRIPTEN
-	emscripten_set_main_loop(mainLoop, 0, 1);	
-#else
-    while (!shouldExit) {
-		mainLoop();
-    }
+	while (ProcessMessage() == 0) {
+		ClearDrawScreen();
+
+		{
+			int MouseX, MouseY;
+			int CircleColor = (GetMouseInput() & MOUSE_INPUT_LEFT) ? GetColor(255, 255, 0) : GetColor(255, 0, 0);
+
+			GetMousePoint(&MouseX, &MouseY);
+			DrawCircle(MouseX, MouseY, 64, CircleColor);
+		}
+
+		{
+			int StringColor = CheckHitKey(KEY_INPUT_SPACE) ? GetColor(0, 255, 0) : GetColor(255, 255, 255);
+			DrawString(3, 3, "Hello DxLib on HTML5!", StringColor);
+		}
+
+		ScreenFlip();
+	}
     
     DxLib_End();
- #endif
 
     return 0;
 }

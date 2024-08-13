@@ -9,6 +9,7 @@
             "request": "launch",
             "name": "WebAssembly Debug",
             "url": "http://localhost:8080/",
+            "webRoot": "${workspaceFolder}",
             "preLaunchTask": "Run Local Server",
             "postDebugTask": "Stop Local Server"
         },
