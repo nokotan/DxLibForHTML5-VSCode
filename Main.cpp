@@ -20,7 +20,6 @@ int main () {
 		return -1;
     }
 
-    ChangeFont("07LogoTypeGothic7.ttf");
 	SetDrawScreen(DX_SCREEN_BACK);
 
 	while (ProcessMessage() == 0) {
