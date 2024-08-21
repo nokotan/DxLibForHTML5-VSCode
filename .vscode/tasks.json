@@ -55,13 +55,12 @@
                 "-sALLOW_MEMORY_GROWTH=1",
                 "-sPROXY_TO_PTHREAD=1",
                 "-sOFFSCREEN_FRAMEBUFFER=1",
-                "-sERROR_ON_UNDEFINED_SYMBOLS=1",
-                "-sEXIT_RUNTIME=1",
-                "-sEXPORTED_FUNCTIONS='[_emscripten_proxy_finish,_main,_malloc,_free]'",
                 "-sSTACK_SIZE=1MB",
+                "'-Wl,--export=emscripten_proxy_finish'",
 
                 // Packaging Configurations
-                // "--source-map-base", "http://localhost:8080/",
+                "--shell-file", "template.html",
+                "--post-js", "template.post.js",
                 "--preload-file", "assets@/",
             ],
             "group": "build"
@@ -118,14 +117,13 @@
                 "-sALLOW_MEMORY_GROWTH=1",
                 "-sPROXY_TO_PTHREAD=1",
                 "-sOFFSCREEN_FRAMEBUFFER=1",
-                "-sERROR_ON_UNDEFINED_SYMBOLS=1",
-                "-sEXPORTED_FUNCTIONS='[_emscripten_proxy_finish,_main,_malloc,_free]'",
-                "-sEXIT_RUNTIME=1",
                 "-sSTACK_SIZE=1MB",
+                "'-Wl,--export=emscripten_proxy_finish'",
                 "--closure=1",
 
                 // Packaging Configurations
-                // "--source-map-base", "http://localhost:8080/",
+                "--shell-file", "template.html",
+                "--post-js", "template.post.js",
                 "--preload-file", "assets@/",
             ],
             "group": "build"

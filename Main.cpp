@@ -21,6 +21,7 @@ int main () {
     }
 
 	SetDrawScreen(DX_SCREEN_BACK);
+	SetFontSize(32);
 
 	while (ProcessMessage() == 0) {
 		ClearDrawScreen();

@@ -8,7 +8,7 @@ Visual Studio Code の設定を済ませたパッケージです.
 ## 前提要件
 
 - Visual Studio Code (1.42.1 で動作確認済み)
-- [emscripten 2.0.4](https://emscripten.org)
+- [emscripten 3.1.56](https://emscripten.org)
 
 emscripten の導入は <https://qiita.com/nokotan/items/5fa6f2d39ff7bb6641e8> や
 <https://www.slideshare.net/llamerada-jp/cmu29> (やや読破難度高いスライド) が参考になると思います.
