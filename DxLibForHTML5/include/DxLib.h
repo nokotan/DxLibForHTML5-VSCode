@@ -2,7 +2,7 @@
 // 
 // 		‚c‚wƒ‰ƒCƒuƒ‰ƒŠ		ƒwƒbƒ_ƒtƒ@ƒCƒ‹
 // 
-// 				Ver 3.23 
+// 				Ver 3.24d
 // 
 // -------------------------------------------------------------------------------
 
@@ -12,9 +12,9 @@
 #include "DxCompileConfig.h"
 
 // ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ìƒo[ƒWƒ‡ƒ“
-#define DXLIB_VERSION 0x3230
-#define DXLIB_VERSION_STR_T _T( "3.23 " )
-#define DXLIB_VERSION_STR_W    L"3.23 "
+#define DXLIB_VERSION 0x324d
+#define DXLIB_VERSION_STR_T _T( "3.24d" )
+#define DXLIB_VERSION_STR_W    L"3.24d"
 
 // İ’è -----------------------------------------------------------------------
 
@@ -53,7 +53,7 @@
 #define MAX_MUSIC_NUM								(256)				// “¯‚É‚Ä‚éƒ~ƒ…[ƒWƒbƒNƒnƒ“ƒhƒ‹‚ÌÅ‘å”
 #define MAX_MOVIE_NUM								(100)				// “¯‚É‚Ä‚éƒ€[ƒr[ƒnƒ“ƒhƒ‹‚ÌÅ‘å”
 #define MAX_MASK_NUM								(32768)				// “¯‚É‚Ä‚éƒ}ƒXƒNƒnƒ“ƒhƒ‹‚ÌÅ‘å”
-#define MAX_FONT_NUM								(40)				// “¯‚É‚Ä‚éƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ÌÅ‘å”
+#define MAX_FONT_NUM								(256)				// “¯‚É‚Ä‚éƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ÌÅ‘å”
 #define MAX_INPUT_NUM								(256)				// “¯‚É‚Ä‚é•¶š—ñ“ü—Íƒnƒ“ƒhƒ‹‚ÌÅ‘å”
 #define MAX_SOCKET_NUM								(8192)				// “¯‚É‚Ä‚é’ÊMƒnƒ“ƒhƒ‹‚ÌÅ‘å”
 #define MAX_LIGHT_NUM								(4096)				// “¯‚É‚Ä‚éƒ‰ƒCƒgƒnƒ“ƒhƒ‹‚ÌÅ‘å”
@@ -65,6 +65,29 @@
 #define MAX_INDEX_BUFFER_NUM						(16384)				// “¯‚É‚Ä‚éƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@‚ÌÅ‘å”
 #define MAX_FILE_NUM								(32768)				// “¯‚É‚Ä‚éƒtƒ@ƒCƒ‹ƒnƒ“ƒhƒ‹‚ÌÅ‘å”
 #define MAX_LIVE2D_CUBISM4_MODEL_NUM				(32768)				// “¯‚É‚Ä‚é Live2D Cubism 4 Model ƒnƒ“ƒhƒ‹‚ÌÅ‘å”
+
+// ƒnƒ“ƒhƒ‹ƒ^ƒCƒv’è‹`
+#define DX_HANDLETYPE_NONE							(0)					// ƒnƒ“ƒhƒ‹ƒ^ƒCƒv‚O‚Í–¢g—p
+#define DX_HANDLETYPE_GRAPH							(1)					// ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_SOFTIMAGE						(2)					// ƒ\ƒtƒgƒEƒGƒA‚Åˆµ‚¤ƒCƒ[ƒWƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_SOUND							(3)					// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_SOFTSOUND						(4)					// ƒ\ƒtƒgƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_MUSIC							(5)					// ƒ~ƒ…[ƒWƒbƒNƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_MOVIE							(6)					// ƒ€[ƒr[ƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_GMASK							(7)					// ƒ}ƒXƒNƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_FONT							(8)					// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_KEYINPUT						(9)					// •¶š—ñ“ü—Íƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_NETWORK						(10)				// ƒlƒbƒgƒ[ƒNƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_LIGHT							(11)				// ƒ‰ƒCƒg
+#define DX_HANDLETYPE_SHADER						(12)				// ƒVƒF[ƒ_[ƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_MODEL_BASE					(13)				// ‚R‚cƒ‚ƒfƒ‹Šî–{ƒf[ƒ^
+#define DX_HANDLETYPE_MODEL							(14)				// ‚R‚cƒ‚ƒfƒ‹
+#define DX_HANDLETYPE_VERTEX_BUFFER					(15)				// ’¸“_ƒoƒbƒtƒ@ƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_INDEX_BUFFER					(16)				// ƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@ƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_FILE							(17)				// ƒtƒ@ƒCƒ‹ƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_SHADOWMAP						(18)				// ƒVƒƒƒhƒEƒ}ƒbƒvƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_SHADER_CONSTANT_BUFFER		(19)				// ƒVƒF[ƒ_[—p’è”ƒoƒbƒtƒ@ƒnƒ“ƒhƒ‹
+#define DX_HANDLETYPE_LIVE2D_CUBISM4_MODEL			(20)				// Live2D Cubism 4 ƒ‚ƒfƒ‹ƒnƒ“ƒhƒ‹
 
 #define MAX_JOYPAD_NUM								(16)				// ƒWƒ‡ƒCƒpƒbƒh‚ÌÅ‘å”
 
@@ -222,7 +245,37 @@
 #define DX_BLENDMODE_SPINE_ADDITIVE					(29)			// Spine ‚ÌƒuƒŒƒ“ƒhƒ‚[ƒh Additive —p
 #define DX_BLENDMODE_SPINE_MULTIPLY					(30)			// Spine ‚ÌƒuƒŒƒ“ƒhƒ‚[ƒh Multiply —p
 #define DX_BLENDMODE_SPINE_SCREEN					(31)			// Spine ‚ÌƒuƒŒƒ“ƒhƒ‚[ƒh Screen —p
-#define DX_BLENDMODE_NUM							(32)			// ƒuƒŒƒ“ƒhƒ‚[ƒh‚Ì”
+#define DX_BLENDMODE_CUSTOM							(32)			// ƒJƒXƒ^ƒ€ƒuƒŒƒ“ƒhƒ‚[ƒh
+#define DX_BLENDMODE_DST_RGB_SRC_A					(33)			// •`‰æŒ³‚Ì A ‚Ì‚İ‚ğ‘‚«‚Ş( •`‰ææ‚Ì RGB ‚Í•ÏX‚³‚ê‚È‚¢ )
+#define DX_BLENDMODE_INVDESTCOLOR_A					(34)			// •`‰ææ‚Ì A ‚Ì”½“]’l‚ğŠ|‚¯‚é( •`‰ææ‚Ì RGB ‚Í•ÏX‚³‚ê‚È‚¢ )
+#define DX_BLENDMODE_MUL_A							(35)			// A ‚Ì‚İ‚ÌæZƒuƒŒƒ“ƒh( •`‰ææ‚Ì RGB ‚Í•ÏX‚³‚ê‚È‚¢ )
+#define DX_BLENDMODE_PMA_INVDESTCOLOR_A				(36)			// æZÏ‚İƒ¿—p‚Ì DX_BLENDMODE_INVDESTCOLOR_A
+#define DX_BLENDMODE_PMA_MUL_A						(37)			// æZÏ‚İƒ¿—p‚Ì DX_BLENDMODE_MUL_A
+#define DX_BLENDMODE_NUM							(38)			// ƒuƒŒƒ“ƒhƒ‚[ƒh‚Ì”
+
+// ƒJƒXƒ^ƒ€ƒuƒŒƒ“ƒhƒ‚[ƒh—p‚ÌƒuƒŒƒ“ƒh—v‘fƒ^ƒCƒv
+// Rs = •`‰æŒ³‚ÌR   Rg = •`‰æŒ³‚ÌG   Rb = •`‰æŒ³‚ÌB   Ra = •`‰æŒ³‚ÌA
+// Rd = •`‰ææ‚ÌR   Rd = •`‰ææ‚ÌG   Rd = •`‰ææ‚ÌB   Rd = •`‰ææ‚ÌA
+#define DX_BLEND_ZERO								(0)				// R = 0         G = 0         B = 0         A = 0
+#define DX_BLEND_ONE								(1)				// R = 255       G = 255       B = 255       A = 255
+#define DX_BLEND_SRC_COLOR							(2)				// R = Rs        G = Gs        B = Gs        A = As
+#define DX_BLEND_INV_SRC_COLOR						(3)				// R = 255 - Rs  G = 255 - Gs  B = 255 - Gs  A = 255 - As
+#define DX_BLEND_SRC_ALPHA							(4)				// R = As        G = As        B = As        A = As
+#define DX_BLEND_INV_SRC_ALPHA						(5)				// R = 255 - As  G = 255 - As  B = 255 - As  A = 255 - As
+#define DX_BLEND_DEST_COLOR							(6)				// R = Rd        G = Gd        B = Bd        A = Ad
+#define DX_BLEND_INV_DEST_COLOR						(7)				// R = 255 - Rd  G = 255 - Gd  B = 255 - Bd  A = 255 - Ad
+#define DX_BLEND_DEST_ALPHA							(8)				// R = Ad        G = Ad        B = Ad        A = Ad
+#define DX_BLEND_INV_DEST_ALPHA						(9)				// R = 255 - Ad  G = 255 - Ad  B = 255 - Ad  A = 255 - Ad
+#define DX_BLEND_SRC_ALPHA_SAT						(10)			// R = f         G = f         B = f         A = 255        f = min( As, 255 - Ad )
+#define DX_BLEND_NUM								(11)			// ƒuƒŒƒ“ƒh—v‘fƒ^ƒCƒv‚Ì”
+
+// ƒJƒXƒ^ƒ€ƒuƒŒƒ“ƒhƒ‚[ƒh—p‚ÌƒuƒŒƒ“ƒhˆ—ƒ^ƒCƒv
+#define DX_BLENDOP_ADD								(0)				// ƒuƒŒƒ“ƒhƒ\[ƒX1‚ÆƒuƒŒƒ“ƒhƒ\[ƒX2‚ğ‰ÁZ
+#define DX_BLENDOP_SUBTRACT							(1)				// ƒuƒŒƒ“ƒhƒ\[ƒX1‚©‚çƒuƒŒƒ“ƒhƒ\[ƒX2‚ğŒ¸Z
+#define DX_BLENDOP_REV_SUBTRACT						(2)				// ƒuƒŒƒ“ƒhƒ\[ƒX2‚©‚çƒuƒŒƒ“ƒhƒ\[ƒX2‚ğŒ¸Z
+#define DX_BLENDOP_MIX								(3)				// ƒuƒŒƒ“ƒhƒ\[ƒX1‚ÆƒuƒŒƒ“ƒhƒ\[ƒX2‚ÌÅ¬’l
+#define DX_BLENDOP_MAX								(4)				// ƒuƒŒƒ“ƒhƒ\[ƒX1‚ÆƒuƒŒƒ“ƒhƒ\[ƒX2‚ÌÅ‘å’l
+#define DX_BLENDOP_NUM								(5)				// ƒuƒŒƒ“ƒhˆ—ƒ^ƒCƒv‚Ì”
 
 // DrawGraphF “™‚Ì•‚“®¬”“_’l‚ÅÀ•W‚ğw’è‚·‚éŠÖ”‚É‚¨‚¯‚éÀ•Wƒ^ƒCƒv
 #define DX_DRAWFLOATCOORDTYPE_DIRECT3D9				(0)				// Direct3D9ƒ^ƒCƒv( -0.5f ‚Ì•â³‚ğs‚í‚È‚¢‚ÆƒeƒNƒXƒ`ƒƒ‚ÌƒsƒNƒZƒ‹‚ªãY—í‚Éƒ}ƒbƒv‚³‚ê‚È‚¢ƒ^ƒCƒv )
@@ -306,7 +359,9 @@
 #define DX_GRAPH_BLEND_PMA_NORMAL_ALPHACH			(31)			// ƒ¿ƒ`ƒƒƒ“ƒlƒ‹•t‚«‰æ‘œ‚Ì’Êí‡¬( æZÏ‚İƒ¿‰æ‘œ—p )
 #define DX_GRAPH_BLEND_PMA_ADD_ALPHACH				(32)			// ƒ¿ƒ`ƒƒƒ“ƒlƒ‹•t‚«‰æ‘œ‚Ì‰ÁZ‡¬( æZÏ‚İƒ¿‰æ‘œ—p )
 #define DX_GRAPH_BLEND_PMA_MULTIPLE_A_ONLY			(33)			// ƒAƒ‹ƒtƒ@ƒ`ƒƒƒ“ƒlƒ‹‚Ì‚İ‚ÌæZ( æZÏ‚İƒ¿‰æ‘œ—p )
-#define DX_GRAPH_BLEND_NUM							(34)
+#define DX_GRAPH_BLEND_MASK							(34)			// ƒ}ƒXƒN( SrcGrHandle ‚É BlendGrHandle ‚ğ’Êí•`‰æ‚µ‚½ã‚ÅASrcGrHandle ‚Ì A ‚ğ—Dæ )
+#define DX_GRAPH_BLEND_PMA_MASK						(35)			// ƒ}ƒXƒN( DX_GRAPH_BLEND_MASK ‚ÌæZÏ‚İƒ¿‰æ‘œ—p )
+#define DX_GRAPH_BLEND_NUM							(36)
 
 // DX_GRAPH_BLEND_RGBA_SELECT_MIX —p‚ÌF‘I‘ğ—p’è‹`
 #define DX_RGBA_SELECT_SRC_R						(0)				// Œ³‰æ‘œ‚ÌÔ¬•ª
@@ -616,6 +671,19 @@
 #define DX_LIGHTTYPE_SPOT							(2)				// D_D3DLIGHT_SPOT
 #define DX_LIGHTTYPE_DIRECTIONAL					(3)				// D_D3DLIGHT_DIRECTIONAL
 
+// Live2D ‚ÌƒVƒF[ƒ_[
+#define DX_LIVE2D_SHADER_SETUP_MASK_VERTEX								(0)				// ƒ}ƒXƒN‰æ‘œ¶¬—p’¸“_ƒVƒF[ƒ_[
+#define DX_LIVE2D_SHADER_SETUP_MASK_PIXEL								(1)				// ƒ}ƒXƒN‰æ‘œ¶¬—pƒsƒNƒZƒ‹ƒVƒF[ƒ_[
+#define DX_LIVE2D_SHADER_NORMAL_VERTEX									(2)				// •W€‚Ì’¸“_ƒVƒF[ƒ_[
+#define DX_LIVE2D_SHADER_NORMAL_VERTEX_MASKED							(3)				// •W€‚Ì’¸“_ƒVƒF[ƒ_[ + ƒ}ƒXƒN‰æ‘œ
+#define DX_LIVE2D_SHADER_NORMAL_PIXEL									(4)				// •W€‚ÌƒsƒNƒZƒ‹ƒVƒF[ƒ_[
+#define DX_LIVE2D_SHADER_NORMAL_PIXEL_MASKED							(5)				// •W€‚ÌƒsƒNƒZƒ‹ƒVƒF[ƒ_[ + ƒ}ƒXƒN‰æ‘œ
+#define DX_LIVE2D_SHADER_NORMAL_PIXEL_MASKED_INVERTED					(6)				// •W€‚ÌƒsƒNƒZƒ‹ƒVƒF[ƒ_[ + ƒ}ƒXƒN‰æ‘œ( ƒ}ƒXƒN‰æ‘œ‚Ì’l‚ğ”½“]‚µ‚Äg—p )
+#define DX_LIVE2D_SHADER_NORMAL_PIXEL_PREMULALPHA						(7)				// •W€‚ÌƒsƒNƒZƒ‹ƒVƒF[ƒ_[ + ƒeƒNƒXƒ`ƒƒ‰æ‘œ‚ªæZÏ‚İƒAƒ‹ƒtƒ@
+#define DX_LIVE2D_SHADER_NORMAL_PIXEL_MASKED_PREMULALPHA				(8)				// •W€‚ÌƒsƒNƒZƒ‹ƒVƒF[ƒ_[ + ƒeƒNƒXƒ`ƒƒ‰æ‘œ‚ªæZÏ‚İƒAƒ‹ƒtƒ@ + ƒ}ƒXƒN‰æ‘œ
+#define DX_LIVE2D_SHADER_NORMAL_PIXEL_MASKED_INVERTEX_PREMULALPHA		(9)				// •W€‚ÌƒsƒNƒZƒ‹ƒVƒF[ƒ_[ + ƒeƒNƒXƒ`ƒƒ‰æ‘œ‚ªæZÏ‚İƒAƒ‹ƒtƒ@ + ƒ}ƒXƒN‰æ‘œ( ƒ}ƒXƒN‰æ‘œ‚Ì’l‚ğ”½“]‚µ‚Äg—p )
+#define DX_LIVE2D_SHADER_NUM											(10)			// ƒVƒF[ƒ_[‚Ì”
+
 // ƒOƒ‰ƒtƒBƒbƒNƒCƒ[ƒWƒtƒH[ƒ}ƒbƒg‚Ì’è‹`
 #define DX_GRAPHICSIMAGE_FORMAT_3D_PAL4						(0)		// ‚P‚UFƒpƒŒƒbƒgƒJƒ‰[•W€
 #define DX_GRAPHICSIMAGE_FORMAT_3D_PAL8						(1)		// ‚Q‚T‚UFƒpƒŒƒbƒgƒJƒ‰[•W€
@@ -771,12 +839,14 @@
 #define DX_PADTYPE_OTHER							(0)
 #define DX_PADTYPE_XBOX_360							(1)
 #define DX_PADTYPE_XBOX_ONE							(2)
-#define DX_PADTYPE_DUAL_SHOCK_4						(3)
-#define DX_PADTYPE_DUAL_SENSE						(4)
-#define DX_PADTYPE_SWITCH_JOY_CON_L					(5)
-#define DX_PADTYPE_SWITCH_JOY_CON_R					(6)
-#define DX_PADTYPE_SWITCH_PRO_CTRL					(7)
-#define DX_PADTYPE_NUM								(8)
+#define DX_PADTYPE_DUAL_SHOCK_3						(3)
+#define DX_PADTYPE_DUAL_SHOCK_4						(4)
+#define DX_PADTYPE_DUAL_SENSE						(5)
+#define DX_PADTYPE_SWITCH_JOY_CON_L					(6)
+#define DX_PADTYPE_SWITCH_JOY_CON_R					(7)
+#define DX_PADTYPE_SWITCH_PRO_CTRL					(8)
+#define DX_PADTYPE_SWITCH_HORI_PAD					(9)
+#define DX_PADTYPE_NUM								(10)
 
 // ƒ^ƒbƒ`‚Ì“¯ÚGŒŸo‘Î‰Å‘å”
 #define TOUCHINPUTPOINT_MAX							(16)
@@ -1048,10 +1118,18 @@
 #define DX_KEYINPSTR_ENDCHARAMODE_OVERWRITE				(0)			// •¶š”‚ªŒÀŠE‚É’B‚µ‚Ä‚¢‚éó‘Ô‚Å•¶š—ñ‚Ì––’[‚Å•¶š‚ª“ü—Í‚³‚ê‚½ê‡‚ÍAÅŒã‚Ì•¶š‚ğã‘‚«( ƒfƒtƒHƒ‹ƒg )
 #define DX_KEYINPSTR_ENDCHARAMODE_NOTCHANGE				(1)			// •¶š”‚ªŒÀŠE‚É’B‚µ‚Ä‚¢‚éó‘Ô‚Å•¶š—ñ‚Ì––’[‚Å•¶š‚ª“ü—Í‚³‚ê‚½ê‡‚ÍA‰½‚à•Ï‰»‚µ‚È‚¢
 
+// ƒ^ƒbƒ`ƒpƒlƒ‹ƒf[ƒ^‚Ìƒc[ƒ‹ƒ^ƒCƒv
+#define DX_TOUCHINPUT_TOOL_TYPE_UNKNOWN					(0)			// •s–¾
+#define DX_TOUCHINPUT_TOOL_TYPE_FINGER					(1)			// w
+#define DX_TOUCHINPUT_TOOL_TYPE_STYLUS					(2)			// ƒXƒ^ƒCƒ‰ƒXƒyƒ“
+#define DX_TOUCHINPUT_TOOL_TYPE_MOUSE					(3)			// ƒ}ƒEƒX
+#define DX_TOUCHINPUT_TOOL_TYPE_ERASER					(4)			// Á‚µƒSƒ€
+
 // ƒtƒ‹ƒXƒNƒŠ[ƒ“‰ğ‘œ“xƒ‚[ƒh’è‹`
-#define DX_FSRESOLUTIONMODE_DESKTOP					(0)				// ƒ‚ƒjƒ^[‚Ì‰æ–Êƒ‚[ƒh‚ğƒfƒXƒNƒgƒbƒv‰æ–Ê‚Æ“¯‚¶‚É‚µ‚Ä‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰æ–Ê‚ğŠg‘å‚µ‚Ä•\¦‚·‚éƒ‚[ƒh
-#define DX_FSRESOLUTIONMODE_NATIVE					(1)				// ƒ‚ƒjƒ^[‚Ì‰ğ‘œ“x‚ğ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰æ–Ê‚Ì‰ğ‘œ“x‚É‡‚í‚¹‚éƒ‚[ƒh
-#define DX_FSRESOLUTIONMODE_MAXIMUM					(2)				// ƒ‚ƒjƒ^[‚Ì‰ğ‘œ“x‚ğÅ‘å‚É‚µ‚Ä‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰æ–Ê‚ğŠg‘å‚µ‚Ä•\¦‚·‚éƒ‚[ƒh
+#define DX_FSRESOLUTIONMODE_BORDERLESS_WINDOW		(0)				// ‰¼‘zƒtƒ‹ƒXƒNƒŠ[ƒ“ƒ‚[ƒh( ÀÛ‚É‚Íƒtƒ‹ƒXƒNƒŠ[ƒ“ƒ‚[ƒh‚É‚¹‚¸Aƒ{[ƒ_[ƒŒƒXƒEƒBƒ“ƒhƒE‚ğƒfƒXƒNƒgƒbƒv‰æ–Ê‚¢‚Á‚Ï‚¢‚ÉŠg‘å‚µ‚Ä‰¼‘z“I‚Éƒtƒ‹ƒXƒNƒŠ[ƒ“ƒ‚[ƒh‚ğÀŒ»‚·‚éƒ‚[ƒh )
+#define DX_FSRESOLUTIONMODE_DESKTOP					(1)				// ƒ‚ƒjƒ^[‚Ì‰æ–Êƒ‚[ƒh‚ğƒfƒXƒNƒgƒbƒv‰æ–Ê‚Æ“¯‚¶‚É‚µ‚Ä‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰æ–Ê‚ğŠg‘å‚µ‚Ä•\¦‚·‚éƒ‚[ƒh
+#define DX_FSRESOLUTIONMODE_NATIVE					(2)				// ƒ‚ƒjƒ^[‚Ì‰ğ‘œ“x‚ğ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰æ–Ê‚Ì‰ğ‘œ“x‚É‡‚í‚¹‚éƒ‚[ƒh
+#define DX_FSRESOLUTIONMODE_MAXIMUM					(3)				// ƒ‚ƒjƒ^[‚Ì‰ğ‘œ“x‚ğÅ‘å‚É‚µ‚Ä‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰æ–Ê‚ğŠg‘å‚µ‚Ä•\¦‚·‚éƒ‚[ƒh
 
 // ƒtƒ‹ƒXƒNƒŠ[ƒ“Šg‘åƒ‚[ƒh’è‹`
 #define DX_FSSCALINGMODE_BILINEAR					(0)				// ƒoƒCƒŠƒjƒAƒ‚[ƒh( ƒsƒNƒZƒ‹‚ªŸø‚ñ‚ÅƒsƒNƒZƒ‹‚ÆƒsƒNƒZƒ‹‚Ì‹æØ‚è‚ª‚Í‚Á‚«‚è‚µ‚È‚¢ )
@@ -1718,6 +1796,14 @@ typedef struct tagBASEIMAGE
 	int						GraphDataCount ;				// ƒOƒ‰ƒtƒBƒbƒNƒCƒ[ƒW‚Ì”
 } BASEIMAGE, GRAPHIMAGE, *LPGRAPHIMAGE ;
 
+// ‹éŒ`ƒf[ƒ^Œ^
+typedef struct tagRECTDATA
+{
+	int						x1, y1, x2, y2 ;				// À•W
+	unsigned int			color ;							// F
+	int						pal ;							// ƒpƒ‰ƒ[ƒ^
+} RECTDATA, *LPRECTDATA ;
+
 // ƒ‰ƒCƒ“ƒf[ƒ^Œ^
 typedef struct tagLINEDATA
 {
@@ -1806,6 +1892,10 @@ typedef struct tagTOUCHINPUTPOINT
 	DWORD					ID ;							// ƒ^ƒbƒ`‚ğ”»•Ê‚·‚é‚½‚ß‚Ì‚h‚c
 	int						PositionX ;						// ƒ^ƒbƒ`‚³‚ê‚½À•WX
 	int						PositionY ;						// ƒ^ƒbƒ`‚³‚ê‚½À•WY
+	float					Pressure ;						// ˆ³—Í
+	float					Orientation ;					// ‰æ–Ê‚Ìã’[‚É‘Î‚·‚éÚ“_‚Ì•ûˆÊŠp
+	float					Tilt ;							// ‰æ–Ê‚Ì‚ü‚É‘Î‚·‚éÚ“_‚Ì‚“xŠp
+	int						ToolType ;						// ƒc[ƒ‹ƒ^ƒCƒv( DX_TOUCHINPUT_TOOL_TYPE_UNKNOWN ‚È‚Ç )
 } TOUCHINPUTPOINT ;
 
 // ƒ^ƒbƒ`ƒpƒlƒ‹‚Ìƒ^ƒbƒ`‚Ìî•ñ
@@ -1813,6 +1903,7 @@ typedef struct tagTOUCHINPUTDATA
 {
 	LONGLONG				Time ;							// î•ñ‚ÌŠÔ
 
+	unsigned int			Source ;
 	int						PointNum ;						// —LŒø‚Èƒ^ƒbƒ`î•ñ‚Ì”
 	TOUCHINPUTPOINT			Point[ TOUCHINPUTPOINT_MAX ] ;	// ƒ^ƒbƒ`î•ñ
 } TOUCHINPUTDATA ;
@@ -1931,11 +2022,13 @@ extern DXLIBAPI	int			GetRand( int RandMax ) ;												// —”‚ğæ“¾‚·‚é( Ran
 extern DXLIBAPI	int			SRand(	 int Seed ) ;													// —”‚Ì‰Šú’l‚ğİ’è‚·‚é
 
 #ifndef DX_NON_MERSENNE_TWISTER
+extern DXLIBAPI	DWORD		GetMersenneTwisterRand( void ) ;										// ƒƒ‹ƒZƒ“ƒkEƒcƒCƒXƒ^[ƒAƒ‹ƒSƒŠƒYƒ€‚Å¶¬‚³‚ê‚½—”’l‚ğ–³‰ÁH‚Åæ“¾‚·‚é
 
 extern DXLIBAPI	DWORD_PTR	CreateRandHandle( int Seed DEFAULTPARAM( = -1 ) ) ;						// —”ƒnƒ“ƒhƒ‹‚ğì¬‚·‚é( –ß‚è’l@0ˆÈŠO:—”ƒnƒ“ƒhƒ‹@0:ƒGƒ‰[ )
 extern DXLIBAPI	int			DeleteRandHandle( DWORD_PTR RandHandle ) ;								// —”ƒnƒ“ƒhƒ‹‚ğíœ‚·‚é
 extern DXLIBAPI	int			SRandHandle( DWORD_PTR RandHandle, int Seed ) ;							// —”ƒnƒ“ƒhƒ‹‚Ì‰Šú’l‚ğÄİ’è‚·‚é
 extern DXLIBAPI	int			GetRandHandle( DWORD_PTR RandHandle, int RandMax ) ;					// —”ƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä—”‚ğæ“¾‚·‚é( RandMax : •Ô‚Á‚Ä—ˆ‚é’l‚ÌÅ‘å’l )
+extern DXLIBAPI	DWORD		GetMersenneTwisterRandHandle( DWORD_PTR RandHandle ) ;					// —”ƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Äƒƒ‹ƒZƒ“ƒkEƒcƒCƒXƒ^[ƒAƒ‹ƒSƒŠƒYƒ€‚Å¶¬‚³‚ê‚½—”’l‚ğ–³‰ÁH‚Åæ“¾‚·‚é
 
 #endif // DX_NON_MERSENNE_TWISTER
 
@@ -1943,7 +2036,7 @@ extern DXLIBAPI	int			GetRandHandle( DWORD_PTR RandHandle, int RandMax ) ;					/
 extern DXLIBAPI	int			GetBatteryLifePercent( void ) ;											// “d’r‚Ìc—Ê‚ğ % ‚Åæ“¾‚·‚é( –ß‚è’lF 100=ƒtƒ‹[“dó‘Ô  0=[“dc—Ê–³‚µ )
 
 // ƒNƒŠƒbƒvƒ{[ƒhŠÖŒW
-extern DXLIBAPI	int			GetClipboardText(			TCHAR *DestBuffer ) ;						// ƒNƒŠƒbƒvƒ{[ƒh‚ÉŠi”[‚³‚ê‚Ä‚¢‚éƒeƒLƒXƒgƒf[ƒ^‚ğ“Ç‚İo‚·( DestBuffer:•¶š—ñ‚ğŠi”[‚·‚éƒoƒbƒtƒ@‚Ìæ“ªƒAƒhƒŒƒX   –ß‚è’l  -1:ƒNƒŠƒbƒvƒ{[ƒh‚ÉƒeƒLƒXƒgƒf[ƒ^‚ª–³‚¢  -1ˆÈŠO:ƒNƒŠƒbƒvƒ{[ƒh‚ÉŠi”[‚³‚ê‚Ä‚¢‚é•¶š—ñƒf[ƒ^‚ÌƒTƒCƒY( ’PˆÊ:byte ) ) 
+extern DXLIBAPI	int			GetClipboardText(			TCHAR *DestBuffer, int DestBufferBytes DEFAULTPARAM( = -1 ) ) ;		// ƒNƒŠƒbƒvƒ{[ƒh‚ÉŠi”[‚³‚ê‚Ä‚¢‚éƒeƒLƒXƒgƒf[ƒ^‚ğ“Ç‚İo‚·( DestBuffer:•¶š—ñ‚ğŠi”[‚·‚éƒoƒbƒtƒ@‚Ìæ“ªƒAƒhƒŒƒX   –ß‚è’l  -1:ƒNƒŠƒbƒvƒ{[ƒh‚ÉƒeƒLƒXƒgƒf[ƒ^‚ª–³‚¢  -1ˆÈŠO:ƒNƒŠƒbƒvƒ{[ƒh‚ÉŠi”[‚³‚ê‚Ä‚¢‚é•¶š—ñƒf[ƒ^‚ÌƒTƒCƒY( ’PˆÊ:byte ) ) 
 extern DXLIBAPI	int			SetClipboardText(			const TCHAR *Text                    ) ;	// ƒNƒŠƒbƒvƒ{[ƒh‚ÉƒeƒLƒXƒgƒf[ƒ^‚ğŠi”[‚·‚é
 extern DXLIBAPI	int			SetClipboardTextWithStrLen(	const TCHAR *Text, size_t TextLength ) ;	// ƒNƒŠƒbƒvƒ{[ƒh‚ÉƒeƒLƒXƒgƒf[ƒ^‚ğŠi”[‚·‚é
 
@@ -1998,6 +2091,7 @@ extern DXLIBAPI 	int			AppLogAdd(				const TCHAR *String , ... ) ;					// LogFil
 
 // ƒƒOo—Íİ’èŠÖ”
 extern DXLIBAPI	int			SetOutApplicationLogValidFlag(	          int Flag ) ;													// ƒƒOƒtƒ@ƒCƒ‹( Log.txt ) ‚ğì¬‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:ì¬‚·‚é( ƒfƒtƒHƒ‹ƒg )  FALSE:ì¬‚µ‚È‚¢ )ADxLib_Init ‚Ì‘O‚Å‚Ì‚İg—p‰Â”\@
+extern DXLIBAPI	int			SetOutApplicationSystemLogValidFlag(      int Flag ) ;													// ƒƒOƒtƒ@ƒCƒ‹( Log.txt ) ‚É‚c‚wƒ‰ƒCƒuƒ‰ƒŠ“à•”‚ÌƒƒOo—Í‚ğs‚¤‚©‚Ç‚¤‚©İ’è‚·‚é( TRUE:‚c‚wƒ‰ƒCƒuƒ‰ƒŠ“à•”‚ÌƒƒOo—Í‚ğs‚¤( ƒfƒtƒHƒ‹ƒg )  FALSE:‚c‚wƒ‰ƒCƒuƒ‰ƒŠ“à•”‚ÌƒƒOo—Í‚ğs‚í‚È‚¢ )
 extern DXLIBAPI	int			SetApplicationLogFileName(                const TCHAR *FileName ) ;										// ƒƒOƒtƒ@ƒCƒ‹‚Ì–¼‘O‚ğİ’è‚·‚é( Log.txt ˆÈŠO‚É‚µ‚½‚¢ê‡‚Ég—p )
 extern DXLIBAPI	int			SetApplicationLogFileNameWithStrLen(      const TCHAR *FileName, size_t FileNameLength ) ;				// ƒƒOƒtƒ@ƒCƒ‹‚Ì–¼‘O‚ğİ’è‚·‚é( Log.txt ˆÈŠO‚É‚µ‚½‚¢ê‡‚Ég—p )
 extern DXLIBAPI	int			SetApplicationLogSaveDirectory(	          const TCHAR *DirectoryPath ) ;								// ƒƒOƒtƒ@ƒCƒ‹( Log.txt ) ‚ğ•Û‘¶‚·‚éƒfƒBƒŒƒNƒgƒŠƒpƒX‚ğİ’è‚·‚é
@@ -2064,8 +2158,10 @@ extern DXLIBAPI	int			SetASyncLoadThreadNum(			int ThreadNum ) ;									// ”ñ“¯
 
 // DxHandle.cppŠÖ”ƒvƒƒgƒ^ƒCƒvéŒ¾
 
-extern DXLIBAPI	int			SetDeleteHandleFlag(		int Handle, int *DeleteFlag ) ;				// ƒnƒ“ƒhƒ‹‚ªíœ‚³‚ê‚½‚Æ‚«‚É|‚P‚ªİ’è‚³‚ê‚é•Ï”‚ğ“o˜^‚·‚é
-
+extern DXLIBAPI	int			SetDeleteHandleFlag(		int Handle, int *DeleteFlag ) ;							// ƒnƒ“ƒhƒ‹‚ªíœ‚³‚ê‚½‚Æ‚«‚É|‚P‚ªİ’è‚³‚ê‚é•Ï”‚ğ“o˜^‚·‚é
+extern DXLIBAPI	int			GetHandleNum(				int HandleType /* DX_HANDLETYPE_GRAPH“™ */ ) ;			// w’è‚Ìƒ^ƒCƒv‚Ìƒnƒ“ƒhƒ‹‚Ì”‚ğæ“¾‚·‚é
+extern DXLIBAPI	int			GetMaxHandleNum(			int HandleType /* DX_HANDLETYPE_GRAPH“™ */ ) ;			// w’è‚Ìƒ^ƒCƒv‚Ìƒnƒ“ƒhƒ‹‚ªÅ‘å‚ÅŠô‚Âì¬‚Å‚«‚é‚©‚ğæ“¾‚·‚é
+extern DXLIBAPI	int			DumpHandleInfo(				int HandleType /* DX_HANDLETYPE_GRAPH“™ */ ) ;			// w’è‚Ìƒ^ƒCƒv‚Ì‘Sƒnƒ“ƒhƒ‹‚Ìî•ñ‚ğƒƒO‚Éo—Í‚·‚é
 
 
 
@@ -2082,6 +2178,7 @@ extern DXLIBAPI	int			SetDeleteHandleFlag(		int Handle, int *DeleteFlag ) ;				/
 
 // ƒ}ƒEƒXŠÖŒWŠÖ”
 extern DXLIBAPI	int			SetMouseDispFlag(		int DispFlag ) ;												// ƒ}ƒEƒXƒ|ƒCƒ“ƒ^‚Ì•\¦ó‘Ô‚ğİ’è‚·‚é( DispFlag:ƒ}ƒEƒXƒ|ƒCƒ“ƒ^‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©( TRUE:•\¦‚·‚é  FALSE:•\¦‚µ‚È‚¢ )
+extern DXLIBAPI	int			SetMouseDispIgnoreMenuFlag(	int IgnoreMenuFlag ) ;										// ƒ}ƒEƒXƒ|ƒCƒ“ƒ^‚Ì•\¦ó‘Ô‚É‚Â‚¢‚Äƒƒjƒ…[‚Ì•\¦ó‘Ô‚ğ–³‹‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:ƒƒjƒ…[‚Ì•\¦ó‘Ô‚ğ–³‹‚·‚é  FALSE:ƒƒjƒ…[‚Ì•\¦ó‘Ô‚ğl—¶‚·‚é( ƒfƒtƒHƒ‹ƒg ) )
 #ifndef DX_NON_INPUT
 extern DXLIBAPI	int			GetMousePoint(			int *XBuf, int *YBuf ) ;										// ƒ}ƒEƒXƒ|ƒCƒ“ƒ^‚ÌˆÊ’u‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			SetMousePoint(			int PointX, int PointY ) ;										// ƒ}ƒEƒXƒ|ƒCƒ“ƒ^‚ÌˆÊ’u‚ğİ’è‚·‚é
@@ -2108,7 +2205,7 @@ extern DXLIBAPI	int			GetMouseInputLog2(		int *Button, int *ClickX, int *ClickY,
 // ƒ^ƒbƒ`ƒpƒlƒ‹“ü—ÍŠÖŒWŠÖ”
 #ifndef DX_NON_INPUT
 extern DXLIBAPI	int				GetTouchInputNum( void ) ;																				// ƒ^ƒbƒ`‚³‚ê‚Ä‚¢‚é”‚ğæ“¾‚·‚é
-extern DXLIBAPI	int				GetTouchInput( int InputNo, int *PositionX, int *PositionY, int *ID DEFAULTPARAM( = NULL ) , int *Device DEFAULTPARAM( = NULL ) ) ;		// ƒ^ƒbƒ`‚Ìî•ñ‚ğæ“¾‚·‚é
+extern DXLIBAPI	int				GetTouchInput( int InputNo, int *PositionX, int *PositionY, int *ID DEFAULTPARAM( = NULL ) , int *Device DEFAULTPARAM( = NULL ) , float *Pressure DEFAULTPARAM( = NULL ) ) ;		// ƒ^ƒbƒ`‚Ìî•ñ‚ğæ“¾‚·‚é
 
 extern DXLIBAPI	int				GetTouchInputLogNum( void ) ;																			// ƒXƒgƒbƒN‚³‚ê‚Ä‚¢‚éƒ^ƒbƒ`î•ñ‚Ì”‚ğæ“¾‚·‚é
 extern DXLIBAPI	int				ClearTouchInputLog( void ) ;																			// ƒXƒgƒbƒN‚³‚ê‚Ä‚¢‚éƒ^ƒbƒ`î•ñ‚ğƒNƒŠƒA‚·‚é
@@ -2233,7 +2330,7 @@ extern DXLIBAPI	int				sprintfDx(     TCHAR *Buffer,                    const TC
 extern DXLIBAPI	int				snprintfDx(    TCHAR *Buffer, size_t BufferSize, const TCHAR *FormatString, ... ) ;			// snprintf ‚Æ“¯“™‚Ì‹@”\( ƒ}ƒ‹ƒ`ƒoƒCƒg•¶š—ñ”Å‚Å‚Í•¶šƒR[ƒhŒ`®‚Æ‚µ‚Ä SetUseCharCodeFormat ‚Åİ’è‚µ‚½Œ`®‚ªg—p‚³‚ê‚Ü‚· )
 extern DXLIBAPI	TCHAR *			itoaDx(        int Value, TCHAR *Buffer,                     int Radix ) ;		// itoa ‚Æ“¯“™‚Ì‹@”\( ƒ}ƒ‹ƒ`ƒoƒCƒg•¶š—ñ”Å‚Å‚Í•¶šƒR[ƒhŒ`®‚Æ‚µ‚Ä SetUseCharCodeFormat ‚Åİ’è‚µ‚½Œ`®‚ªg—p‚³‚ê‚Ü‚· )
 extern DXLIBAPI	TCHAR *			itoa_sDx(      int Value, TCHAR *Buffer, size_t BufferBytes, int Radix ) ;		// itoa_s ‚Æ“¯“™‚Ì‹@”\( ƒ}ƒ‹ƒ`ƒoƒCƒg•¶š—ñ”Å‚Å‚Í•¶šƒR[ƒhŒ`®‚Æ‚µ‚Ä SetUseCharCodeFormat ‚Åİ’è‚µ‚½Œ`®‚ªg—p‚³‚ê‚Ü‚· )
-extern DXLIBAPI	int				atoiDx(        const TCHAR *Str ) ;												// atoi ‚Æ“¯“™‚Ì‹@”\( ƒ}ƒ‹ƒ`ƒoƒCƒg•¶š—ñ”Å‚Å‚Í•¶šƒR[ƒhŒ`®‚Æ‚µ‚Ä SetUseCharCodeFormat ‚Åİ’è‚µ‚½Œ`®‚ªg—p‚³‚ê‚Ü‚· )
+extern DXLIBAPI	int				atoiDx(        const TCHAR *Str ) ;												// atoi ‚Æ“¯“™‚Ì‹@”\( ƒ}ƒ‹ƒ`ƒoƒCƒg•¶š—ñ”Å‚Å‚Í•¶šƒR[ƒhŒ`®‚Æ‚µ‚Ä SetUseCharCodeFormat ‚Åİ’è‚µ‚½Œ`®‚ªg—p‚³‚ê‚Ü‚· ) 
 extern DXLIBAPI	double			atofDx(        const TCHAR *Str ) ;												// atof ‚Æ“¯“™‚Ì‹@”\( ƒ}ƒ‹ƒ`ƒoƒCƒg•¶š—ñ”Å‚Å‚Í•¶šƒR[ƒhŒ`®‚Æ‚µ‚Ä SetUseCharCodeFormat ‚Åİ’è‚µ‚½Œ`®‚ªg—p‚³‚ê‚Ü‚· )
 extern DXLIBAPI	int				vsscanfDx(     const TCHAR *String, const TCHAR *FormatString, va_list Arg ) ;	// vsscanf ‚Æ“¯“™‚Ì‹@”\( ƒ}ƒ‹ƒ`ƒoƒCƒg•¶š—ñ”Å‚Å‚Í•¶šƒR[ƒhŒ`®‚Æ‚µ‚Ä SetUseCharCodeFormat ‚Åİ’è‚µ‚½Œ`®‚ªg—p‚³‚ê‚Ü‚· )
 extern DXLIBAPI	int				sscanfDx(      const TCHAR *String, const TCHAR *FormatString, ... ) ;			// sscanf ‚Æ“¯“™‚Ì‹@”\( ƒ}ƒ‹ƒ`ƒoƒCƒg•¶š—ñ”Å‚Å‚Í•¶šƒR[ƒhŒ`®‚Æ‚µ‚Ä SetUseCharCodeFormat ‚Åİ’è‚µ‚½Œ`®‚ªg—p‚³‚ê‚Ü‚· )
@@ -2364,7 +2461,8 @@ extern DXLIBAPI	int			GetCtrlCodeCmp(		TCHAR Char ) ;									// w’è‚Ì•¶šƒR[ƒ
 
 #ifndef DX_NON_KEYEX
 
-extern DXLIBAPI	int			DrawIMEInputString(				int x, int y, int SelectStringNum , int DrawCandidateList DEFAULTPARAM( = TRUE ) ) ;	// ‰æ–Êã‚É“ü—Í’†‚Ì•¶š—ñ‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawIMEInputString(				int x, int y,                                 int SelectStringNum , int DrawCandidateList DEFAULTPARAM( = TRUE ) ) ;	// ‰æ–Êã‚É“ü—Í’†‚Ì•¶š—ñ‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawIMEInputExtendString(		int x, int y, double ExRateX, double ExRateY, int SelectStringNum , int DrawCandidateList DEFAULTPARAM( = TRUE ) ) ;	// ‰æ–Êã‚É“ü—Í’†‚Ì•¶š—ñ‚ğ•`‰æ‚·‚é( Šg‘å—¦•t‚« )
 extern DXLIBAPI	int			SetUseIMEFlag(					int UseFlag ) ;							// ‚h‚l‚d‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é
 extern DXLIBAPI	int			GetUseIMEFlag(					void ) ;								// ‚h‚l‚d‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚Ìİ’è‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			SetInputStringMaxLengthIMESync(	int Flag ) ;							// ‚h‚l‚d‚Å“ü—Í‚Å‚«‚éÅ‘å•¶š”‚ğ MakeKeyInput ‚Ìİ’è‚É‡‚í‚¹‚é‚©‚Ç‚¤‚©‚ğƒZƒbƒg‚·‚é( TRUE:‚ ‚í‚¹‚é  FALSE:‚ ‚í‚¹‚È‚¢(ƒfƒtƒHƒ‹ƒg) )
@@ -2379,12 +2477,15 @@ extern DXLIBAPI	int			GetStringPoint2WithStrLen(	const TCHAR *String, size_t Str
 extern DXLIBAPI	int			GetStringLength(			const TCHAR *String ) ;										// ‘SŠp•¶šA”¼Šp•¶š“ü‚è—‚ê‚é’†‚©‚ç•¶š”‚ğæ“¾‚·‚é
 
 #ifndef DX_NON_FONT
-extern DXLIBAPI	int			DrawObtainsString(						int x, int y, int AddY, const TCHAR *String,                      unsigned int StrColor, unsigned int StrEdgeColor DEFAULTPARAM( = 0 ) , int FontHandle DEFAULTPARAM( = -1 ) , unsigned int SelectBackColor DEFAULTPARAM( = 0xffffffff ) , unsigned int SelectStrColor DEFAULTPARAM( = 0 ) , unsigned int SelectStrEdgeColor DEFAULTPARAM( = 0xffffffff ) , int SelectStart DEFAULTPARAM( = -1 ) , int SelectEnd DEFAULTPARAM( = -1 ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ
-extern DXLIBAPI	int			DrawObtainsNString(						int x, int y, int AddY, const TCHAR *String, size_t StringLength, unsigned int StrColor, unsigned int StrEdgeColor DEFAULTPARAM( = 0 ) , int FontHandle DEFAULTPARAM( = -1 ) , unsigned int SelectBackColor DEFAULTPARAM( = 0xffffffff ) , unsigned int SelectStrColor DEFAULTPARAM( = 0 ) , unsigned int SelectStrEdgeColor DEFAULTPARAM( = 0xffffffff ) , int SelectStart DEFAULTPARAM( = -1 ) , int SelectEnd DEFAULTPARAM( = -1 ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ
-extern DXLIBAPI	int			DrawObtainsString_CharClip(				int x, int y, int AddY, const TCHAR *String,                      unsigned int StrColor, unsigned int StrEdgeColor DEFAULTPARAM( = 0 ) , int FontHandle DEFAULTPARAM( = -1 ) , unsigned int SelectBackColor DEFAULTPARAM( = 0xffffffff ) , unsigned int SelectStrColor DEFAULTPARAM( = 0 ) , unsigned int SelectStrEdgeColor DEFAULTPARAM( = 0xffffffff ) , int SelectStart DEFAULTPARAM( = -1 ) , int SelectEnd DEFAULTPARAM( = -1 ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ( ƒNƒŠƒbƒv‚ª•¶š’PˆÊ )
-extern DXLIBAPI	int			DrawObtainsNString_CharClip(			int x, int y, int AddY, const TCHAR *String, size_t StringLength, unsigned int StrColor, unsigned int StrEdgeColor DEFAULTPARAM( = 0 ) , int FontHandle DEFAULTPARAM( = -1 ) , unsigned int SelectBackColor DEFAULTPARAM( = 0xffffffff ) , unsigned int SelectStrColor DEFAULTPARAM( = 0 ) , unsigned int SelectStrEdgeColor DEFAULTPARAM( = 0xffffffff ) , int SelectStart DEFAULTPARAM( = -1 ) , int SelectEnd DEFAULTPARAM( = -1 ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ( ƒNƒŠƒbƒv‚ª•¶š’PˆÊ )
-extern DXLIBAPI	int			GetObtainsStringCharPosition(			int x, int y, int AddY, const TCHAR *String, int StrLen, int *PosX, int *PosY, int FontHandle DEFAULTPARAM( = -1 ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ‚µ‚½ê‡‚Ì•¶š—ñ‚Ì––’[‚ÌÀ•W‚ğæ“¾‚·‚é
-extern DXLIBAPI	int			GetObtainsStringCharPosition_CharClip(	int x, int y, int AddY, const TCHAR *String, int StrLen, int *PosX, int *PosY, int FontHandle DEFAULTPARAM( = -1 ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ‚µ‚½ê‡‚Ì•¶š—ñ‚Ì––’[‚ÌÀ•W‚ğæ“¾‚·‚é( ƒNƒŠƒbƒv‚ª•¶š’PˆÊ )
+extern DXLIBAPI	int			DrawObtainsString(						int x, int y, int AddY, const TCHAR *String,                      unsigned int StrColor, unsigned int StrEdgeColor DEFAULTPARAM( = 0 ) , int FontHandle DEFAULTPARAM( = -1 ) , unsigned int SelectBackColor DEFAULTPARAM( = 0xffffffff ) , unsigned int SelectStrColor DEFAULTPARAM( = 0 ) , unsigned int SelectStrEdgeColor DEFAULTPARAM( = 0xffffffff ) , int SelectStart DEFAULTPARAM( = -1 ) , int SelectEnd DEFAULTPARAM( = -1 ) , int *LineCount DEFAULTPARAM( = NULL ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ
+extern DXLIBAPI	int			DrawObtainsNString(						int x, int y, int AddY, const TCHAR *String, size_t StringLength, unsigned int StrColor, unsigned int StrEdgeColor DEFAULTPARAM( = 0 ) , int FontHandle DEFAULTPARAM( = -1 ) , unsigned int SelectBackColor DEFAULTPARAM( = 0xffffffff ) , unsigned int SelectStrColor DEFAULTPARAM( = 0 ) , unsigned int SelectStrEdgeColor DEFAULTPARAM( = 0xffffffff ) , int SelectStart DEFAULTPARAM( = -1 ) , int SelectEnd DEFAULTPARAM( = -1 ) , int *LineCount DEFAULTPARAM( = NULL ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ
+extern DXLIBAPI	int			DrawObtainsString_CharClip(				int x, int y, int AddY, const TCHAR *String,                      unsigned int StrColor, unsigned int StrEdgeColor DEFAULTPARAM( = 0 ) , int FontHandle DEFAULTPARAM( = -1 ) , unsigned int SelectBackColor DEFAULTPARAM( = 0xffffffff ) , unsigned int SelectStrColor DEFAULTPARAM( = 0 ) , unsigned int SelectStrEdgeColor DEFAULTPARAM( = 0xffffffff ) , int SelectStart DEFAULTPARAM( = -1 ) , int SelectEnd DEFAULTPARAM( = -1 ) , int *LineCount DEFAULTPARAM( = NULL ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ( ƒNƒŠƒbƒv‚ª•¶š’PˆÊ )
+extern DXLIBAPI	int			DrawObtainsNString_CharClip(			int x, int y, int AddY, const TCHAR *String, size_t StringLength, unsigned int StrColor, unsigned int StrEdgeColor DEFAULTPARAM( = 0 ) , int FontHandle DEFAULTPARAM( = -1 ) , unsigned int SelectBackColor DEFAULTPARAM( = 0xffffffff ) , unsigned int SelectStrColor DEFAULTPARAM( = 0 ) , unsigned int SelectStrEdgeColor DEFAULTPARAM( = 0xffffffff ) , int SelectStart DEFAULTPARAM( = -1 ) , int SelectEnd DEFAULTPARAM( = -1 ) , int *LineCount DEFAULTPARAM( = NULL ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ( ƒNƒŠƒbƒv‚ª•¶š’PˆÊ )
+extern DXLIBAPI	int			DrawObtainsString_WordClip(				int x, int y, int AddY, const TCHAR *String,                      unsigned int StrColor, unsigned int StrEdgeColor DEFAULTPARAM( = 0 ) , int FontHandle DEFAULTPARAM( = -1 ) , unsigned int SelectBackColor DEFAULTPARAM( = 0xffffffff ) , unsigned int SelectStrColor DEFAULTPARAM( = 0 ) , unsigned int SelectStrEdgeColor DEFAULTPARAM( = 0xffffffff ) , int SelectStart DEFAULTPARAM( = -1 ) , int SelectEnd DEFAULTPARAM( = -1 ) , int *LineCount DEFAULTPARAM( = NULL ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ( ƒNƒŠƒbƒv‚ª’PŒê’PˆÊ )
+extern DXLIBAPI	int			DrawObtainsNString_WordClip(			int x, int y, int AddY, const TCHAR *String, size_t StringLength, unsigned int StrColor, unsigned int StrEdgeColor DEFAULTPARAM( = 0 ) , int FontHandle DEFAULTPARAM( = -1 ) , unsigned int SelectBackColor DEFAULTPARAM( = 0xffffffff ) , unsigned int SelectStrColor DEFAULTPARAM( = 0 ) , unsigned int SelectStrEdgeColor DEFAULTPARAM( = 0xffffffff ) , int SelectStart DEFAULTPARAM( = -1 ) , int SelectEnd DEFAULTPARAM( = -1 ) , int *LineCount DEFAULTPARAM( = NULL ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ( ƒNƒŠƒbƒv‚ª’PŒê’PˆÊ )
+extern DXLIBAPI	int			GetObtainsStringCharPosition(			int x, int y, int AddY, const TCHAR *String, int StrLen, int *PosX, int *PosY, int FontHandle DEFAULTPARAM( = -1 ) , int *LineCount DEFAULTPARAM( = NULL ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ‚µ‚½ê‡‚Ì•¶š—ñ‚Ì––’[‚ÌÀ•W‚ğæ“¾‚·‚é
+extern DXLIBAPI	int			GetObtainsStringCharPosition_CharClip(	int x, int y, int AddY, const TCHAR *String, int StrLen, int *PosX, int *PosY, int FontHandle DEFAULTPARAM( = -1 ) , int *LineCount DEFAULTPARAM( = NULL ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ‚µ‚½ê‡‚Ì•¶š—ñ‚Ì––’[‚ÌÀ•W‚ğæ“¾‚·‚é( ƒNƒŠƒbƒv‚ª•¶š’PˆÊ )
+extern DXLIBAPI	int			GetObtainsStringCharPosition_WordClip(	int x, int y, int AddY, const TCHAR *String, int StrLen, int *PosX, int *PosY, int FontHandle DEFAULTPARAM( = -1 ) , int *LineCount DEFAULTPARAM( = NULL ) ) ;		// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É‰üs‚µ‚È‚ª‚ç•¶š—ñ‚ğ•`‰æ‚µ‚½ê‡‚Ì•¶š—ñ‚Ì––’[‚ÌÀ•W‚ğæ“¾‚·‚é( ƒNƒŠƒbƒv‚ª’PŒê’PˆÊ )
 #endif // DX_NON_FONT
 extern DXLIBAPI	int			DrawObtainsBox(					int x1, int y1, int x2, int y2, int AddY, unsigned int Color, int FillFlag ) ;																																										// •`‰æ‰Â”\—Ìˆæ‚Éû‚Ü‚é‚æ‚¤‚É•â³‚ğ‰Á‚¦‚È‚ª‚ç‹éŒ`‚ğ•`‰æ
 
@@ -2398,6 +2499,8 @@ extern DXLIBAPI	int			KeyInputNumber(					int x, int y, int MaxNum, int MinNum, 
 
 extern DXLIBAPI	int			GetIMEInputModeStr(				TCHAR *GetBuffer ) ;																											// IME‚Ì“ü—Íƒ‚[ƒh•¶š—ñ‚ğæ“¾‚·‚é
 extern DXLIBAPI	const IMEINPUTDATA* GetIMEInputData(		void ) ;																														// IME‚Å“ü—Í’†‚Ì•¶š—ñ‚Ìî•ñ‚ğæ“¾‚·‚é
+extern DXLIBAPI	int			SetIMEInputString(				const TCHAR *String ) ;																											// IME‚Å“ü—Í’†‚Ì•¶š—ñ‚ğ•ÏX‚·‚é( IME‚Å•¶š—ñ‚ğ“ü—Í’†‚Å‚Í‚È‚©‚Á‚½ê‡‚Í‰½‚à‹N‚±‚è‚Ü‚¹‚ñ )
+extern DXLIBAPI	int			SetIMEInputStringWithStrLen(	const TCHAR *String, size_t StringLength ) ;																					// IME‚Å“ü—Í’†‚Ì•¶š—ñ‚ğ•ÏX‚·‚é( IME‚Å•¶š—ñ‚ğ“ü—Í’†‚Å‚Í‚È‚©‚Á‚½ê‡‚Í‰½‚à‹N‚±‚è‚Ü‚¹‚ñ )
 extern DXLIBAPI	int			SetKeyInputStringColor(			ULONGLONG NmlStr, ULONGLONG NmlCur, ULONGLONG IMEStrBack, ULONGLONG IMECur, ULONGLONG IMELine, ULONGLONG IMESelectStr, ULONGLONG IMEModeStr , ULONGLONG NmlStrE DEFAULTPARAM( = 0 ) , ULONGLONG IMESelectStrE DEFAULTPARAM( = 0 ) , ULONGLONG IMEModeStrE DEFAULTPARAM( = 0 ) , ULONGLONG IMESelectWinE DEFAULTPARAM( = ULL_PARAM( 0xffffffffffffffff ) ) ,	ULONGLONG IMESelectWinF DEFAULTPARAM( = ULL_PARAM( 0xffffffffffffffff ) ) , ULONGLONG SelectStrBackColor DEFAULTPARAM( = ULL_PARAM( 0xffffffffffffffff ) ) , ULONGLONG SelectStrColor DEFAULTPARAM( = ULL_PARAM( 0xffffffffffffffff ) ) , ULONGLONG SelectStrEdgeColor DEFAULTPARAM( = ULL_PARAM( 0xffffffffffffffff ) ) , ULONGLONG IMEStr DEFAULTPARAM( = ULL_PARAM( 0xffffffffffffffff ) ) , ULONGLONG IMEStrE DEFAULTPARAM( = ULL_PARAM( 0xffffffffffffffff ) ) ) ;	// ( SetKeyInputStringColor2 ‚Ì‹ŒŠÖ” )InputStringŠÖ”g—p‚Ì•¶š‚ÌŠeF‚ğ•ÏX‚·‚é
 extern DXLIBAPI	int			SetKeyInputStringColor2(		int TargetColor /* DX_KEYINPSTRCOLOR_NORMAL_STR “™ */ , unsigned int Color ) ;													// InputStringŠÖ”g—p‚Ì•¶š‚ÌŠeF‚ğ•ÏX‚·‚é
 extern DXLIBAPI	int			ResetKeyInputStringColor2(		int TargetColor /* DX_KEYINPSTRCOLOR_NORMAL_STR “™ */ ) ;																		// SetKeyInputStringColor2 ‚Åİ’è‚µ‚½F‚ğƒfƒtƒHƒ‹ƒg‚É–ß‚·
@@ -2413,7 +2516,8 @@ extern DXLIBAPI	int			GetActiveKeyInput(				void ) ;																												
 extern DXLIBAPI	int			CheckKeyInput(					int InputHandle ) ;																												// ƒL[“ü—Íƒnƒ“ƒhƒ‹‚Ì“ü—Í‚ªI—¹‚µ‚Ä‚¢‚é‚©æ“¾‚·‚é
 extern DXLIBAPI	int			ReStartKeyInput(				int InputHandle ) ;																												// “ü—Í‚ªŠ®—¹‚µ‚½ƒL[“ü—Íƒnƒ“ƒhƒ‹‚ğÄ“x•ÒWó‘Ô‚É–ß‚·
 extern DXLIBAPI	int			ProcessActKeyInput(				void ) ;																														// ƒL[“ü—Íƒnƒ“ƒhƒ‹ˆ—ŠÖ”
-extern DXLIBAPI	int			DrawKeyInputString(				int x, int y, int InputHandle , int DrawCandidateList DEFAULTPARAM( = TRUE ) ) ;												// ƒL[“ü—Íƒnƒ“ƒhƒ‹‚Ì“ü—Í’†î•ñ‚Ì•`‰æ
+extern DXLIBAPI	int			DrawKeyInputString(				int x, int y,                                 int InputHandle , int DrawCandidateList DEFAULTPARAM( = TRUE ) ) ;				// ƒL[“ü—Íƒnƒ“ƒhƒ‹‚Ì“ü—Í’†î•ñ‚Ì•`‰æ
+extern DXLIBAPI	int			DrawKeyInputExtendString(		int x, int y, double ExRateX, double ExRateY, int InputHandle , int DrawCandidateList DEFAULTPARAM( = TRUE ) ) ;				// ƒL[“ü—Íƒnƒ“ƒhƒ‹‚Ì“ü—Í’†î•ñ‚Ì•`‰æ( Šg‘å—¦w’è•t‚« )
 extern DXLIBAPI	int			SetKeyInputDrawArea(			int x1, int y1, int x2, int y2, int InputHandle ) ;																				// ƒL[“ü—Íƒnƒ“ƒhƒ‹‚Ì“ü—Í’†•¶š—ñ‚ğ•`‰æ‚·‚éÛ‚Ì•`‰æ”ÍˆÍ‚ğİ’è‚·‚é
 
 extern DXLIBAPI	int			SetKeyInputSelectArea(			int  SelectStart, int  SelectEnd, int InputHandle ) ;																			// ƒL[“ü—Íƒnƒ“ƒhƒ‹‚Ìw’è‚Ì—Ìˆæ‚ğ‘I‘ğó‘Ô‚É‚·‚é( SelectStart ‚Æ SelectEnd ‚É -1 ‚ğw’è‚·‚é‚Æ‘I‘ğó‘Ô‚ª‰ğœ‚³‚ê‚Ü‚· )
@@ -2452,6 +2556,7 @@ extern DXLIBAPI	int			FileRead_open_WithStrLen(			const TCHAR *FilePath, size_t 
 extern DXLIBAPI	int			FileRead_open_mem(					const void *FileImage, size_t FileImageSize ) ;					// ƒƒ‚ƒŠ‚É“WŠJ‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ğŠJ‚­
 extern DXLIBAPI	LONGLONG	FileRead_size(						const TCHAR *FilePath ) ;										// ƒtƒ@ƒCƒ‹‚ÌƒTƒCƒY‚ğæ“¾‚·‚é
 extern DXLIBAPI	LONGLONG	FileRead_size_WithStrLen(			const TCHAR *FilePath, size_t FilePathLength ) ;				// ƒtƒ@ƒCƒ‹‚ÌƒTƒCƒY‚ğæ“¾‚·‚é
+extern DXLIBAPI	LONGLONG	FileRead_size_handle(				int FileHandle ) ;												// ƒtƒ@ƒCƒ‹‚ÌƒTƒCƒY‚ğæ“¾‚·‚é( ƒtƒ@ƒCƒ‹ƒnƒ“ƒhƒ‹g—p”Å )
 extern DXLIBAPI	int			FileRead_close(						int FileHandle ) ;												// ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
 extern DXLIBAPI	LONGLONG	FileRead_tell(						int FileHandle ) ;												// ƒtƒ@ƒCƒ‹ƒ|ƒCƒ“ƒ^‚Ì“Ç‚İ‚İˆÊ’u‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			FileRead_seek(						int FileHandle , LONGLONG Offset , int Origin ) ;				// ƒtƒ@ƒCƒ‹ƒ|ƒCƒ“ƒ^‚Ì“Ç‚İ‚İˆÊ’u‚ğ•ÏX‚·‚é
@@ -2487,7 +2592,7 @@ extern DXLIBAPI	int			ChangeStreamFunctionW(				const STREAMDATASHREDTYPE2W *Str
 
 // •â•ŠÖŒWŠÖ”
 extern DXLIBAPI int			ConvertFullPath(					const TCHAR *Src,                   TCHAR *Dest, const TCHAR *CurrentDir DEFAULTPARAM( = NULL )                                              ) ;	// ƒtƒ‹ƒpƒX‚Å‚Í‚È‚¢ƒpƒX•¶š—ñ‚ğƒtƒ‹ƒpƒX‚É•ÏŠ·‚·‚é( CurrentDir ‚Íƒtƒ‹ƒpƒX‚Å‚ ‚é•K—v‚ª‚ ‚é(Œê”ö‚Éw\x‚ª‚ ‚Á‚Ä‚à–³‚­‚Ä‚à—Ç‚¢) )( CurrentDir ‚ª NULL ‚Ìê‡‚ÍŒ»İ‚ÌƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚ğg—p‚·‚é )
-extern DXLIBAPI int			ConvertFullPathWithStrLen(			const TCHAR *Src, size_t SrcLength, TCHAR *Dest, const TCHAR *CurrentDir DEFAULTPARAM( = NULL ), size_t CurrentDirLength DEFAULTPARAM( = 0 ) ) ;	// ƒtƒ‹ƒpƒX‚Å‚Í‚È‚¢ƒpƒX•¶š—ñ‚ğƒtƒ‹ƒpƒX‚É•ÏŠ·‚·‚é( CurrentDir ‚Íƒtƒ‹ƒpƒX‚Å‚ ‚é•K—v‚ª‚ ‚é(Œê”ö‚Éw\x‚ª‚ ‚Á‚Ä‚à–³‚­‚Ä‚à—Ç‚¢) )( CurrentDir ‚ª NULL ‚Ìê‡‚ÍŒ»İ‚ÌƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚ğg—p‚·‚é )
+extern DXLIBAPI int			ConvertFullPathWithStrLen(			const TCHAR *Src, size_t SrcLength, TCHAR *Dest, const TCHAR *CurrentDir DEFAULTPARAM( = NULL ), size_t CurrentDirLength DEFAULTPARAM( = 0 ) ) ;
 
 
 
@@ -2520,11 +2625,14 @@ extern DXLIBAPI	int			GetJoypadType(							int InputType ) ;														// ƒWƒ
 extern DXLIBAPI	int			GetJoypadXInputState(					int InputType, XINPUT_STATE *XInputState ) ;							// XInput ‚©‚ç“¾‚ç‚ê‚é“ü—ÍƒfƒoƒCƒX( Xbox360ƒRƒ“ƒgƒ[ƒ‰“™ )‚Ì¶‚Ìƒf[ƒ^‚ğæ“¾‚·‚é( XInput”ñ‘Î‰‚Ìƒpƒbƒh‚Ìê‡‚ÍƒGƒ‰[‚Æ‚È‚è -1 ‚ğ•Ô‚·ADX_INPUT_KEY ‚â DX_INPUT_KEY_PAD1 ‚È‚ÇAƒL[ƒ{[ƒh‚ª—‚Şƒ^ƒCƒv‚ğ InputType ‚É“n‚·‚ÆƒGƒ‰[‚Æ‚È‚è -1 ‚ğ•Ô‚· )
 extern DXLIBAPI	int			SetJoypadInputToKeyInput(				int InputType, int PadInput, int KeyInput1, int KeyInput2 DEFAULTPARAM( = -1 ) , int KeyInput3 DEFAULTPARAM( = -1 ) , int KeyInput4 DEFAULTPARAM( = -1 )  ) ; // ƒWƒ‡ƒCƒpƒbƒh‚Ì“ü—Í‚É‘Î‰‚µ‚½ƒL[ƒ{[ƒh‚Ì“ü—Í‚ğİ’è‚·‚é( InputType:İ’è‚ğ•ÏX‚·‚éƒpƒbƒh‚Ì¯•Êq( DX_INPUT_PAD1“™ )@@PadInput:İ’è‚ğ•ÏX‚·‚éƒpƒbƒhƒ{ƒ^ƒ“‚Ì¯•Êq( PAD_INPUT_1 “™ )@@KeyInput1:PadInput ‚ğ‰Ÿ‰º‚µ‚½‚±‚Æ‚É‚·‚éƒL[ƒR[ƒh( KEY_INPUT_A ‚È‚Ç )‚»‚Ì‚P@@KeyInput2:‚»‚Ì‚QA-1‚Åİ’è‚È‚µ@@KeyInput3:‚»‚Ì‚RA-1‚Åİ’è‚È‚µ@@KeyInput4:‚»‚Ì‚SA-1‚Åİ’è‚È‚µ )
 extern DXLIBAPI	int			SetJoypadDeadZone(						int InputType, double Zone ) ;											// ƒWƒ‡ƒCƒpƒbƒh‚Ì–³Œøƒ][ƒ“‚Ìİ’è‚ğs‚¤( InputType:İ’è‚ğ•ÏX‚·‚éƒpƒbƒh‚Ì¯•Êq( DX_INPUT_PAD1“™ )   Zone:V‚µ‚¢–³Œøƒ][ƒ“( 0.0 ` 1.0 )AƒfƒtƒHƒ‹ƒg’l‚Í 0.35 )
-extern DXLIBAPI	double		GetJoypadDeadZone(						int InputType ) ;														// ƒWƒ‡ƒCƒpƒbƒh‚Ì–³Œøƒ][ƒ“‚Ìİ’è‚ğæ“¾‚·‚é( InputType:İ’è‚ğ•ÏX‚·‚éƒpƒbƒh‚Ì¯•Êq( DX_INPUT_PAD1“™ )   –ß‚è’l:–³Œøƒ][ƒ“( 0.0 ` 1.0 )
+extern DXLIBAPI	double		GetJoypadDeadZone(						int InputType ) ;														// ƒWƒ‡ƒCƒpƒbƒh‚Ì–³Œøƒ][ƒ“‚Ìİ’è‚ğæ“¾‚·‚é( InputType:İ’è‚ğ•ÏX‚·‚éƒpƒbƒh‚Ì¯•Êq( DX_INPUT_PAD1“™ )   –ß‚è’l:–³Œøƒ][ƒ“( 0.0 ` 1.0 ) )
+extern DXLIBAPI	int			SetJoypadDefaultDeadZoneAll(			double Zone ) ;															// ƒWƒ‡ƒCƒpƒbƒh‚ÌƒfƒtƒHƒ‹ƒg‚Ì–³Œøƒ][ƒ“‚ğİ’è‚·‚é( Zone:V‚µ‚¢–³Œøƒ][ƒ“( 0.0 ` 1.0 )AƒfƒtƒHƒ‹ƒg’l‚Í 0.35 )
+extern DXLIBAPI	double		GetJoypadDefaultDeadZoneAll(			void ) ;																// ƒWƒ‡ƒCƒpƒbƒh‚ÌƒfƒtƒHƒ‹ƒg‚Ì–³Œøƒ][ƒ“‚ğæ“¾‚·‚é( –ß‚è’l:–³Œøƒ][ƒ“( 0.0 ` 1.0 ) )
 extern DXLIBAPI	int			StartJoypadVibration(					int InputType, int Power, int Time, int EffectIndex DEFAULTPARAM( = -1 ) ) ;	// ƒWƒ‡ƒCƒpƒbƒh‚ÌU“®‚ğŠJn‚·‚é
 extern DXLIBAPI	int			StopJoypadVibration(					int InputType, int EffectIndex DEFAULTPARAM( = -1 ) ) ;					// ƒWƒ‡ƒCƒpƒbƒh‚ÌU“®‚ğ’â~‚·‚é
 extern DXLIBAPI	int			GetJoypadPOVState(						int InputType, int POVNumber ) ;										// ƒWƒ‡ƒCƒpƒbƒh‚Ì‚o‚n‚u“ü—Í‚Ìó‘Ô‚ğ“¾‚é( –ß‚è’l@w’è‚ÌPOVƒf[ƒ^‚ÌŠp“xA’PˆÊ‚ÍŠp“x‚Ì‚P‚O‚O”{( 90“x‚È‚ç 9000 ) ’†SˆÊ’u‚É‚ ‚éê‡‚Í -1 ‚ª•Ô‚é )
 extern DXLIBAPI	int			ReSetupJoypad(							void ) ;																// ƒWƒ‡ƒCƒpƒbƒh‚ÌÄƒZƒbƒgƒAƒbƒv‚ğs‚¤( V‚½‚ÉÚ‘±‚³‚ê‚½ƒWƒ‡ƒCƒpƒbƒh‚ª‚ ‚Á‚½‚çŒŸo‚³‚ê‚é )
+extern DXLIBAPI	int			ReSetupInputSystem(						void ) ;																// “ü—ÍƒVƒXƒeƒ€‚ÌÄƒZƒbƒgƒAƒbƒv‚ğs‚¤( –ß‚è’l  0:³íI—¹  -1:ƒGƒ‰[”­¶ )
 
 extern DXLIBAPI	int			SetUseJoypadVibrationFlag(				int Flag ) ;															// ƒWƒ‡ƒCƒpƒbƒh‚ÌU“®‹@”\‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:g—p‚·‚é@@FALSE:g—p‚µ‚È‚¢ )
 
@@ -2545,13 +2653,13 @@ extern DXLIBAPI	int			MakeGraph(							int SizeX, int SizeY, int NotUse3DFlag DE
 extern DXLIBAPI	int			MakeScreen(							int SizeX, int SizeY, int UseAlphaChannel DEFAULTPARAM( = FALSE ) ) ;		// SetDrawScreen ‚Å•`‰æ‘ÎÛ‚É‚Å‚«‚éƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğì¬‚·‚é
 extern DXLIBAPI	int			DerivationGraph(					int   SrcX, int   SrcY, int   Width, int   Height, int SrcGraphHandle ) ;	// w’è‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ìw’è•”•ª‚¾‚¯‚ğ”²‚«o‚µ‚ÄV‚½‚ÈƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğì¬‚·‚é
 extern DXLIBAPI	int			DerivationGraphF(					float SrcX, float SrcY, float Width, float Height, int SrcGraphHandle ) ;	// w’è‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ìw’è•”•ª‚¾‚¯‚ğ”²‚«o‚µ‚ÄV‚½‚ÈƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğì¬‚·‚é( float”Å )
-extern DXLIBAPI	int			DeleteGraph(						int GrHandle, int LogOutFlag DEFAULTPARAM( = FALSE ) ) ;					// ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğíœ‚·‚é
+extern DXLIBAPI	int			DeleteGraph(						int GrHandle ) ;															// ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğíœ‚·‚é
 extern DXLIBAPI	int			DeleteSharingGraph(					int GrHandle ) ;															// w’è‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ÆA“¯‚¶ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚©‚ç”h¶‚µ‚Ä‚¢‚éƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹( DerivationGraph ‚Å”h¶‚µ‚½ƒnƒ“ƒhƒ‹ALoadDivGraph “Ç‚İ‚ñ‚Åì¬‚³‚ê‚½•¡”‚Ìƒnƒ“ƒhƒ‹ )‚ğˆê“x‚Éíœ‚·‚é
 extern DXLIBAPI	int			GetGraphNum(						void ) ;																	// —LŒø‚ÈƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ì”‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			FillGraph(							int GrHandle, int Red, int Green, int Blue, int Alpha DEFAULTPARAM( = 255 ) ) ;											// ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğw’è‚ÌF‚Å“h‚è‚Â‚Ô‚·
 extern DXLIBAPI	int			FillRectGraph(						int GrHandle, int x, int y, int Width, int Height, int Red, int Green, int Blue, int Alpha DEFAULTPARAM( = 255 ) ) ;	// ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ìw’è‚Ì”ÍˆÍ‚ğw’è‚ÌF‚Å“h‚è‚Â‚Ô‚·
 extern DXLIBAPI	int			SetGraphLostFlag(					int GrHandle, int *LostFlag ) ;												// w’è‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ªíœ‚³‚ê‚½Û‚É 1 ‚É‚·‚é•Ï”‚ÌƒAƒhƒŒƒX‚ğİ’è‚·‚é
-extern DXLIBAPI	int			InitGraph(							int LogOutFlag DEFAULTPARAM( = FALSE ) ) ;									// ‚·‚×‚Ä‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğíœ‚·‚é
+extern DXLIBAPI	int			InitGraph(							void ) ;																	// ‚·‚×‚Ä‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğíœ‚·‚é
 extern DXLIBAPI	int			ReloadFileGraphAll(					void ) ;																	// ƒtƒ@ƒCƒ‹‚©‚ç‰æ‘œ‚ğ“Ç‚İ‚ñ‚¾‘S‚Ä‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚É‚Â‚¢‚ÄAÄ“xƒtƒ@ƒCƒ‹‚©‚ç‰æ‘œ‚ğ“Ç‚İ‚Ş
 
 // ƒVƒƒƒhƒEƒ}ƒbƒvƒnƒ“ƒhƒ‹ŠÖŒWŠÖ”
@@ -2675,6 +2783,10 @@ extern DXLIBAPI	int			SetCreateGraphChannelBitDepth(				int BitDepth ) ;								
 extern DXLIBAPI	int			GetCreateGraphChannelBitDepth(				void ) ;										// ì¬‚·‚éƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ì‚Pƒ`ƒƒƒ“ƒlƒ‹•Ó‚è‚Ìƒrƒbƒg[“x‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			SetCreateGraphInitGraphDelete(				int Flag ) ;									// ì¬‚·‚éƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğ InitGraph() ‚Åíœ‚³‚ê‚é‚©‚ğİ’è‚·‚é( Flag  TRUE:InitGraph‚Åíœ‚³‚ê‚é(ƒfƒtƒHƒ‹ƒg)  FALSE:InitGraph‚Åíœ‚³‚ê‚È‚¢ )
 extern DXLIBAPI	int			GetCreateGraphInitGraphDelete(				void ) ;										// ì¬‚·‚éƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğ InitGraph() ‚Åíœ‚³‚ê‚é‚©‚ğæ“¾‚·‚é( Flag  TRUE:InitGraph‚Åíœ‚³‚ê‚é(ƒfƒtƒHƒ‹ƒg)  FALSE:InitGraph‚Åíœ‚³‚ê‚È‚¢ )
+extern DXLIBAPI	int			SetCreateGraphHandle(						int GrHandle ) ;								// ì¬‚·‚éƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ìƒnƒ“ƒhƒ‹’l‚ğİ’è‚·‚éA‚OˆÈ‰º‚Ì’l‚ğ“n‚·‚Æİ’è‰ğœ( ‘¶İ‚µ‚È‚¢ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ì’l‚Ìê‡‚Ì‚İ—LŒø )
+extern DXLIBAPI	int			GetCreateGraphHandle(						void ) ;										// ì¬‚·‚éƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ìƒnƒ“ƒhƒ‹’l‚ğæ“¾‚·‚é
+extern DXLIBAPI	int			SetCreateDivGraphHandle(					const int *HandleArray, int HandleNum ) ;		// ì¬‚·‚éƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ìƒnƒ“ƒhƒ‹’l‚ğİ’è‚·‚éALoadDivGraph “™‚Ì•ªŠ„‰æ‘œ“Ç‚İ‚İ—pAHandleArray ‚É NULL ‚ğ“n‚·‚Æİ’è‰ğœ( ‘¶İ‚µ‚È‚¢ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ì’l‚Ìê‡‚Ì‚İ—LŒø )
+extern DXLIBAPI	int			GetCreateDivGraphHandle(					int *HandleArray ) ;							// ì¬‚·‚éƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ìƒnƒ“ƒhƒ‹’l‚ğæ“¾‚·‚éALoadDivGraph “™‚Ì•ªŠ„‰æ‘œ“Ç‚İ‚İ—pA–ß‚è’l‚Í SetCreateDivGraphHandle ‚Ìˆø” HandleNum ‚É“n‚µ‚½’lAHandleArray ‚ğ NULL ‚É‚·‚é‚±‚Æ‚ª‰Â”\
 extern DXLIBAPI	int			SetDrawValidGraphCreateFlag(				int Flag ) ;									// SetDrawScreen ‚Éˆø”‚Æ‚µ‚Ä“n‚¹‚é( •`‰æ‘ÎÛ‚Æ‚µ‚Äg—p‚Å‚«‚é )ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğì¬‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:•`‰æ‰Â”\ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğì¬‚·‚é  FLASE:’Êí‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğì¬‚·‚é( ƒfƒtƒHƒ‹ƒg ) )
 extern DXLIBAPI	int			GetDrawValidGraphCreateFlag(				void ) ;										// SetDrawScreen ‚Éˆø”‚Æ‚µ‚Ä“n‚¹‚é( •`‰æ‘ÎÛ‚Æ‚µ‚Äg—p‚Å‚«‚é )ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğì¬‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			SetDrawValidFlagOf3DGraph(					int Flag ) ;									// SetDrawValidGraphCreateFlag ‚Ì‹Œ–¼Ì
@@ -2723,6 +2835,8 @@ extern DXLIBAPI	int			SetUseGraphBaseDataBackup(					int Flag ) ;									// ƒOƒ
 extern DXLIBAPI	int			GetUseGraphBaseDataBackup(					void ) ;										// ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ğì¬‚·‚éÛ‚Ég—p‚µ‚½‰æ‘œƒf[ƒ^‚ÌƒoƒbƒNƒAƒbƒv‚ğ‚µ‚Ä Direct3DDevice ‚ÌƒfƒoƒCƒXƒƒXƒg‚Ég—p‚·‚é‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			SetUseSystemMemGraphCreateFlag(				int Flag ) ;									// ( Œ»İŒø‰Ê‚È‚µ )ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ª‚Â‰æ‘œƒf[ƒ^‚ğƒVƒXƒeƒ€ƒƒ‚ƒŠã‚Éì¬‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:ƒVƒXƒeƒ€ƒƒ‚ƒŠã‚Éì¬  FALSE:‚u‚q‚`‚lã‚Éì¬( ƒfƒtƒHƒ‹ƒg ) )
 extern DXLIBAPI	int			GetUseSystemMemGraphCreateFlag(				void ) ;										// ( Œ»İŒø‰Ê‚È‚µ )ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚ª‚Â‰æ‘œƒf[ƒ^‚ğƒVƒXƒeƒ€ƒƒ‚ƒŠã‚Éì¬‚·‚é‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é
+extern DXLIBAPI	int			SetUseLoadDivGraphSizeCheckFlag(			int Flag ) ;									// LoadDivGraph Œn‚Ì•ªŠ„‰æ‘œ“Ç‚İ‚İŠÖ”‚ÅƒTƒCƒY‚Ìƒ`ƒFƒbƒN‚ğs‚¤‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( Flag:TRUE( ƒ`ƒFƒbƒN‚ğs‚¤(ƒfƒtƒHƒ‹ƒg) )  FALSE:ƒ`ƒFƒbƒN‚ğs‚í‚È‚¢ )
+extern DXLIBAPI	int			GetUseLoadDivGraphSizeCheckFlag(			void ) ;										// LoadDivGraph Œn‚Ì•ªŠ„‰æ‘œ“Ç‚İ‚İŠÖ”‚ÅƒTƒCƒY‚Ìƒ`ƒFƒbƒN‚ğs‚¤‚©‚Ç‚¤‚©‚Ìİ’è‚ğæ“¾‚·‚é
 
 // ‰æ‘œî•ñŠÖŒWŠÖ”
 extern DXLIBAPI	const unsigned int* GetFullColorImage(				int GrHandle ) ;																// w’è‚ÌƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Ì‚`‚q‚f‚a‚WƒCƒ[ƒW‚ğæ“¾‚·‚é( Œ»İ“®‰æƒtƒ@ƒCƒ‹‚ğƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹‚Å“Ç‚İ‚ñ‚¾ê‡‚Ì‚İg—p‰Â”\ )
@@ -2768,7 +2882,7 @@ extern DXLIBAPI	int			DrawBoxAA(        float x1, float y1, float x2, float y2, 
 extern DXLIBAPI	int			DrawFillBox(      int   x1, int   y1, int   x2, int   y2,                                         unsigned int Color ) ;																	// ’†g‚ğ“h‚è‚Â‚Ô‚·lŠpŒ`‚ğ•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawLineBox(      int   x1, int   y1, int   x2, int   y2,                                         unsigned int Color ) ;																	// ˜g‚¾‚¯‚ÌlŠpŒ`‚Ì•`‰æ ‚·‚é
 extern DXLIBAPI	int			DrawCircle(       int   x,  int   y,  int   r,                                                    unsigned int Color, int FillFlag DEFAULTPARAM( = TRUE ), int   LineThickness DEFAULTPARAM( = 1 )    ) ;	// ‰~‚ğ•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawCircleAA(     float x,  float y,  float r,            int posnum,                             unsigned int Color, int FillFlag DEFAULTPARAM( = TRUE ), float LineThickness DEFAULTPARAM( = 1.0f ) ) ;	// ‰~‚ğ•`‰æ‚·‚é( ƒAƒ“ƒ`ƒGƒCƒŠƒAƒX•t‚« )
+extern DXLIBAPI	int			DrawCircleAA(     float x,  float y,  float r,            int posnum,                             unsigned int Color, int FillFlag DEFAULTPARAM( = TRUE ), float LineThickness DEFAULTPARAM( = 1.0f ), double Angle DEFAULTPARAM( = 0.0 ) ) ;	// ‰~‚ğ•`‰æ‚·‚é( ƒAƒ“ƒ`ƒGƒCƒŠƒAƒX•t‚« )
 extern DXLIBAPI	int			DrawOval(         int   x,  int   y,  int   rx, int   ry,                                         unsigned int Color, int FillFlag,        int   LineThickness DEFAULTPARAM( = 1 )    ) ;	// ‘È‰~‚ğ•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawOvalAA(       float x,  float y,  float rx, float ry, int posnum,                             unsigned int Color, int FillFlag,        float LineThickness DEFAULTPARAM( = 1.0f ) ) ;	// ‘È‰~‚ğ•`‰æ‚·‚é( ƒAƒ“ƒ`ƒGƒCƒŠƒAƒX•t‚« )
 extern DXLIBAPI	int			DrawOval_Rect(    int   x1, int   y1, int   x2, int   y2,                                         unsigned int Color, int FillFlag ) ;														// w’è‚Ì‹éŒ`‚Éû‚Ü‚é‰~( ‘È‰~ )‚ğ•`‰æ‚·‚é
@@ -2786,6 +2900,7 @@ extern DXLIBAPI	int			Paint(			int x, int y, unsigned int FillColor, ULONGLONG B
 
 extern DXLIBAPI 	int			DrawPixelSet(   const POINTDATA *PointDataArray, int Num ) ;																					// “_‚ÌW‡‚ğ•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawLineSet(    const LINEDATA *LineDataArray,   int Num ) ;																					// ü‚ÌW‡‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawBoxSet(     const RECTDATA *RectDataArray,   int Num ) ;																					// ‹éŒ`‚ÌW‡‚ğ•`‰æ‚·‚é
 
 extern DXLIBAPI	int			DrawPixel3D(     VECTOR   Pos,                                                                 unsigned int Color ) ;							// ‚R‚c‚Ì“_‚ğ•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawPixel3DD(    VECTOR_D Pos,                                                                 unsigned int Color ) ;							// ‚R‚c‚Ì“_‚ğ•`‰æ‚·‚é
@@ -2880,7 +2995,7 @@ extern DXLIBAPI	int			DrawRotaGraphFast3ToZBuffer( int x, int y, int cx, int cy,
 extern DXLIBAPI	int			DrawModiGraphToZBuffer(   int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4,               int GrHandle, int WriteZMode /* DX_ZWRITE_MASK “™ */ ) ;														// ‚yƒoƒbƒtƒ@‚É‘Î‚µ‚Ä‰æ‘œ‚Ì©—R•ÏŒ`•`‰æ
 extern DXLIBAPI	int			DrawBoxToZBuffer(         int x1, int y1, int x2, int y2,                                               int FillFlag, int WriteZMode /* DX_ZWRITE_MASK “™ */ ) ;														// ‚yƒoƒbƒtƒ@‚É‘Î‚µ‚Ä‹éŒ`‚Ì•`‰æ
 extern DXLIBAPI	int			DrawCircleToZBuffer(      int x, int y, int r,                                                          int FillFlag, int WriteZMode /* DX_ZWRITE_MASK “™ */ ) ;														// ‚yƒoƒbƒtƒ@‚É‘Î‚µ‚Ä‰~‚Ì•`‰æ
-extern DXLIBAPI	int			DrawTriangleToZBuffer(    int x1, int y1, int x2, int y2, int x3, int y3,                               int FillFlag, int WriteZMode /* DX_ZWRITE_MASK “™ */ ) ;														// ‚yƒoƒbƒtƒ@‚É‘Î‚µ‚ÄOŠpŒ`‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawTriangleToZBuffer(    int x1, int y1, int x2, int y2, int x3, int y3,                               int FillFlag, int WriteZMode /* DX_ZWRITE_MASK “™ */ ) ;														// ‚yƒoƒbƒtƒ@‚É‘Î‚µ‚ÄOŠpŒ`‚ğ•`‰æ‚·‚é 
 extern DXLIBAPI	int			DrawQuadrangleToZBuffer(  int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4,               int FillFlag, int WriteZMode /* DX_ZWRITE_MASK “™ */ ) ;														// ‚yƒoƒbƒtƒ@‚É‘Î‚µ‚ÄlŠpŒ`‚ğ•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawRoundRectToZBuffer(   int x1, int y1, int x2, int y2, int rx, int ry,                               int FillFlag, int WriteZMode /* DX_ZWRITE_MASK “™ */ ) ;														// ‚yƒoƒbƒtƒ@‚É‘Î‚µ‚ÄŠp‚ÌŠÛ‚¢lŠpŒ`‚ğ•`‰æ‚·‚é
 
@@ -2888,8 +3003,11 @@ extern DXLIBAPI	int			DrawPolygon(                             const VERTEX    *
 extern DXLIBAPI	int			DrawPolygon2D(                           const VERTEX2D  *VertexArray, int PolygonNum,                                                                                                       int GrHandle, int TransFlag ) ;							// ‚Q‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawPolygon3D(                           const VERTEX3D  *VertexArray, int PolygonNum,                                                                                                       int GrHandle, int TransFlag ) ;							// ‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawPolygonIndexed2D(                    const VERTEX2D  *VertexArray, int VertexNum, const unsigned short *IndexArray, int PolygonNum,                                                      int GrHandle, int TransFlag ) ;							// ‚Q‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p )
+extern DXLIBAPI	int			DrawPolygon32bitIndexed2D(               const VERTEX2D  *VertexArray, int VertexNum, const unsigned int   *IndexArray, int PolygonNum,                                                      int GrHandle, int TransFlag ) ;							// ‚Q‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p )
 extern DXLIBAPI	int			DrawPolygonIndexed3D(                    const VERTEX3D  *VertexArray, int VertexNum, const unsigned short *IndexArray, int PolygonNum,                                                      int GrHandle, int TransFlag ) ;							// ‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p )
+extern DXLIBAPI	int			DrawPolygon32bitIndexed3D(               const VERTEX3D  *VertexArray, int VertexNum, const unsigned int   *IndexArray, int PolygonNum,                                                      int GrHandle, int TransFlag ) ;							// ‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p )
 extern DXLIBAPI	int			DrawPolygonIndexed3DBase(                const VERTEX_3D *VertexArray, int VertexNum, const unsigned short *IndexArray, int IndexNum,   int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int GrHandle, int TransFlag ) ;							// ‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p )( ‹Œƒo[ƒWƒ‡ƒ“—p )
+extern DXLIBAPI	int			DrawPolygon32bitIndexed3DBase(           const VERTEX_3D *VertexArray, int VertexNum, const unsigned int   *IndexArray, int IndexNum,   int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int GrHandle, int TransFlag ) ;							// ‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p )( ‹Œƒo[ƒWƒ‡ƒ“—p )
 extern DXLIBAPI	int			DrawPolygon3DBase(                       const VERTEX_3D *VertexArray, int VertexNum,                                                   int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int GrHandle, int TransFlag ) ;							// ‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ‹Œƒo[ƒWƒ‡ƒ“—p )
 #ifndef DX_COMPILE_TYPE_C_LANGUAGE
 extern DXLIBAPI	int			DrawPolygon3D(                           const VERTEX_3D *VertexArray, int PolygonNum,                                                                                                       int GrHandle, int TransFlag ) ;							// ‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ‹Œƒo[ƒWƒ‡ƒ“—p )
@@ -2900,7 +3018,9 @@ extern DXLIBAPI	int			DrawPolygonBase(                         const VERTEX    *
 extern DXLIBAPI	int			DrawPrimitive2D(                         const VERTEX2D  *VertexArray, int VertexNum,                                                   int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int GrHandle, int TransFlag ) ;							// ‚Q‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawPrimitive3D(                         const VERTEX3D  *VertexArray, int VertexNum,                                                   int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int GrHandle, int TransFlag ) ;							// ‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawPrimitiveIndexed2D(                  const VERTEX2D  *VertexArray, int VertexNum, const unsigned short *IndexArray, int IndexNum,   int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int GrHandle, int TransFlag ) ;							// ‚Q‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é(’¸“_ƒCƒ“ƒfƒbƒNƒXg—p)
+extern DXLIBAPI	int			DrawPrimitive32bitIndexed2D(             const VERTEX2D  *VertexArray, int VertexNum, const unsigned int   *IndexArray, int IndexNum,   int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int GrHandle, int TransFlag ) ;							// ‚Q‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é(’¸“_ƒCƒ“ƒfƒbƒNƒXg—p)
 extern DXLIBAPI	int			DrawPrimitiveIndexed3D(                  const VERTEX3D  *VertexArray, int VertexNum, const unsigned short *IndexArray, int IndexNum,   int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int GrHandle, int TransFlag ) ;							// ‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é(’¸“_ƒCƒ“ƒfƒbƒNƒXg—p)
+extern DXLIBAPI	int			DrawPrimitive32bitIndexed3D(             const VERTEX3D  *VertexArray, int VertexNum, const unsigned int   *IndexArray, int IndexNum,   int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int GrHandle, int TransFlag ) ;							// ‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é(’¸“_ƒCƒ“ƒfƒbƒNƒXg—p)
 
 extern DXLIBAPI	int			DrawPolygon3D_UseVertexBuffer(           int VertexBufHandle,                                                                                                                                                               int GrHandle, int TransFlag ) ;		// ’¸“_ƒoƒbƒtƒ@‚ğg—p‚µ‚Ä‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawPrimitive3D_UseVertexBuffer(         int VertexBufHandle,                     int PrimitiveType  /* DX_PRIMTYPE_TRIANGLELIST “™ */,                                                                                     int GrHandle, int TransFlag ) ;		// ’¸“_ƒoƒbƒtƒ@‚ğg—p‚µ‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é
@@ -2922,6 +3042,8 @@ extern DXLIBAPI	int			SetDrawMode(						int DrawMode ) ;												// •`‰æƒ‚[ƒ
 extern DXLIBAPI	int			GetDrawMode(						void ) ;														// •`‰æƒ‚[ƒh‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			SetDrawBlendMode(					int BlendMode, int BlendParam ) ;								// •`‰æƒuƒŒƒ“ƒhƒ‚[ƒh‚ğİ’è‚·‚é
 extern DXLIBAPI	int			GetDrawBlendMode(					int *BlendMode, int *BlendParam ) ;								// •`‰æƒuƒŒƒ“ƒhƒ‚[ƒh‚ğæ“¾‚·‚é
+extern DXLIBAPI	int			SetDrawCustomBlendMode(				int BlendEnable, int SrcBlendRGB /* DX_BLEND_SRC_COLOR “™ */, int DestBlendRGB /* DX_BLEND_SRC_COLOR “™ */, int BlendOpRGB /* DX_BLENDOP_ADD “™ */, int SrcBlendA /* DX_BLEND_SRC_COLOR “™ */, int DestBlendA /* DX_BLEND_SRC_COLOR “™ */, int BlendOpA /* DX_BLENDOP_ADD “™ */, int BlendParam ) ;		// ƒJƒXƒ^ƒ€ƒuƒŒƒ“ƒhƒ‚[ƒh‚ğİ’è‚·‚é
+extern DXLIBAPI	int			GetDrawCustomBlendMode(				int *BlendEnable, int *SrcBlendRGB, int *DestBlendRGB, int *BlendOpRGB, int *SrcBlendA, int *DestBlendA, int *BlendOpA, int *BlendParam ) ;																																								// ƒJƒXƒ^ƒ€ƒuƒŒƒ“ƒhƒ‚[ƒh‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			SetDrawAlphaTest(					int TestMode, int TestParam ) ;									// •`‰æ‚ÌƒAƒ‹ƒtƒ@ƒeƒXƒg‚Ìİ’è‚ğs‚¤( TestMode:ƒeƒXƒgƒ‚[ƒh( DX_CMP_GREATER“™ -1‚ÅƒfƒtƒHƒ‹ƒg“®ì‚É–ß‚· )  TestParam:•`‰æƒAƒ‹ƒtƒ@’l‚Æ‚Ì”äŠr‚Ég—p‚·‚é’l( 0`255 ) )
 extern DXLIBAPI	int			GetDrawAlphaTest(					int *TestMode, int *TestParam ) ;								// •`‰æ‚ÌƒAƒ‹ƒtƒ@ƒeƒXƒg‚Ìİ’è‚ğæ“¾‚·‚é( TestMode:ƒeƒXƒgƒ‚[ƒh( DX_CMP_GREATER“™ -1‚ÅƒfƒtƒHƒ‹ƒg“®ì‚É–ß‚· )  TestParam:•`‰æƒAƒ‹ƒtƒ@’l‚Æ‚Ì”äŠr‚Ég—p‚·‚é’l( 0`255 ) )
 extern DXLIBAPI	int			SetBlendGraph(						int BlendGraph, int BorderParam, int BorderRange ) ;			// ( SetBlendGraphParam ‚Ì BlendType = DX_BLENDGRAPHTYPE_WIPE ‚Ìˆ—‚ğs‚¤‹ŒŠÖ” )•`‰æˆ—‚É•`‰æ‚·‚é‰æ‘œ‚ÆƒuƒŒƒ“ƒh‚·‚éƒ¿ƒ`ƒƒƒ“ƒlƒ‹•t‚«‰æ‘œ‚ğƒZƒbƒg‚·‚é( BlendGraph ‚ğ -1 ‚ÅƒuƒŒƒ“ƒh‹@”\‚ğ–³Œø )
@@ -3005,6 +3127,8 @@ extern DXLIBAPI	VECTOR_D	ConvScreenPosToWorldPos_ZLinearD(	VECTOR_D ScreenPos ) 
 extern DXLIBAPI	int			SetUseCullingFlag(					int Flag ) ;													// SetUseBackCulling ‚Ì‹Œ–¼Ì
 extern DXLIBAPI	int			SetUseBackCulling(					int Flag /* DX_CULLING_LEFT “™ */ ) ;							// ƒ|ƒŠƒSƒ“ƒJƒŠƒ“ƒOƒ‚[ƒh‚ğİ’è‚·‚é
 extern DXLIBAPI	int			GetUseBackCulling(					void ) ;														// ƒ|ƒŠƒSƒ“ƒJƒŠƒ“ƒOƒ‚[ƒh‚ğæ“¾‚·‚é
+extern DXLIBAPI	int			SetUseRightHandClippingProcess(		int Flag ) ;													// ‰EèÀ•WŒn‚ÌƒNƒŠƒbƒsƒ“ƒOˆ—‚ğs‚¤‚©‚ğİ’è‚·‚é( TRUE:‰EèÀ•WŒn‚ÌƒNƒŠƒbƒsƒ“ƒOˆ—‚ğs‚¤  FALSE:¶èÀ•WŒn‚ÌƒNƒŠƒbƒsƒ“ƒOˆ—‚ğs‚¤( ƒfƒtƒHƒ‹ƒg ) )
+extern DXLIBAPI	int			GetUseRightHandClippingProcess(		void ) ;														// ‰EèÀ•WŒn‚ÌƒNƒŠƒbƒsƒ“ƒOˆ—‚ğs‚¤‚©‚ğæ“¾‚·‚é( TRUE:‰EèÀ•WŒn‚ÌƒNƒŠƒbƒsƒ“ƒOˆ—‚ğs‚¤  FALSE:¶èÀ•WŒn‚ÌƒNƒŠƒbƒsƒ“ƒOˆ—‚ğs‚¤( ƒfƒtƒHƒ‹ƒg ) )
 
 extern DXLIBAPI	int			SetTextureAddressMode(				int Mode /* DX_TEXADDRESS_WRAP “™ */ , int Stage DEFAULTPARAM( = -1 ) ) ;	// ƒeƒNƒXƒ`ƒƒƒAƒhƒŒƒXƒ‚[ƒh‚ğİ’è‚·‚é
 extern DXLIBAPI	int			SetTextureAddressModeUV(			int ModeU, int ModeV, int Stage DEFAULTPARAM( = -1 ) ) ;					// ƒeƒNƒXƒ`ƒƒƒAƒhƒŒƒXƒ‚[ƒh‚ğİ’è‚·‚é( U ‚Æ V ‚ğ•ÊX‚Éİ’è‚·‚é )
@@ -3050,6 +3174,7 @@ extern DXLIBAPI	int				SetGraphMode(								int ScreenSizeX, int ScreenSizeY, in
 extern DXLIBAPI	int				SetUserScreenImage(							void *Image, int PixelFormat /* DX_USER_SCREEN_PIXEL_FORMAT_R5G6B5 “™ */ ) ;	// ‰æ–Ê‚Ìƒƒ‚ƒŠƒCƒ[ƒW‚ğƒZƒbƒg‚·‚é( DxLib_Init ‚Ì‘O‚ÅŒÄ‚Ô•K—v‚ª‚ ‚é( DxLib_Init ‚Ì‘O‚Éˆê“x‚Å‚àŒÄ‚ñ‚Å‚¢‚ê‚ÎADxLib_Init Œã‚Í Image ‚ÌƒAƒhƒŒƒX‚Ì‚İ‚Ì•ÏX–Ú“I‚ÅŒÄ‚Ô‚±‚Æ‚Í‰Â”\ )APixelFormat ‚É DX_USER_SCREEN_PIXEL_FORMAT_R5G6B5 –”‚Í DX_USER_SCREEN_PIXEL_FORMAT_X8R8G8B8 ‚Ì“ñ‚ÂˆÈŠO‚ğw’è‚µ‚½ê‡‚Í‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì•`‰æŠÖ”‚ÍˆêØg—p‚Å‚«‚È‚­‚È‚è‚Ü‚· )
 extern DXLIBAPI	int				SetFullScreenResolutionMode(				int ResolutionMode /* DX_FSRESOLUTIONMODE_NATIVE “™ */ ) ;						// ƒtƒ‹ƒXƒNƒŠ[ƒ“‰ğ‘œ“xƒ‚[ƒh‚ğİ’è‚·‚é
 extern DXLIBAPI	int				GetFullScreenResolutionMode(				int *ResolutionMode, int *UseResolutionMode ) ;									// ƒtƒ‹ƒXƒNƒŠ[ƒ“‰ğ‘œ“xƒ‚[ƒh‚ğæ“¾‚·‚é( UseResolutionMode ‚ÍÀÛ‚Ég—p‚³‚ê‚Ä‚¢‚é‰ğ‘œ“xƒ‚[ƒh( —á‚¦‚Î DX_FSRESOLUTIONMODE_NATIVE ‚ğw’è‚µ‚Ä‚¢‚Ä‚àƒ‚ƒjƒ^‚ªw’è‚Ì‰ğ‘œ“x‚É‘Î‰‚µ‚Ä‚¢‚È‚¢ê‡‚Í UseResolutionMode ‚ª DX_FSRESOLUTIONMODE_DESKTOP ‚â DX_FSRESOLUTIONMODE_MAXIMUM ‚É‚È‚è‚Ü‚· ) )
+extern DXLIBAPI	int				GetUseFullScreenResolutionMode(				void ) ;																		// ƒtƒ‹ƒXƒNƒŠ[ƒ“‰ğ‘œ“xƒ‚[ƒh‚ğæ“¾‚·‚é( GetFullScreenResolutionMode ‚Ì UseResolutionMode ‚Åæ“¾‚Å‚«‚é’l‚ğ•Ô‚·ŠÖ” )
 extern DXLIBAPI	int				SetFullScreenScalingMode(					int ScalingMode /* DX_FSSCALINGMODE_NEAREST “™ */ , int FitScaling DEFAULTPARAM( = FALSE ) ) ;	// ƒtƒ‹ƒXƒNƒŠ[ƒ“ƒ‚[ƒh‚Ì‰æ–ÊŠg‘åƒ‚[ƒh‚ğİ’è‚·‚é
 extern DXLIBAPI	int				SetEmulation320x240(						int Flag ) ;																	// ‚U‚S‚O‚˜‚S‚W‚O‚Ì‰æ–Ê‚Å‚R‚Q‚O‚˜‚Q‚S‚O‚Ì‰æ–Ê‰ğ‘œ“x‚É‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚éA‚U‚S‚O‚˜‚S‚W‚OˆÈŠO‚Ì‰ğ‘œ“x‚Å‚Í–³Œø( TRUE:—LŒø  FALSE:–³Œø )
 extern DXLIBAPI	int				SetZBufferSize(								int ZBufferSizeX, int ZBufferSizeY ) ;											// ‰æ–Ê—p‚Ì‚yƒoƒbƒtƒ@‚ÌƒTƒCƒY‚ğİ’è‚·‚é
@@ -3064,12 +3189,14 @@ extern DXLIBAPI	int				GetDrawScreenSize(							int *XBuf, int *YBuf ) ;								
 extern DXLIBAPI	int				GetScreenBitDepth(							void ) ;																		// ‰æ–Ê‚ÌƒJƒ‰[ƒrƒbƒg”‚ğæ“¾‚·‚é
 extern DXLIBAPI	int				GetColorBitDepth(							void ) ;																		// GetScreenBitDepth ‚Ì‹Œ–¼Ì
 extern DXLIBAPI	int				GetChangeDisplayFlag(						void ) ;																		// ‰æ–Êƒ‚[ƒh‚ª•ÏX‚³‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é
-extern DXLIBAPI	int				GetVideoMemorySize(							int *AllSize, int *FreeSize ) ;													// ( Œ»İ³í‚É“®ì‚µ‚Ü‚¹‚ñ )ƒrƒfƒIƒƒ‚ƒŠ‚Ì—e—Ê‚ğ“¾‚é
+extern DXLIBAPI	int				GetVideoMemorySize(							int *AllSize, int *FreeSize ) ;													// ƒrƒfƒIƒƒ‚ƒŠ‚Ì—e—Ê‚ğ“¾‚é
+extern DXLIBAPI	int				GetVideoMemorySizeEx(						ULONGLONG *TotalSize, ULONGLONG *UseSize ) ;									// ƒrƒfƒIƒƒ‚ƒŠ‚Ì—e—Ê‚ğ“¾‚é( 64bit”Å )
 extern DXLIBAPI	int				GetRefreshRate(								void ) ;																		// Œ»İ‚Ì‰æ–Ê‚ÌƒŠƒtƒŒƒbƒVƒ…ƒŒ[ƒg‚ğæ“¾‚·‚é
 extern DXLIBAPI	int				GetDisplayNum(								void ) ;																		// ƒfƒBƒXƒvƒŒƒC‚Ì”‚ğæ“¾
-extern DXLIBAPI	int				GetDisplayInfo(								int DisplayIndex, int *DesktopRectX, int *DesktopRectY, int *DesktopSizeX, int *DesktopSizeY, int *IsPrimary ) ;	// ƒfƒBƒXƒvƒŒƒC‚ÌƒfƒXƒNƒgƒbƒvã‚Å‚Ì‹éŒ`ˆÊ’u‚ğæ“¾‚·‚é
+extern DXLIBAPI	int				GetDisplayInfo(								int DisplayIndex, int *DesktopRectX, int *DesktopRectY, int *DesktopSizeX, int *DesktopSizeY, int *IsPrimary, int *DesktopRefreshRate DEFAULTPARAM( = NULL ) ) ;	// ƒfƒBƒXƒvƒŒƒC‚ÌƒfƒXƒNƒgƒbƒvã‚Å‚Ì‹éŒ`ˆÊ’u‚ğæ“¾‚·‚é
 extern DXLIBAPI	int				GetDisplayModeNum(							int DisplayIndex DEFAULTPARAM( = 0 ) ) ;										// •ÏX‰Â”\‚ÈƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚Ì”‚ğæ“¾‚·‚é
 extern DXLIBAPI	DISPLAYMODEDATA	GetDisplayMode(								int ModeIndex, int DisplayIndex DEFAULTPARAM( = 0 ) ) ;							// •ÏX‰Â”\‚ÈƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚Ìî•ñ‚ğæ“¾‚·‚é( ModeIndex ‚Í 0 ` GetDisplayModeNum ‚Ì–ß‚è’l-1 )
+extern DXLIBAPI	DISPLAYMODEDATA	GetFullScreenUseDisplayMode(				void ) ;																		// ƒtƒ‹ƒXƒNƒŠ[ƒ“ƒ‚[ƒh‚Å‹N“®‚µ‚Ä‚¢‚éê‡‚Ìg—p‚µ‚Ä‚¢‚éƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚Ìî•ñ‚ğæ“¾‚·‚é( ‰¼‘zƒtƒ‹ƒXƒNƒŠ[ƒ“ƒ‚[ƒh‚Ìê‡‚Íæ“¾‚Å‚«‚È‚¢ )
 extern DXLIBAPI	int				GetDisplayMaxResolution(					int *SizeX, int *SizeY, int DisplayIndex DEFAULTPARAM( = 0 ) ) ;				// ƒfƒBƒXƒvƒŒƒC‚ÌÅ‘å‰ğ‘œ“x‚ğæ“¾‚·‚é
 extern DXLIBAPI	const COLORDATA* GetDispColorData(							void ) ;																		// ƒfƒBƒXƒvƒŒƒC‚ÌƒJƒ‰[ƒf[ƒ^ƒAƒhƒŒƒX‚ğæ“¾‚·‚é
 extern DXLIBAPI	int				GetMultiDrawScreenNum(						void ) ;																		// “¯‚É•`‰æ‚ğs‚¤‚±‚Æ‚ª‚Å‚«‚é‰æ–Ê‚Ì”‚ğæ“¾‚·‚é
@@ -3211,24 +3338,29 @@ extern DXLIBAPI	int			SetUseVertexShader(      int ShaderHandle ) ;										// 
 extern DXLIBAPI	int			SetUseGeometryShader(    int ShaderHandle ) ;										// ƒVƒF[ƒ_[‚ğg—p‚µ‚½•`‰æ‚Ég—p‚·‚éƒWƒIƒƒgƒŠƒVƒF[ƒ_[‚ğİ’è‚·‚é( -1‚ğ“n‚·‚Æ‰ğœ )
 extern DXLIBAPI	int			SetUsePixelShader(       int ShaderHandle ) ;										// ƒVƒF[ƒ_[‚ğg—p‚µ‚½•`‰æ‚Ég—p‚·‚éƒsƒNƒZƒ‹ƒVƒF[ƒ_[‚ğİ’è‚·‚é( -1‚ğ“n‚·‚Æ‰ğœ )
 
-extern DXLIBAPI	int			CalcPolygonBinormalAndTangentsToShader(        VERTEX3DSHADER *VertexArray, int PolygonNum ) ;														// ƒ|ƒŠƒSƒ“‚Ì’¸“_‚ÌÚü‚Æ]–@ü‚ğ‚t‚uÀ•W‚©‚çŒvZ‚µ‚ÄƒZƒbƒg‚·‚é
-extern DXLIBAPI	int			CalcPolygonIndexedBinormalAndTangentsToShader( VERTEX3DSHADER *VertexArray, int VertexNum, const unsigned short *IndexArray, int PolygonNum ) ;		// ƒ|ƒŠƒSƒ“‚Ì’¸“_‚ÌÚü‚Æ]–@ü‚ğ‚t‚uÀ•W‚©‚çŒvZ‚µ‚ÄƒZƒbƒg‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
+extern DXLIBAPI	int			CalcPolygonBinormalAndTangentsToShader(             VERTEX3DSHADER *VertexArray, int PolygonNum ) ;														// ƒ|ƒŠƒSƒ“‚Ì’¸“_‚ÌÚü‚Æ]–@ü‚ğ‚t‚uÀ•W‚©‚çŒvZ‚µ‚ÄƒZƒbƒg‚·‚é
+extern DXLIBAPI	int			CalcPolygonIndexedBinormalAndTangentsToShader(      VERTEX3DSHADER *VertexArray, int VertexNum, const unsigned short *IndexArray, int PolygonNum ) ;	// ƒ|ƒŠƒSƒ“‚Ì’¸“_‚ÌÚü‚Æ]–@ü‚ğ‚t‚uÀ•W‚©‚çŒvZ‚µ‚ÄƒZƒbƒg‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
+extern DXLIBAPI	int			CalcPolygon32bitIndexedBinormalAndTangentsToShader( VERTEX3DSHADER *VertexArray, int VertexNum, const unsigned int   *IndexArray, int PolygonNum ) ;	// ƒ|ƒŠƒSƒ“‚Ì’¸“_‚ÌÚü‚Æ]–@ü‚ğ‚t‚uÀ•W‚©‚çŒvZ‚µ‚ÄƒZƒbƒg‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
 
 extern DXLIBAPI	int			DrawBillboard3DToShader( VECTOR Pos, float cx, float cy, float Size, float Angle, int GrHandle, int TransFlag, int ReverseXFlag DEFAULTPARAM( = FALSE ) , int ReverseYFlag DEFAULTPARAM( = FALSE ) ) ;							// ƒVƒF[ƒ_[‚ğg‚Á‚Äƒrƒ‹ƒ{[ƒh‚ğ•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawPolygon2DToShader(          const VERTEX2DSHADER *VertexArray, int PolygonNum ) ;																											// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚Q‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawPolygon3DToShader(          const VERTEX3DSHADER *VertexArray, int PolygonNum ) ;																											// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawPolygonIndexed2DToShader(   const VERTEX2DSHADER *VertexArray, int VertexNum, const unsigned short *IndexArray, int PolygonNum ) ;															// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚Q‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
-extern DXLIBAPI	int			DrawPolygonIndexed3DToShader(   const VERTEX3DSHADER *VertexArray, int VertexNum, const unsigned short *IndexArray, int PolygonNum ) ;															// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
-extern DXLIBAPI	int			DrawPrimitive2DToShader(        const VERTEX2DSHADER *VertexArray, int VertexNum,                                                 int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;		// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚Q‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawPrimitive3DToShader(        const VERTEX3DSHADER *VertexArray, int VertexNum,                                                 int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;		// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawPrimitiveIndexed2DToShader( const VERTEX2DSHADER *VertexArray, int VertexNum, const unsigned short *IndexArray, int IndexNum, int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;		// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚Q‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
-extern DXLIBAPI	int			DrawPrimitiveIndexed3DToShader( const VERTEX3DSHADER *VertexArray, int VertexNum, const unsigned short *IndexArray, int IndexNum, int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;		// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
-extern DXLIBAPI	int			DrawPolygon3DToShader_UseVertexBuffer(           int VertexBufHandle ) ;																														// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@g—p”Å )
-extern DXLIBAPI	int			DrawPolygonIndexed3DToShader_UseVertexBuffer(    int VertexBufHandle, int IndexBufHandle ) ;																									// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@‚ÆƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@g—p”Å )
-extern DXLIBAPI	int			DrawPrimitive3DToShader_UseVertexBuffer(         int VertexBufHandle,                     int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;												// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@g—p”Å )
-extern DXLIBAPI	int			DrawPrimitive3DToShader_UseVertexBuffer2(        int VertexBufHandle,                     int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int StartVertex, int UseVertexNum ) ;			// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@g—p”Å )
-extern DXLIBAPI	int			DrawPrimitiveIndexed3DToShader_UseVertexBuffer(  int VertexBufHandle, int IndexBufHandle, int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;												// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@‚ÆƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@g—p”Å )
-extern DXLIBAPI	int			DrawPrimitiveIndexed3DToShader_UseVertexBuffer2( int VertexBufHandle, int IndexBufHandle, int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int BaseVertex, int StartVertex, int UseVertexNum, int StartIndex, int UseIndexNum ) ;	// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@‚ÆƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@g—p”Å )
+extern DXLIBAPI	int			DrawPolygon2DToShader(               const VERTEX2DSHADER *VertexArray, int PolygonNum ) ;																											// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚Q‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawPolygon3DToShader(               const VERTEX3DSHADER *VertexArray, int PolygonNum ) ;																											// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawPolygonIndexed2DToShader(        const VERTEX2DSHADER *VertexArray, int VertexNum, const unsigned short *IndexArray, int PolygonNum ) ;															// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚Q‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
+extern DXLIBAPI	int			DrawPolygon32bitIndexed2DToShader(   const VERTEX2DSHADER *VertexArray, int VertexNum, const unsigned int   *IndexArray, int PolygonNum ) ;															// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚Q‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
+extern DXLIBAPI	int			DrawPolygonIndexed3DToShader(        const VERTEX3DSHADER *VertexArray, int VertexNum, const unsigned short *IndexArray, int PolygonNum ) ;															// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
+extern DXLIBAPI	int			DrawPolygon32bitIndexed3DToShader(   const VERTEX3DSHADER *VertexArray, int VertexNum, const unsigned int   *IndexArray, int PolygonNum ) ;															// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
+extern DXLIBAPI	int			DrawPrimitive2DToShader(             const VERTEX2DSHADER *VertexArray, int VertexNum,                                                 int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;		// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚Q‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawPrimitive3DToShader(             const VERTEX3DSHADER *VertexArray, int VertexNum,                                                 int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;		// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawPrimitiveIndexed2DToShader(      const VERTEX2DSHADER *VertexArray, int VertexNum, const unsigned short *IndexArray, int IndexNum, int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;		// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚Q‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
+extern DXLIBAPI	int			DrawPrimitive32bitIndexed2DToShader( const VERTEX2DSHADER *VertexArray, int VertexNum, const unsigned int   *IndexArray, int IndexNum, int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;		// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚Q‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
+extern DXLIBAPI	int			DrawPrimitiveIndexed3DToShader(      const VERTEX3DSHADER *VertexArray, int VertexNum, const unsigned short *IndexArray, int IndexNum, int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;		// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
+extern DXLIBAPI	int			DrawPrimitive32bitIndexed3DToShader( const VERTEX3DSHADER *VertexArray, int VertexNum, const unsigned int   *IndexArray, int IndexNum, int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;		// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒCƒ“ƒfƒbƒNƒX‚ğg—p‚·‚é )
+extern DXLIBAPI	int			DrawPolygon3DToShader_UseVertexBuffer(           int VertexBufHandle ) ;																															// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@g—p”Å )
+extern DXLIBAPI	int			DrawPolygonIndexed3DToShader_UseVertexBuffer(    int VertexBufHandle, int IndexBufHandle ) ;																										// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒ|ƒŠƒSƒ“‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@‚ÆƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@g—p”Å )
+extern DXLIBAPI	int			DrawPrimitive3DToShader_UseVertexBuffer(         int VertexBufHandle,                     int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;													// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@g—p”Å )
+extern DXLIBAPI	int			DrawPrimitive3DToShader_UseVertexBuffer2(        int VertexBufHandle,                     int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int StartVertex, int UseVertexNum ) ;				// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@g—p”Å )
+extern DXLIBAPI	int			DrawPrimitiveIndexed3DToShader_UseVertexBuffer(  int VertexBufHandle, int IndexBufHandle, int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */ ) ;													// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@‚ÆƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@g—p”Å )
+extern DXLIBAPI	int			DrawPrimitiveIndexed3DToShader_UseVertexBuffer2( int VertexBufHandle, int IndexBufHandle, int PrimitiveType /* DX_PRIMTYPE_TRIANGLELIST “™ */, int BaseVertex, int StartVertex, int UseVertexNum, int StartIndex, int UseIndexNum ) ;		// ƒVƒF[ƒ_[‚ğg‚Á‚Ä‚R‚cƒvƒŠƒ~ƒeƒBƒu‚ğ•`‰æ‚·‚é( ’¸“_ƒoƒbƒtƒ@‚ÆƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@g—p”Å )
 
 // ƒVƒF[ƒ_[—p’è”ƒoƒbƒtƒ@ŠÖŒWŠÖ”
 extern DXLIBAPI	int			InitShaderConstantBuffer(		void ) ;																					// ‘S‚Ä‚ÌƒVƒF[ƒ_[—p’è”ƒoƒbƒtƒ@ƒnƒ“ƒhƒ‹‚ğíœ‚·‚é
@@ -3241,13 +3373,14 @@ extern DXLIBAPI	int			SetShaderConstantBuffer(		int SConstBufHandle, int TargetS
 // ƒtƒBƒ‹ƒ^[ŠÖŒWŠÖ”
 #ifndef DX_NON_FILTER
 extern DXLIBAPI	int			SetGraphFilterBltBlendMode( int BlendMode /* DX_BLENDMODE_ALPHA ‚È‚Ç */ ) ;												// GraphFilterBlt ‚â GraphBlendBlt ‚ÌŒ‹‰Ê‚ğ“]‘—æ‚É“]‘—‚·‚éÛ‚ÌƒuƒŒƒ“ƒhƒ‚[ƒh‚ğİ’è‚·‚é( Œ»ó‚Å‘Î‰‚µ‚Ä‚¢‚é‚Ì‚Í DX_BLENDMODE_NOBLEND ‚Æ DX_BLENDMODE_ALPHA ‚Ì‚İ )
+extern DXLIBAPI	int			SetGraphBlendScalingFilterMode( int IsBilinearFilter ) ;																// GraphBlend ‚Å GrHandle ‚Æ BlendGrHandle ‚ÌƒTƒCƒY‚ªˆÙ‚È‚éê‡‚É“K—p‚³‚ê‚éŠg‘åƒtƒBƒ‹ƒ^[ƒ‚[ƒh‚ğİ’è‚·‚é( IsBilinearFilter  TRUE:ƒoƒCƒŠƒjƒAƒtƒBƒ‹ƒ^[(ƒfƒtƒHƒ‹ƒg)  FALSE:ƒjƒAƒŒƒXƒgƒtƒBƒ‹ƒ^[ )
 
 extern DXLIBAPI	int			GraphFilter(         int    GrHandle,                                                                                                               int FilterType /* DX_GRAPH_FILTER_GAUSS “™ */ , ... ) ;		// ‰æ‘œ‚ÉƒtƒBƒ‹ƒ^[ˆ—‚ğs‚¤
 extern DXLIBAPI	int			GraphFilterBlt(      int SrcGrHandle, int DestGrHandle,                                                                                             int FilterType /* DX_GRAPH_FILTER_GAUSS “™ */ , ... ) ;		// ‰æ‘œ‚ÌƒtƒBƒ‹ƒ^[•t‚«“]‘—‚ğs‚¤
 extern DXLIBAPI	int			GraphFilterRectBlt(  int SrcGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int DestX,  int DestY,                          int FilterType /* DX_GRAPH_FILTER_GAUSS “™ */ , ... ) ;		// ‰æ‘œ‚ÌƒtƒBƒ‹ƒ^[•t‚«“]‘—‚ğs‚¤( ‹éŒ`w’è )
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_MONO, int Cb = ÂF·( -255 ` 255 ), int Cr = ÔF·( -255 ` 255 ) ) ;
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_GAUSS, int PixelWidth = g—pƒsƒNƒZƒ‹•( 8 , 16 , 32 ‚Ì‰½‚ê‚© ), int Param = ‚Ú‚©‚µƒpƒ‰ƒ[ƒ^( 100 ‚Å–ñ1ƒsƒNƒZƒ‹•ª‚Ì• ) ) ;
-//		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_DOWN_SCALE, int DivNum = Œ³‚ÌƒTƒCƒY‚Ì‰½•ª‚Ì‚P‚©A‚Æ‚¢‚¤’l( 2 , 4 , 8 ‚Ì‰½‚ê‚© ) ) ;
+//		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_DOWN_SCALE, int DivNum = Œ³‚ÌƒTƒCƒY‚Ì‰½•ª‚Ì‚P‚©A‚Æ‚¢‚¤’l( 1 , 2 , 4 , 8 ‚Ì‰½‚ê‚© ) ) ;
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_BRIGHT_CLIP, int CmpType = ƒNƒŠƒbƒvƒ^ƒCƒv( DX_CMP_LESS:CmpParamˆÈ‰º‚ğƒNƒŠƒbƒv  –”‚Í  DX_CMP_GREATER:CmpParamˆÈã‚ğƒNƒŠƒbƒv ), int CmpParam = ƒNƒŠƒbƒvƒpƒ‰ƒ[ƒ^( 0 ` 255 ), int ClipFillFlag = ƒNƒŠƒbƒv‚µ‚½ƒsƒNƒZƒ‹‚ğ“h‚è‚Â‚Ô‚·‚©‚Ç‚¤‚©( TRUE:“h‚è‚Â‚Ô‚·  FALSE:“h‚è‚Â‚Ô‚³‚È‚¢ ), unsigned int ClipFillColor = ƒNƒŠƒbƒv‚µ‚½ƒsƒNƒZƒ‹‚É“h‚éF’l( GetColor ‚Åæ“¾‚·‚é )( ClipFillFlag ‚ª FALSE ‚Ìê‡‚Íg—p‚µ‚È‚¢ ), int ClipFillAlpha = ƒNƒŠƒbƒv‚µ‚½ƒsƒNƒZƒ‹‚É“h‚éƒ¿’l( 0 ` 255 )( ClipFillFlag ‚ª FALSE ‚Ìê‡‚Íg—p‚µ‚È‚¢ ) ) ;
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_BRIGHT_SCALE, int MinBright = •ÏŠ·Œã‚É^‚ÁˆÃ‚É‚È‚é–¾‚é‚³( 0 ` 255 ), int MaxBright = •ÏŠ·Œã‚É^‚Á”’‚É‚È‚é–¾‚é‚³( 0 ` 255 ) ) ;
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_HSB, int HueType = Hue ‚ÌˆÓ–¡( 0:‘Š‘Î’l  1:â‘Î’l ), int Hue = F‘Šƒpƒ‰ƒ[ƒ^( HueType ‚ª 0 ‚Ìê‡ = ƒsƒNƒZƒ‹‚ÌF‘Š‚É‘Î‚·‚é‘Š‘Î’l( -180 ` 180 )   HueType ‚ª 1 ‚Ìê‡ = F‘Š‚Ìâ‘Î’l( 0 ` 360 ) ), int Saturation = Ê“x( -255 ` ), int Bright = ‹P“x( -255 ` 255 ) ) ;
@@ -3267,27 +3400,46 @@ extern DXLIBAPI	int			GraphFilterRectBlt(  int SrcGrHandle, int DestGrHandle, in
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_SSAO, int ColorWithDepthGrHandle = Zƒoƒbƒtƒ@‚ªŠÜ‚Ü‚ê‚éƒJƒ‰[ƒoƒbƒtƒ@, float KernelRadius = Õ•Á•¨‚ğ’²‚×‚é”ÍˆÍ, float MinDistance = Õ•Á•¨”»’è‚·‚éÅ¬[“x’l, float MaxDistance = Õ•Á•¨”»’è‚·‚éÅ‘å[“x’l, float Strength = Õ•Á•¨‚Ì‰e‹¿‚Ì‹­‚³, int OcclusionColor = ƒIƒNƒŠƒ…[ƒWƒ‡ƒ“ƒJƒ‰[, float OcclusionPower = ƒIƒNƒŠƒ…[ƒWƒ‡ƒ“ƒJƒ‰[‚Ì‹­‚³ ) ;
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_FLOAT_COLOR_SCALE, float ColorScaleR = Ô¬•ª‚Ö‚ÌƒXƒP[ƒŠƒ“ƒO’l, float ColorScaleG = —Î¬•ª‚Ö‚ÌƒXƒP[ƒŠƒ“ƒO’l, float ColorScaleB = Â¬•ª‚Ö‚ÌƒXƒP[ƒŠƒ“ƒO’l, float ColorScaleA = ƒ¿¬•ª‚Ö‚ÌƒXƒP[ƒŠƒ“ƒO’l, float ColorPreSubR = Ô¬•ª‚ÉƒXƒP[ƒŠƒ“ƒO‚ğŠ|‚¯‚é‘O‚ÉŒ¸Z‚·‚é’l, float ColorPreSubG = —Î¬•ª‚ÉƒXƒP[ƒŠƒ“ƒO‚ğŠ|‚¯‚é‘O‚ÉŒ¸Z‚·‚é’l, float ColorPreSubB = Â¬•ª‚ÉƒXƒP[ƒŠƒ“ƒO‚ğŠ|‚¯‚é‘O‚ÉŒ¸Z‚·‚é’l, float ColorPreSubA = ƒ¿¬•ª‚ÉƒXƒP[ƒŠƒ“ƒO‚ğŠ|‚¯‚é‘O‚ÉŒ¸Z‚·‚é’l ) ;
 
-extern DXLIBAPI	int			GraphBlend(         int    GrHandle, int BlendGrHandle,                                                                                                              int BlendRatio /* ƒuƒŒƒ“ƒhŒø‰Ê‚Ì‰e‹¿“x( 0:‚O“  255:‚P‚O‚O“ ) */ , int BlendType /* DX_GRAPH_BLEND_ADD “™ */ , ... ) ;	// “ñ‚Â‚Ì‰æ‘œ‚ğƒuƒŒƒ“ƒh‚·‚é
-extern DXLIBAPI	int			GraphBlendBlt(      int SrcGrHandle, int BlendGrHandle, int DestGrHandle,                                                                                            int BlendRatio /* ƒuƒŒƒ“ƒhŒø‰Ê‚Ì‰e‹¿“x( 0:‚O“  255:‚P‚O‚O“ ) */ , int BlendType /* DX_GRAPH_BLEND_ADD “™ */ , ... ) ;	// “ñ‚Â‚Ì‰æ‘œ‚ğƒuƒŒƒ“ƒh‚µ‚ÄŒ‹‰Ê‚ğw’è‚Ì‰æ‘œ‚Éo—Í‚·‚é
-extern DXLIBAPI	int			GraphBlendRectBlt(  int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int BlendX,  int BlendY, int DestX, int DestY, int BlendRatio /* ƒuƒŒƒ“ƒhŒø‰Ê‚Ì‰e‹¿“x( 0:‚O“  255:‚P‚O‚O“ ) */ , int BlendType /* DX_GRAPH_BLEND_ADD “™ */ , ... ) ;	// “ñ‚Â‚Ì‰æ‘œ‚ğƒuƒŒƒ“ƒh‚µ‚ÄŒ‹‰Ê‚ğw’è‚Ì‰æ‘œ‚Éo—Í‚·‚é( ‹éŒ`w’è )
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_NORMAL ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_RGBA_SELECT_MIX, int SelectR = ( o—Í‚ÌÔ•ª‚Æ‚È‚é¬•ª DX_RGBA_SELECT_SRC_R “™ ), int SelectG = ( o—Í‚Ì—Î¬•ª‚Æ‚È‚é¬•ª DX_RGBA_SELECT_SRC_R “™ ), int SelectB = ( o—Í‚ÌÂ¬•ª‚Æ‚È‚é¬•ª DX_RGBA_SELECT_SRC_R “™ ), int SelectA = ( o—Í‚Ìƒ¿¬•ª‚Æ‚È‚é¬•ª DX_RGBA_SELECT_SRC_R “™ ) ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_MULTIPLE ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_DIFFERENCE ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_ADD ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_SCREEN ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_OVERLAY ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_DODGE ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_BURN ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_DARKEN ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_LIGHTEN ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_SOFTLIGHT ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_HARDLIGHT ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_EXCLUSION ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_NORMAL_ALPHACH ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_ADD_ALPHACH ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_MULTIPLE_A_ONLY ) ;
-//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_MULTIPLE_A_ONLY ) ;
+extern DXLIBAPI	int			GraphBlend(         int    GrHandle, int BlendGrHandle,                                                                                                                                         int BlendRatio /* ƒuƒŒƒ“ƒhŒø‰Ê‚Ì‰e‹¿“x( 0:‚O“  255:‚P‚O‚O“ ) */ , int BlendType /* DX_GRAPH_BLEND_ADD “™ */ , ... ) ;	// “ñ‚Â‚Ì‰æ‘œ‚ğƒuƒŒƒ“ƒh‚·‚é
+extern DXLIBAPI	int			GraphBlendBlt(      int SrcGrHandle, int BlendGrHandle, int DestGrHandle,                                                                                                                       int BlendRatio /* ƒuƒŒƒ“ƒhŒø‰Ê‚Ì‰e‹¿“x( 0:‚O“  255:‚P‚O‚O“ ) */ , int BlendType /* DX_GRAPH_BLEND_ADD “™ */ , ... ) ;	// “ñ‚Â‚Ì‰æ‘œ‚ğƒuƒŒƒ“ƒh‚µ‚ÄŒ‹‰Ê‚ğw’è‚Ì‰æ‘œ‚Éo—Í‚·‚é
+extern DXLIBAPI	int			GraphBlendRectBlt(  int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int BlendX,  int BlendY,                            int DestX, int DestY, int BlendRatio /* ƒuƒŒƒ“ƒhŒø‰Ê‚Ì‰e‹¿“x( 0:‚O“  255:‚P‚O‚O“ ) */ , int BlendType /* DX_GRAPH_BLEND_ADD “™ */ , ... ) ;	// “ñ‚Â‚Ì‰æ‘œ‚ğƒuƒŒƒ“ƒh‚µ‚ÄŒ‹‰Ê‚ğw’è‚Ì‰æ‘œ‚Éo—Í‚·‚é( ‹éŒ`w’è )
+extern DXLIBAPI	int			GraphBlendRectBlt2( int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int BlendX1, int BlendY1, int BlendX2, int BlendY2, int DestX, int DestY, int BlendRatio /* ƒuƒŒƒ“ƒhŒø‰Ê‚Ì‰e‹¿“x( 0:‚O“  255:‚P‚O‚O“ ) */ , int BlendType /* DX_GRAPH_BLEND_ADD “™ */ , ... ) ;	// “ñ‚Â‚Ì‰æ‘œ‚ğƒuƒŒƒ“ƒh‚µ‚ÄŒ‹‰Ê‚ğw’è‚Ì‰æ‘œ‚Éo—Í‚·‚é( ‹éŒ`w’èAƒuƒŒƒ“ƒh‰æ‘œ‚à‹éŒ`w’è )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_NORMAL ) ; // ’Êí
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_RGBA_SELECT_MIX, int SelectR = ( o—Í‚ÌÔ•ª‚Æ‚È‚é¬•ª DX_RGBA_SELECT_SRC_R “™ ), int SelectG = ( o—Í‚Ì—Î¬•ª‚Æ‚È‚é¬•ª DX_RGBA_SELECT_SRC_R “™ ), int SelectB = ( o—Í‚ÌÂ¬•ª‚Æ‚È‚é¬•ª DX_RGBA_SELECT_SRC_R “™ ), int SelectA = ( o—Í‚Ìƒ¿¬•ª‚Æ‚È‚é¬•ª DX_RGBA_SELECT_SRC_R “™ ) ) ;	// RGBA‚Ì—v‘f‚ğ‘I‘ğ‚µ‚Ä‡¬
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_MULTIPLE ) ;	// æZ
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_DIFFERENCE ) ;	// Œ¸Z
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_ADD ) ;		  	// ‰ÁZ
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_SCREEN ) ;	// ƒXƒNƒŠ[ƒ“
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_OVERLAY ) ;	// ƒI[ƒo[ƒŒƒC
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_DODGE ) ;	// •¢‚¢Ä‚«
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_BURN ) ;	// Ä‚«‚İ
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_DARKEN ) ;	// ”äŠr(ˆÃ)
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_LIGHTEN ) ;	// ”äŠr(–¾)
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_SOFTLIGHT ) ;	// ƒ\ƒtƒgƒ‰ƒCƒg
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_HARDLIGHT ) ;	// ƒn[ƒhƒ‰ƒCƒg
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_EXCLUSION ) ;	// œŠO
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_NORMAL_ALPHACH ) ;	// ƒ¿ƒ`ƒƒƒ“ƒlƒ‹•t‚«‰æ‘œ‚Ì’Êí‡¬
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_ADD_ALPHACH ) ;	// ƒ¿ƒ`ƒƒƒ“ƒlƒ‹•t‚«‰æ‘œ‚Ì‰ÁZ‡¬
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_MULTIPLE_A_ONLY ) ;	// ƒAƒ‹ƒtƒ@ƒ`ƒƒƒ“ƒlƒ‹‚Ì‚İ‚ÌæZ
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_MASK ) ;	// ƒ}ƒXƒN( SrcGrHandle ‚É BlendGrHandle ‚ğ’Êí•`‰æ‚µ‚½ã‚ÅASrcGrHandle ‚Ì A ‚ğ—Dæ )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_NORMAL ) ; // ’Êí( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_RGBA_SELECT_MIX ) ; // RGBA‚Ì—v‘f‚ğ‘I‘ğ‚µ‚Ä‡¬( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_MULTIPLE ) ; // æZ( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_DIFFERENCE ) ; // Œ¸Z( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_ADD ) ; // ‰ÁZ( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_SCREEN ) ; // ƒXƒNƒŠ[ƒ“( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_OVERLAY ) ; // ƒI[ƒo[ƒŒƒC( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_DODGE ) ; // •¢‚¢Ä‚«( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_BURN ) ; // Ä‚«‚İ( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_DARKEN ) ; // ”äŠr(ˆÃ)( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_LIGHTEN ) ; // ”äŠr(–¾)( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_SOFTLIGHT ) ; // ƒ\ƒtƒgƒ‰ƒCƒg( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_HARDLIGHT ) ; // ƒn[ƒhƒ‰ƒCƒg( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_EXCLUSION ) ; // œŠO( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_NORMAL_ALPHACH ) ; // ƒ¿ƒ`ƒƒƒ“ƒlƒ‹•t‚«‰æ‘œ‚Ì’Êí‡¬( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_ADD_ALPHACH ) ; // ƒ¿ƒ`ƒƒƒ“ƒlƒ‹•t‚«‰æ‘œ‚Ì‰ÁZ‡¬( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_MULTIPLE_A_ONLY ) ;	// ƒAƒ‹ƒtƒ@ƒ`ƒƒƒ“ƒlƒ‹‚Ì‚İ‚ÌæZ( æZÏ‚İƒ¿‰æ‘œ—p )
+//		int			GraphBlend( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType = DX_GRAPH_BLEND_PMA_MASK ) ;	// ƒ}ƒXƒN( DX_GRAPH_BLEND_MASK ‚Ì æZÏ‚İƒ¿‰æ‘œ—p )
 #endif // DX_NON_FILTER
 
 #ifndef DX_NON_MOVIE
@@ -3304,9 +3456,11 @@ extern DXLIBAPI 	int			PauseMovieToGraph(					int GraphHandle, int SysPause DEFA
 extern DXLIBAPI	int			AddMovieFrameToGraph(				int GraphHandle, unsigned int FrameNum ) ;									// “®‰æƒtƒ@ƒCƒ‹‚ÌÄ¶ƒtƒŒ[ƒ€‚ği‚ß‚éA–ß‚·‚±‚Æ‚Ío—ˆ‚È‚¢( “®‰æƒtƒ@ƒCƒ‹‚ª’â~ó‘Ô‚ÅAŠ‚Â Ogg Theora ‚Ì‚İ—LŒø )
 extern DXLIBAPI	int			SeekMovieToGraph(					int GraphHandle, int Time ) ;												// “®‰æƒtƒ@ƒCƒ‹‚ÌÄ¶ˆÊ’u‚ğİ’è‚·‚é(ƒ~ƒŠ•b’PˆÊ)
 extern DXLIBAPI	int			SetPlaySpeedRateMovieToGraph(		int GraphHandle, double SpeedRate ) ;										// “®‰æƒtƒ@ƒCƒ‹‚ÌÄ¶‘¬“x‚ğİ’è‚·‚é( 1.0 = “™”{‘¬  2.0 = ‚Q”{‘¬ )Aˆê•”‚Ìƒtƒ@ƒCƒ‹ƒtƒH[ƒ}ƒbƒg‚Ì‚İ‚Å—LŒø‚È‹@”\‚Å‚·
-extern DXLIBAPI int			GetMovieStateToGraph(				int GraphHandle ) ;															// “®‰æƒtƒ@ƒCƒ‹‚ÌÄ¶ó‘Ô‚ğ“¾‚é
+extern DXLIBAPI 	int			GetMovieStateToGraph(				int GraphHandle ) ;															// “®‰æƒtƒ@ƒCƒ‹‚ÌÄ¶ó‘Ô‚ğ“¾‚é
 extern DXLIBAPI	int			SetMovieVolumeToGraph(				int Volume, int GraphHandle ) ;												// “®‰æƒtƒ@ƒCƒ‹‚Ì‰¹—Ê‚ğİ’è‚·‚é(0`10000)
+extern DXLIBAPI	int			GetMovieVolumeToGraph(				            int GraphHandle ) ;												// “®‰æƒtƒ@ƒCƒ‹‚Ì‰¹—Ê‚ğæ“¾‚·‚é(0`10000)
 extern DXLIBAPI	int			ChangeMovieVolumeToGraph(			int Volume, int GraphHandle ) ;												// “®‰æƒtƒ@ƒCƒ‹‚Ì‰¹—Ê‚ğİ’è‚·‚é(0`255)
+extern DXLIBAPI	int			GetMovieVolumeToGraph2(				            int GraphHandle ) ;												// “®‰æƒtƒ@ƒCƒ‹‚Ì‰¹—Ê‚ğæ“¾‚·‚é(0`255)
 extern DXLIBAPI	const BASEIMAGE* GetMovieBaseImageToGraph(		int GraphHandle, int *ImageUpdateFlag DEFAULTPARAM( = NULL ) , int ImageUpdateFlagSetOnly DEFAULTPARAM( = FALSE ) ) ;	// “®‰æƒtƒ@ƒCƒ‹‚ÌŠî–{ƒCƒ[ƒWƒf[ƒ^‚ğæ“¾‚·‚é( ImageUpdateFlag ‚É int Œ^•Ï”‚ÌƒAƒhƒŒƒX‚ğ“n‚·‚ÆAƒCƒ[ƒW‚ªXV‚³‚ê‚½ê‡‚Í 1 ‚ªAXV‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í 0 ‚ªŠi”[‚³‚ê‚Ü‚·A ImageUpdateFlagSetOnly ‚ğ TRUE ‚É‚·‚é‚Æ–ß‚è’l‚Ì BASEIMAGE ‚Í—LŒø‚È‰æ‘œƒf[ƒ^‚Å‚Í‚È‚­‚È‚è‚Ü‚·‚ªABASEIMAGE ‚ÌXVˆ—‚ªs‚í‚ê‚Ü‚¹‚ñ‚Ì‚ÅAImageUpdateFlag ‚ğ—˜—p‚µ‚Ä‰æ‘œ‚ªXV‚³‚ê‚½‚©‚Ç‚¤‚©‚¾‚¯‚ğƒ`ƒFƒbƒN‚µ‚½‚¢ê‡‚Í TRUE ‚É‚µ‚Ä‚­‚¾‚³‚¢ )
 extern DXLIBAPI	int			GetMovieTotalFrameToGraph(			int GraphHandle ) ;															// “®‰æƒtƒ@ƒCƒ‹‚Ì‘ƒtƒŒ[ƒ€”‚ğ“¾‚é( Ogg Theora ‚Æ mp4 ‚Å‚Ì‚İ—LŒø )
 extern DXLIBAPI	int			TellMovieToGraph(					int GraphHandle ) ;															// “®‰æƒtƒ@ƒCƒ‹‚ÌÄ¶ˆÊ’u‚ğæ“¾‚·‚é(ƒ~ƒŠ•b’PˆÊ)
@@ -3314,6 +3468,7 @@ extern DXLIBAPI	int			TellMovieToGraphToFrame(			int GraphHandle ) ;												
 extern DXLIBAPI	int			SeekMovieToGraphToFrame(			int GraphHandle, int Frame ) ;												// “®‰æƒtƒ@ƒCƒ‹‚ÌÄ¶ˆÊ’u‚ğİ’è‚·‚é(ƒtƒŒ[ƒ€’PˆÊ)
 extern DXLIBAPI	LONGLONG	GetOneFrameTimeMovieToGraph(		int GraphHandle ) ;															// “®‰æƒtƒ@ƒCƒ‹‚Ì‚PƒtƒŒ[ƒ€‚ ‚½‚è‚ÌŠÔ‚ğæ“¾‚·‚é(–ß‚è’lF‚PƒtƒŒ[ƒ€‚ÌŠÔ(’PˆÊ:ƒ}ƒCƒNƒ•b))
 extern DXLIBAPI	int			GetLastUpdateTimeMovieToGraph(		int GraphHandle ) ;															// “®‰æƒtƒ@ƒCƒ‹‚ÌƒCƒ[ƒW‚ğÅŒã‚ÉXV‚µ‚½ŠÔ‚ğ“¾‚é(ƒ~ƒŠ•b’PˆÊ)
+extern DXLIBAPI	int			UpdateMovieToGraph(					int GraphHandle ) ;															// “®‰æƒtƒ@ƒCƒ‹‚ÌXVˆ—‚ğs‚¤
 extern DXLIBAPI	int			SetMovieRightImageAlphaFlag(		int Flag ) ;																// “Ç‚İ‚Ş“®‰æƒtƒ@ƒCƒ‹‰f‘œ‚Ì‰E”¼•ª‚ÌÔ¬•ª‚ğƒ¿î•ñ‚Æ‚µ‚Äˆµ‚¤‚©‚Ç‚¤‚©‚ğƒZƒbƒg‚·‚é( TRUE:ƒ¿î•ñ‚Æ‚µ‚Äˆµ‚¤  FALSE:ƒ¿î•ñ‚Æ‚µ‚Äˆµ‚í‚È‚¢( ƒfƒtƒHƒ‹ƒg ) )
 extern DXLIBAPI	int			SetMovieColorA8R8G8B8Flag(			int Flag ) ;																// “Ç‚İ‚Ş“®‰æƒtƒ@ƒCƒ‹‚ª32bitƒJƒ‰[‚¾‚Á‚½ê‡AA8R8G8B8 Œ`®‚Æ‚µ‚Äˆµ‚¤‚©‚Ç‚¤‚©‚ğƒZƒbƒg‚·‚éA32bitƒJƒ‰[‚Å‚Í‚È‚¢“®‰æƒtƒ@ƒCƒ‹‚É‘Î‚µ‚Ä‚Í–³Œø( Flag  TRUE:A8R8G8B8‚Æ‚µ‚Äˆµ‚¤  FALSE:X8R8G8B8‚Æ‚µ‚Äˆµ‚¤( ƒfƒtƒHƒ‹ƒg ) )
 extern DXLIBAPI	int			SetMovieUseYUVFormatSurfaceFlag(	int Flag ) ;																// ‚x‚t‚uƒtƒH[ƒ}ƒbƒg‚ÌƒT[ƒtƒFƒX‚ªg—p‚Å‚«‚éê‡‚Í‚x‚t‚uƒtƒH[ƒ}ƒbƒg‚ÌƒT[ƒtƒFƒX‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:g—p‚·‚é( ƒfƒtƒHƒ‹ƒg ) FALSE:‚q‚f‚aƒtƒH[ƒ}ƒbƒg‚ÌƒT[ƒtƒFƒX‚ğg—p‚·‚é )
@@ -3403,6 +3558,7 @@ extern DXLIBAPI	int			SetMaterialUseVertSpcColor( int UseFlag ) ;															
 extern DXLIBAPI	int			SetMaterialParam(			MATERIALPARAM Material ) ;														// ‚R‚c•`‰æ‚Ìƒ‰ƒCƒeƒBƒ“ƒOŒvZ‚Åg—p‚·‚éƒ}ƒeƒŠƒAƒ‹ƒpƒ‰ƒ[ƒ^‚ğİ’è‚·‚é
 extern DXLIBAPI	int			SetUseSpecular(				int UseFlag ) ;																	// ‚R‚c•`‰æ‚ÉƒXƒyƒLƒ…ƒ‰‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é
 extern DXLIBAPI	int			SetGlobalAmbientLight(		COLOR_F Color ) ;																// ƒOƒ[ƒoƒ‹ƒAƒ“ƒrƒGƒ“ƒgƒ‰ƒCƒgƒJƒ‰[‚ğİ’è‚·‚é
+extern DXLIBAPI	int			SetUseLightAngleAttenuation( int UseFlag ) ;																// ‚R‚c•`‰æ‚Ìƒ‰ƒCƒeƒBƒ“ƒOŒvZ‚ÅŠp“xŒ¸Š‚ğs‚¤‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:Šp“xŒ¸Š‚ğs‚¤( ƒfƒtƒHƒ‹ƒg )  FALSE:Šp“xŒ¸Š‚ğs‚í‚È‚¢ )
 
 extern DXLIBAPI	int			ChangeLightTypeDir(			VECTOR Direction ) ;															// ƒfƒtƒHƒ‹ƒgƒ‰ƒCƒg‚Ìƒ^ƒCƒv‚ğƒfƒBƒŒƒNƒVƒ‡ƒiƒ‹ƒ‰ƒCƒg‚É‚·‚é
 extern DXLIBAPI	int			ChangeLightTypeSpot(		VECTOR Position, VECTOR Direction, float OutAngle, float InAngle, float Range, float Atten0, float Atten1, float Atten2 ) ;	// ƒfƒtƒHƒ‹ƒgƒ‰ƒCƒg‚Ìƒ^ƒCƒv‚ğƒXƒ|ƒbƒgƒ‰ƒCƒg‚É‚·‚é
@@ -3559,6 +3715,7 @@ extern DXLIBAPI	int			SubSubstitutionFontToHandle(			int FontHandle, int Substit
 
 extern DXLIBAPI	int			ChangeFont(                             const TCHAR *FontName,                        int CharSet DEFAULTPARAM( = -1 ) /* DX_CHARSET_SHFTJIS “™ */ ) ;	// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚Åg—p‚·‚éƒtƒHƒ“ƒg‚ğ•ÏX
 extern DXLIBAPI	int			ChangeFontWithStrLen(                   const TCHAR *FontName, size_t FontNameLength, int CharSet DEFAULTPARAM( = -1 ) /* DX_CHARSET_SHFTJIS “™ */ ) ;	// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚Åg—p‚·‚éƒtƒHƒ“ƒg‚ğ•ÏX
+extern DXLIBAPI	int			ChangeFontFromHandle(					int FontHandle ) ;																				// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚Æ‚µ‚Äg—p‚·‚éƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğ•ÏX‚·‚é
 extern DXLIBAPI	int			ChangeFontType(                         int FontType ) ;																				// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ÌƒtƒHƒ“ƒgƒ^ƒCƒv‚Ì•ÏX
 extern DXLIBAPI	const TCHAR *GetFontName(							void ) ;																						// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ÌƒtƒHƒ“ƒg–¼‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			SetFontSize(                            int FontSize ) ;																				// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ÌƒTƒCƒY‚ğİ’è‚·‚é
@@ -3645,6 +3802,10 @@ extern DXLIBAPI	int			SetFontCacheUsePremulAlphaFlag(         int Flag ) ;						
 extern DXLIBAPI	int			GetFontCacheUsePremulAlphaFlag(         void ) ;																						// ƒtƒHƒ“ƒgƒLƒƒƒbƒVƒ…‚Æ‚µ‚Ä•Û‘¶‚·‚é‰æ‘œ‚ÌŒ`®‚ğæZÏ‚İƒ¿ƒ`ƒƒƒ“ƒlƒ‹•t‚«‰æ‘œ‚É‚·‚é‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			SetFontUseAdjustSizeFlag(               int Flag ) ;																					// ƒtƒHƒ“ƒg‚ÌƒTƒCƒY‚ğ•â³‚·‚éˆ—‚ğs‚¤‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( Flag  TRUE:s‚¤( ƒfƒtƒHƒ‹ƒg )  FALSE:s‚í‚È‚¢ )
 extern DXLIBAPI	int			GetFontUseAdjustSizeFlag(               void ) ;																						// ƒtƒHƒ“ƒg‚ÌƒTƒCƒY‚ğ•â³‚·‚éˆ—‚ğs‚¤‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é
+extern DXLIBAPI	int			SetFontOnlyDrawType(					int OnlyType ) ;																				// ƒtƒHƒ“ƒg‚Ì•`‰æ‚Å‰‚Ì‚İA–”‚Í–{‘Ì‚Ì‚İ•`‰æ‚ğs‚¤‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( OnlyType  0:’Êí•`‰æ 1:–{‘Ì‚Ì‚İ•`‰æ 2:‰‚Ì‚İ•`‰æ )
+extern DXLIBAPI	int			GetFontOnlyDrawType(					void ) ;																						// ƒtƒHƒ“ƒg‚Ì•`‰æ‚Å‰‚Ì‚İA–”‚Í–{‘Ì‚Ì‚İ•`‰æ‚ğs‚¤‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é( –ß‚è’l  0:’Êí•`‰æ 1:–{‘Ì‚Ì‚İ•`‰æ 2:‰‚Ì‚İ•`‰æ )
+extern DXLIBAPI	int			SetFontIgnoreLFFlag(					int Flag ) ;																					// DrawString ‚È‚Ç‚Å \n ‚ğ–³‹‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE : –³‹‚·‚é    FALSE : –³‹‚µ‚È‚¢( ƒfƒtƒHƒ‹ƒg ) )
+extern DXLIBAPI	int			GetFontIgnoreLFFlag(					void ) ;																						// DrawString ‚È‚Ç‚Å \n ‚ğ–³‹‚·‚é‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é( TRUE : –³‹‚·‚é    FALSE : –³‹‚µ‚È‚¢( ƒfƒtƒHƒ‹ƒg ) )
 
 
 // FontCacheStringDraw ‚Ì‘ã‚í‚è‚É DrawString ‚ğg‚Á‚Ä‚­‚¾‚³‚¢
@@ -3662,14 +3823,18 @@ extern DXLIBAPI	int			DrawString(                             int x, int y,     
 extern DXLIBAPI	int			DrawNString(                            int x, int y,                                              const TCHAR *String, size_t StringLength, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;							// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawVString(                            int x, int y,                                              const TCHAR *String,                      unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;							// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )
 extern DXLIBAPI	int			DrawNVString(                           int x, int y,                                              const TCHAR *String, size_t StringLength, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;							// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )
-extern DXLIBAPI	int			DrawFormatString(                       int x, int y,                                 unsigned int Color, const TCHAR *FormatString, ... ) ;																			// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawFormatVString(                      int x, int y,                                 unsigned int Color, const TCHAR *FormatString, ... ) ;																			// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawFormatString(                       int x, int y,                                 unsigned int Color,                         const TCHAR *FormatString, ... ) ;																	// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawFormatVString(                      int x, int y,                                 unsigned int Color,                         const TCHAR *FormatString, ... ) ;																	// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawFormatString2(                      int x, int y,                                 unsigned int Color, unsigned int EdgeColor, const TCHAR *FormatString, ... ) ;																	// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )
+extern DXLIBAPI	int			DrawFormatVString2(                     int x, int y,                                 unsigned int Color, unsigned int EdgeColor, const TCHAR *FormatString, ... ) ;																	// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( c‘‚« )
 extern DXLIBAPI	int			DrawExtendString(                       int x, int y, double ExRateX, double ExRateY,              const TCHAR *String,                      unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;							// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ÌŠg‘å•`‰æ
 extern DXLIBAPI	int			DrawExtendNString(                      int x, int y, double ExRateX, double ExRateY,              const TCHAR *String, size_t StringLength, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;							// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ÌŠg‘å•`‰æ
 extern DXLIBAPI	int			DrawExtendVString(                      int x, int y, double ExRateX, double ExRateY,              const TCHAR *String,                      unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;							// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ÌŠg‘å•`‰æ( c‘‚« )
 extern DXLIBAPI	int			DrawExtendNVString(                     int x, int y, double ExRateX, double ExRateY,              const TCHAR *String, size_t StringLength, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;							// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ÌŠg‘å•`‰æ( c‘‚« )
-extern DXLIBAPI	int			DrawExtendFormatString(                 int x, int y, double ExRateX, double ExRateY, unsigned int Color, const TCHAR *FormatString, ... ) ;																			// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawExtendFormatVString(                int x, int y, double ExRateX, double ExRateY, unsigned int Color, const TCHAR *FormatString, ... ) ;																			// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawExtendFormatString(                 int x, int y, double ExRateX, double ExRateY, unsigned int Color,                         const TCHAR *FormatString, ... ) ;																	// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawExtendFormatVString(                int x, int y, double ExRateX, double ExRateY, unsigned int Color,                         const TCHAR *FormatString, ... ) ;																	// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawExtendFormatString2(                int x, int y, double ExRateX, double ExRateY, unsigned int Color, unsigned int EdgeColor, const TCHAR *FormatString, ... ) ;																	// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )
+extern DXLIBAPI	int			DrawExtendFormatVString2(               int x, int y, double ExRateX, double ExRateY, unsigned int Color, unsigned int EdgeColor, const TCHAR *FormatString, ... ) ;																	// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( c‘‚« )
 extern DXLIBAPI	int			DrawRotaString(							int x, int y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) , const TCHAR *String       DEFAULTPARAM( = NULL )                           ) ;		// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawRotaNString(						int x, int y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) , const TCHAR *String       DEFAULTPARAM( = NULL ) , size_t StringLength DEFAULTPARAM( = 0 ) ) ;		// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawRotaFormatString(					int x, int y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) , const TCHAR *FormatString DEFAULTPARAM( = NULL ) , ...                     ) ;		// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é
@@ -3681,14 +3846,18 @@ extern DXLIBAPI	int			DrawStringF(                            float x, float y, 
 extern DXLIBAPI	int			DrawNStringF(                           float x, float y,                                              const TCHAR *String, size_t StringLength, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;						// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawVStringF(                           float x, float y,                                              const TCHAR *String,                      unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;						// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawNVStringF(                          float x, float y,                                              const TCHAR *String, size_t StringLength, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;						// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawFormatStringF(                      float x, float y,                                 unsigned int Color, const TCHAR *FormatString, ... ) ;																		// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawFormatVStringF(                     float x, float y,                                 unsigned int Color, const TCHAR *FormatString, ... ) ;																		// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawFormatStringF(                      float x, float y,                                 unsigned int Color,                         const TCHAR *FormatString, ... ) ;																// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawFormatVStringF(                     float x, float y,                                 unsigned int Color,                         const TCHAR *FormatString, ... ) ;																// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawFormatString2F(                     float x, float y,                                 unsigned int Color, unsigned int EdgeColor, const TCHAR *FormatString, ... ) ;																// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawFormatVString2F(                    float x, float y,                                 unsigned int Color, unsigned int EdgeColor, const TCHAR *FormatString, ... ) ;																// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( c‘‚« )( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawExtendStringF(                      float x, float y, double ExRateX, double ExRateY,              const TCHAR *String,                      unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;						// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ÌŠg‘å•`‰æ( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawExtendNStringF(                     float x, float y, double ExRateX, double ExRateY,              const TCHAR *String, size_t StringLength, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;						// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ÌŠg‘å•`‰æ( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawExtendVStringF(                     float x, float y, double ExRateX, double ExRateY,              const TCHAR *String,                      unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;						// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ÌŠg‘å•`‰æ( c‘‚« )( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawExtendNVStringF(                    float x, float y, double ExRateX, double ExRateY,              const TCHAR *String, size_t StringLength, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;						// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ÌŠg‘å•`‰æ( c‘‚« )( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawExtendFormatStringF(                float x, float y, double ExRateX, double ExRateY, unsigned int Color, const TCHAR *FormatString, ... ) ;																		// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawExtendFormatVStringF(               float x, float y, double ExRateX, double ExRateY, unsigned int Color, const TCHAR *FormatString, ... ) ;																		// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawExtendFormatStringF(                float x, float y, double ExRateX, double ExRateY, unsigned int Color,                         const TCHAR *FormatString, ... ) ;																// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawExtendFormatVStringF(               float x, float y, double ExRateX, double ExRateY, unsigned int Color,                         const TCHAR *FormatString, ... ) ;																// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawExtendFormatString2F(               float x, float y, double ExRateX, double ExRateY, unsigned int Color, unsigned int EdgeColor, const TCHAR *FormatString, ... ) ;																// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawExtendFormatVString2F(              float x, float y, double ExRateX, double ExRateY, unsigned int Color, unsigned int EdgeColor, const TCHAR *FormatString, ... ) ;																// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( c‘‚« )( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawRotaStringF(						float x, float y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) , const TCHAR *String       DEFAULTPARAM( = NULL )                           ) ;		// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawRotaNStringF(						float x, float y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) , const TCHAR *String       DEFAULTPARAM( = NULL ) , size_t StringLength DEFAULTPARAM( = 0 ) ) ;		// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawRotaFormatStringF(					float x, float y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) , const TCHAR *FormatString DEFAULTPARAM( = NULL ) , ...                     ) ;		// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
@@ -3721,18 +3890,22 @@ extern DXLIBAPI	int			DrawModiNStringToZBuffer(				int x1, int y1, int x2, int y
 extern DXLIBAPI	int			DrawModiFormatStringToZBuffer(			int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4,                                      int WriteZMode /* DX_ZWRITE_MASK “™ */ , int VerticalFlag , const TCHAR *FormatString , ...                ) ;	// ƒfƒtƒHƒ‹ƒgƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‚yƒoƒbƒtƒ@‚É‘Î‚µ‚Ä‘®w’è•¶š—ñ‚ğ•ÏŒ`•`‰æ‚·‚é
 
 
-extern DXLIBAPI	int			DrawStringToHandle(                     int x, int y, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;							// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawNStringToHandle(                    int x, int y, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;							// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawVStringToHandle(                    int x, int y, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;																		// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )
-extern DXLIBAPI	int			DrawNVStringToHandle(                   int x, int y, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;																		// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )
-extern DXLIBAPI	int			DrawFormatStringToHandle(               int x, int y, unsigned int Color, int FontHandle, const TCHAR *FormatString, ... ) ;																											// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawFormatVStringToHandle(              int x, int y, unsigned int Color, int FontHandle, const TCHAR *FormatString, ... ) ;																											// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawStringToHandle(                     int x, int y, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;									// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawNStringToHandle(                    int x, int y, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;									// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawVStringToHandle(                    int x, int y, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;																				// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawNVStringToHandle(                   int x, int y, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;																				// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawFormatStringToHandle(               int x, int y, unsigned int Color,                         int FontHandle, const TCHAR *FormatString, ... ) ;																											// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawFormatVStringToHandle(              int x, int y, unsigned int Color,                         int FontHandle, const TCHAR *FormatString, ... ) ;																											// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawFormatString2ToHandle(              int x, int y, unsigned int Color, unsigned int EdgeColor, int FontHandle, const TCHAR *FormatString, ... ) ;																											// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )
+extern DXLIBAPI	int			DrawFormatVString2ToHandle(             int x, int y, unsigned int Color, unsigned int EdgeColor, int FontHandle, const TCHAR *FormatString, ... ) ;																											// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( c‘‚« )
 extern DXLIBAPI	int			DrawExtendStringToHandle(               int x, int y, double ExRateX, double ExRateY, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;	// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawExtendNStringToHandle(              int x, int y, double ExRateX, double ExRateY, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;	// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawExtendVStringToHandle(              int x, int y, double ExRateX, double ExRateY, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;										// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )
-extern DXLIBAPI	int			DrawExtendNVStringToHandle(             int x, int y, double ExRateX, double ExRateY, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;										// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )
-extern DXLIBAPI	int			DrawExtendFormatStringToHandle(         int x, int y, double ExRateX, double ExRateY, unsigned int Color, int FontHandle, const TCHAR *FormatString, ... ) ;																			// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é
-extern DXLIBAPI	int			DrawExtendFormatVStringToHandle(        int x, int y, double ExRateX, double ExRateY, unsigned int Color, int FontHandle, const TCHAR *FormatString, ... ) ;																			// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawExtendVStringToHandle(              int x, int y, double ExRateX, double ExRateY, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;												// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawExtendNVStringToHandle(             int x, int y, double ExRateX, double ExRateY, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;												// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawExtendFormatStringToHandle(         int x, int y, double ExRateX, double ExRateY, unsigned int Color,                         int FontHandle, const TCHAR *FormatString, ... ) ;																			// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é
+extern DXLIBAPI	int			DrawExtendFormatVStringToHandle(        int x, int y, double ExRateX, double ExRateY, unsigned int Color,                         int FontHandle, const TCHAR *FormatString, ... ) ;																			// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )
+extern DXLIBAPI	int			DrawExtendFormatString2ToHandle(        int x, int y, double ExRateX, double ExRateY, unsigned int Color, unsigned int EdgeColor, int FontHandle, const TCHAR *FormatString, ... ) ;																			// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )
+extern DXLIBAPI	int			DrawExtendFormatVString2ToHandle(       int x, int y, double ExRateX, double ExRateY, unsigned int Color, unsigned int EdgeColor, int FontHandle, const TCHAR *FormatString, ... ) ;																			// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( c‘‚« )
 extern DXLIBAPI	int			DrawRotaStringToHandle(					int x, int y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, int FontHandle, unsigned int EdgeColor, int VerticalFlag, const TCHAR *String                            ) ;		// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawRotaNStringToHandle(				int x, int y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, int FontHandle, unsigned int EdgeColor, int VerticalFlag, const TCHAR *String,       size_t StringLength ) ;		// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawRotaFormatStringToHandle(			int x, int y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, int FontHandle, unsigned int EdgeColor, int VerticalFlag, const TCHAR *FormatString, ...                 ) ;		// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é
@@ -3740,18 +3913,22 @@ extern DXLIBAPI	int			DrawModiStringToHandle(					int x1, int y1, int x2, int y2
 extern DXLIBAPI	int			DrawModiNStringToHandle(				int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, unsigned int Color, int FontHandle, unsigned int EdgeColor, int VerticalFlag, const TCHAR *String,       size_t StringLength ) ;	// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•ÏŒ`•`‰æ‚·‚é
 extern DXLIBAPI	int			DrawModiFormatStringToHandle(			int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, unsigned int Color, int FontHandle, unsigned int EdgeColor, int VerticalFlag, const TCHAR *FormatString, ...                 ) ;	// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•ÏŒ`•`‰æ‚·‚é
 
-extern DXLIBAPI	int			DrawStringFToHandle(                    float x, float y, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;						// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawNStringFToHandle(                   float x, float y, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;						// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawVStringFToHandle(                   float x, float y, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;																	// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawNVStringFToHandle(                  float x, float y, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;																	// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawFormatStringFToHandle(              float x, float y, unsigned int Color, int FontHandle, const TCHAR *FormatString, ... ) ;																										// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawFormatVStringFToHandle(             float x, float y, unsigned int Color, int FontHandle, const TCHAR *FormatString, ... ) ;																										// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawStringFToHandle(                    float x, float y, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;									// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawNStringFToHandle(                   float x, float y, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;									// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawVStringFToHandle(                   float x, float y, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;																				// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawNVStringFToHandle(                  float x, float y, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;																				// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawFormatStringFToHandle(              float x, float y, unsigned int Color,                         int FontHandle, const TCHAR *FormatString, ... ) ;																											// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawFormatVStringFToHandle(             float x, float y, unsigned int Color,                         int FontHandle, const TCHAR *FormatString, ... ) ;																											// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawFormatString2FToHandle(             float x, float y, unsigned int Color, unsigned int EdgeColor, int FontHandle, const TCHAR *FormatString, ... ) ;																											// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawFormatVString2FToHandle(            float x, float y, unsigned int Color, unsigned int EdgeColor, int FontHandle, const TCHAR *FormatString, ... ) ;																											// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( c‘‚« )( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawExtendStringFToHandle(              float x, float y, double ExRateX, double ExRateY, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;	// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawExtendNStringFToHandle(             float x, float y, double ExRateX, double ExRateY, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) ) ;	// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawExtendVStringFToHandle(             float x, float y, double ExRateX, double ExRateY, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;									// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawExtendNVStringFToHandle(            float x, float y, double ExRateX, double ExRateY, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;									// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawExtendFormatStringFToHandle(        float x, float y, double ExRateX, double ExRateY, unsigned int Color, int FontHandle, const TCHAR *FormatString, ... ) ;																		// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
-extern DXLIBAPI	int			DrawExtendFormatVStringFToHandle(       float x, float y, double ExRateX, double ExRateY, unsigned int Color, int FontHandle, const TCHAR *FormatString, ... ) ;																		// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawExtendVStringFToHandle(             float x, float y, double ExRateX, double ExRateY, const TCHAR *String,                      unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;												// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawExtendNVStringFToHandle(            float x, float y, double ExRateX, double ExRateY, const TCHAR *String, size_t StringLength, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) ) ;												// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawExtendFormatStringFToHandle(        float x, float y, double ExRateX, double ExRateY, unsigned int Color,                         int FontHandle, const TCHAR *FormatString, ... ) ;																			// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawExtendFormatVStringFToHandle(       float x, float y, double ExRateX, double ExRateY, unsigned int Color,                         int FontHandle, const TCHAR *FormatString, ... ) ;																			// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( c‘‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawExtendFormatString2FToHandle(       float x, float y, double ExRateX, double ExRateY, unsigned int Color, unsigned int EdgeColor, int FontHandle, const TCHAR *FormatString, ... ) ;																			// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( À•Ww’è‚ª float ”Å )
+extern DXLIBAPI	int			DrawExtendFormatVString2FToHandle(      float x, float y, double ExRateX, double ExRateY, unsigned int Color, unsigned int EdgeColor, int FontHandle, const TCHAR *FormatString, ... ) ;																			// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğŠg‘å•`‰æ‚·‚é( ‰‚ÌFˆø”•t‚« )( c‘‚« )( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawRotaStringFToHandle(				float x, float y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) , const TCHAR *String       DEFAULTPARAM( = NULL )                           ) ;		// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawRotaNStringFToHandle(				float x, float y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) , const TCHAR *String       DEFAULTPARAM( = NULL ) , size_t StringLength DEFAULTPARAM( = 0 ) ) ;		// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
 extern DXLIBAPI	int			DrawRotaFormatStringFToHandle(			float x, float y, double ExRateX, double ExRateY, double RotCenterX, double RotCenterY, double RotAngle, unsigned int Color, int FontHandle, unsigned int EdgeColor DEFAULTPARAM( = 0 ) , int VerticalFlag DEFAULTPARAM( = FALSE ) , const TCHAR *FormatString DEFAULTPARAM( = NULL ) , ...                     ) ;		// ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹‚ğg—p‚µ‚Ä‘®w’è•¶š—ñ‚ğ‰ñ“]•`‰æ‚·‚é( À•Ww’è‚ª float ”Å )
@@ -4423,6 +4600,9 @@ extern DXLIBAPI	int			SetUseFastLoadFlag(              int Flag ) ;													
 extern DXLIBAPI	int			SetGraphDataShavedMode(          int ShavedMode /* DX_SHAVEDMODE_NONE “™ */ ) ;						// ‰æ‘œŒ¸F‚Ì‰æ‘œ—ò‰»ŠÉ˜aˆ—ƒ‚[ƒh‚ğİ’è‚·‚é( ƒfƒtƒHƒ‹ƒg‚Å‚ÍŠÉ˜aˆ—–³‚µ‚Ì DX_SHAVEDMODE_NONE )
 extern DXLIBAPI	int			GetGraphDataShavedMode(          void ) ;															// ‰æ‘œŒ¸F‚Ì‰æ‘œ—ò‰»ŠÉ˜aˆ—ƒ‚[ƒh‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			SetUsePremulAlphaConvertLoad(    int UseFlag ) ;													// ‰æ‘œƒtƒ@ƒCƒ‹“Ç‚İ‚İ‚ÉæZÏ‚İƒAƒ‹ƒtƒ@‰æ‘œ‚É•ÏŠ·‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:•ÏŠ·ˆ—‚ğs‚¤  FALSE:•ÏŠ·ˆ—‚ğs‚í‚È‚¢( ƒfƒtƒHƒ‹ƒg ) )
+extern DXLIBAPI	int			GetUsePremulAlphaConvertLoad(    void ) ;															// ‰æ‘œƒtƒ@ƒCƒ‹“Ç‚İ‚İ‚ÉæZÏ‚İƒAƒ‹ƒtƒ@‰æ‘œ‚É•ÏŠ·‚·‚é‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é( TRUE:•ÏŠ·ˆ—‚ğs‚¤  FALSE:•ÏŠ·ˆ—‚ğs‚í‚È‚¢( ƒfƒtƒHƒ‹ƒg ) )
+extern DXLIBAPI	int			SetUseConvertNormalFormatLoad(   int UseFlag ) ;													// ‰æ‘œƒtƒ@ƒCƒ‹“Ç‚İ‚İ‚É DX_BASEIMAGE_FORMAT_NORMAL ˆÈŠO‚ÌŒ`®‚ÌƒCƒ[ƒW‚ğ DX_BASEIMAGE_FORMAT_NORMAL Œ`®‚ÌƒCƒ[ƒW‚É•ÏŠ·‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:•ÏŠ·ˆ—‚ğs‚¤  FALSE:•ÏŠ·ˆ—‚ğs‚È‚í‚È‚¢( ƒfƒtƒHƒ‹ƒg ) )
+extern DXLIBAPI	int			GetUseConvertNormalFormatLoad(   void ) ;															// ‰æ‘œƒtƒ@ƒCƒ‹“Ç‚İ‚İ‚É DX_BASEIMAGE_FORMAT_NORMAL ˆÈŠO‚ÌŒ`®‚ÌƒCƒ[ƒW‚ğ DX_BASEIMAGE_FORMAT_NORMAL Œ`®‚ÌƒCƒ[ƒW‚É•ÏŠ·‚·‚é‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é( TRUE:•ÏŠ·ˆ—‚ğs‚¤  FALSE:•ÏŠ·ˆ—‚ğs‚È‚í‚È‚¢( ƒfƒtƒHƒ‹ƒg ) )
 
 // Šî–{ƒCƒ[ƒWƒf[ƒ^\‘¢‘ÌŠÖŒW
 extern DXLIBAPI	int			CreateBaseImage(                 const TCHAR *FileName,                        const void *FileImage, int FileImageSize, int DataType /*=LOADIMAGE_TYPE_FILE*/ , BASEIMAGE *BaseImage,  int ReverseFlag ) ;			// ‰æ‘œƒtƒ@ƒCƒ‹á‚µ‚­‚Íƒƒ‚ƒŠã‚É“WŠJ‚³‚ê‚½‰æ‘œƒtƒ@ƒCƒ‹ƒCƒ[ƒW‚©‚çŠî–{ƒCƒ[ƒWƒf[ƒ^‚ğ\’z‚·‚é
@@ -4536,6 +4716,7 @@ extern DXLIBAPI	int				CreateARGB8ColorData(    COLORDATA *ColorDataBuf ) ;					
 extern DXLIBAPI	int				CreateRGBA8ColorData(    COLORDATA *ColorDataBuf ) ;																			// ‚q‚f‚a‚`‚WƒJƒ‰[‚ÌƒJƒ‰[ƒtƒH[ƒ}ƒbƒg‚ğ\’z‚·‚é
 extern DXLIBAPI	int				CreateABGR8ColorData(    COLORDATA *ColorDataBuf ) ;																			// ‚`‚a‚f‚q‚WƒJƒ‰[‚ÌƒJƒ‰[ƒtƒH[ƒ}ƒbƒg‚ğ\’z‚·‚é
 extern DXLIBAPI	int				CreateBGRA8ColorData(    COLORDATA *ColorDataBuf ) ;																			// ‚a‚f‚q‚`‚WƒJƒ‰[‚ÌƒJƒ‰[ƒtƒH[ƒ}ƒbƒg‚ğ\’z‚·‚é
+extern DXLIBAPI	int				CreateBGR8ColorData(     COLORDATA *ColorDataBuf ) ;																			// ‚a‚f‚q‚WƒJƒ‰[‚ÌƒJƒ‰[ƒtƒH[ƒ}ƒbƒg‚ğ\’z‚·‚é
 extern DXLIBAPI	int				CreateARGB4ColorData(    COLORDATA *ColorDataBuf ) ;																			// ‚`‚q‚f‚a‚SƒJƒ‰[‚ÌƒJƒ‰[ƒtƒH[ƒ}ƒbƒg‚ğ\’z‚·‚é
 extern DXLIBAPI	int				CreateA1R5G5B5ColorData( COLORDATA *ColorDataBuf ) ;																			// ‚`‚P‚q‚T‚f‚T‚a‚TƒJƒ‰[‚ÌƒJƒ‰[ƒtƒH[ƒ}ƒbƒg‚ğ\’z‚·‚é
 extern DXLIBAPI	int				CreateX1R5G5B5ColorData( COLORDATA *ColorDataBuf ) ;																			// ‚w‚P‚q‚T‚f‚T‚a‚TƒJƒ‰[‚ÌƒJƒ‰[ƒtƒH[ƒ}ƒbƒg‚ğ\’z‚·‚é
@@ -4677,7 +4858,7 @@ extern DXLIBAPI	int			SaveSoftImageToJpegWithStrLen(        const TCHAR *FilePat
 // DxSound.cppŠÖ”ƒvƒƒgƒ^ƒCƒvéŒ¾
 
 // ƒTƒEƒ“ƒhƒf[ƒ^ŠÇ—ŒnŠÖ”
-extern DXLIBAPI	int			InitSoundMem(                        int LogOutFlag DEFAULTPARAM( = FALSE ) ) ;																	// ‘S‚Ä‚ÌƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ğíœ‚·‚é
+extern DXLIBAPI	int			InitSoundMem(                        void ) ;																					// ‘S‚Ä‚ÌƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ğíœ‚·‚é
 
 extern DXLIBAPI	int			AddSoundData(                        int Handle DEFAULTPARAM( = -1 ) ) ;																											// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ğì¬‚·‚é
 extern DXLIBAPI	int			AddStreamSoundMem(                   STREAMDATA *Stream, int LoopNum,  int SoundHandle, int StreamDataType, int *CanStreamCloseFlag, int UnionHandle DEFAULTPARAM( = -1 ) ) ;		// ƒXƒgƒŠ[ƒ€Ä¶ƒ^ƒCƒv‚ÌƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ÉƒXƒgƒŠ[ƒ€ƒf[ƒ^‚ğÄ¶‘ÎÛ‚É’Ç‰Á‚·‚é
@@ -4687,7 +4868,7 @@ extern DXLIBAPI	int			AddStreamSoundMemToFileWithStrLen(   const TCHAR *WaveFile
 extern DXLIBAPI	int			SetupStreamSoundMem(                 int SoundHandle ) ;																		// ƒXƒgƒŠ[ƒ€Ä¶ƒ^ƒCƒv‚ÌƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ÌÄ¶€”õ‚ğ‚·‚é
 extern DXLIBAPI	int			PlayStreamSoundMem(                  int SoundHandle, int PlayType DEFAULTPARAM( = DX_PLAYTYPE_LOOP ) , int TopPositionFlag DEFAULTPARAM( = TRUE ) ) ;	// ƒXƒgƒŠ[ƒ€Ä¶ƒ^ƒCƒv‚ÌƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ÌÄ¶‚ğŠJn‚·‚é
 extern DXLIBAPI	int			CheckStreamSoundMem(                 int SoundHandle ) ;																		// ƒXƒgƒŠ[ƒ€Ä¶ƒ^ƒCƒv‚ÌƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ÌÄ¶ó‘Ô‚ğæ“¾‚·‚é
-extern DXLIBAPI	int			StopStreamSoundMem(                  int SoundHandle ) ;																		// ƒXƒgƒŠ[ƒ€Ä¶ƒ^ƒCƒv‚ÌƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ÌÄ¶‚ğ’â~‚·‚é
+extern DXLIBAPI	int			StopStreamSoundMem(                  int SoundHandle, int IsNextLoopEnd DEFAULTPARAM( = FALSE ) ) ;								// ƒXƒgƒŠ[ƒ€Ä¶ƒ^ƒCƒv‚ÌƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ÌÄ¶‚ğ’â~‚·‚é
 extern DXLIBAPI	int			SetStreamSoundCurrentPosition(       LONGLONG Byte, int SoundHandle ) ;															// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ÌÄ¶ˆÊ’u‚ğƒoƒCƒg’PˆÊ‚Å•ÏX‚·‚é(Ä¶‚ª~‚Ü‚Á‚Ä‚¢‚é‚Ì‚İ—LŒø)
 extern DXLIBAPI	LONGLONG	GetStreamSoundCurrentPosition(       int SoundHandle ) ;																		// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ÌÄ¶ˆÊ’u‚ğƒoƒCƒg’PˆÊ‚Åæ“¾‚·‚é
 extern DXLIBAPI	int			SetStreamSoundCurrentTime(           LONGLONG Time, int SoundHandle ) ;															// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ÌÄ¶ˆÊ’u‚ğƒ~ƒŠ•b’PˆÊ‚Åİ’è‚·‚é(ˆ³kŒ`®‚Ìê‡‚Í³‚µ‚­İ’è‚³‚ê‚È‚¢ê‡‚ª‚ ‚é)
@@ -4716,15 +4897,15 @@ extern DXLIBAPI	int			LoadSoundMemByMemImageToBufNumSitei( const void *FileImage
 extern DXLIBAPI	int			LoadSoundMem2ByMemImage(             const void *FileImage1, size_t FileImageSize1, const void *FileImage2, size_t FileImageSize2 ) ;	// ‘O‘t•”‚Æƒ‹[ƒv•”‚É•ª‚©‚ê‚½“ñ‚Â‚Ìƒƒ‚ƒŠã‚É“WŠJ‚³‚ê‚½ƒTƒEƒ“ƒhƒtƒ@ƒCƒ‹ƒCƒ[ƒW‚©‚çƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ğì¬‚·‚é
 extern DXLIBAPI	int			LoadSoundMemFromSoftSound(           int SoftSoundHandle, int BufferNum DEFAULTPARAM( = 3 ) ) ;											// ƒ\ƒtƒgƒEƒGƒAƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ª‚ÂƒTƒEƒ“ƒhƒf[ƒ^‚©‚çƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ğì¬‚·‚é
 
-extern DXLIBAPI	int			DeleteSoundMem(                      int SoundHandle, int LogOutFlag DEFAULTPARAM( = FALSE ) ) ;												// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ğíœ‚·‚é
+extern DXLIBAPI	int			DeleteSoundMem(                      int SoundHandle ) ;																		// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ğíœ‚·‚é
 
 extern DXLIBAPI	int			PlaySoundMem(                        int SoundHandle, int PlayType, int TopPositionFlag DEFAULTPARAM( = TRUE ) ) ;				// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ğÄ¶‚·‚é
-extern DXLIBAPI	int			StopSoundMem(                                                                        int SoundHandle ) ;						// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ÌÄ¶‚ğ’â~‚·‚é
+extern DXLIBAPI	int			StopSoundMem(                                                                        int SoundHandle, int IsNextLoopEnd DEFAULTPARAM( = FALSE ) ) ;	// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ÌÄ¶‚ğ’â~‚·‚é( IsNextLoopEnd ‚ğ TRUE ‚É‚·‚é‚ÆŸ‰ñ‚Ìƒ‹[ƒvI—¹‚Ìƒ^ƒCƒ~ƒ“ƒO‚Å‰¹‚ğ~‚ß‚é )
 extern DXLIBAPI	int			CheckSoundMem(                                                                       int SoundHandle ) ;						// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚ªÄ¶’†‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			SetPanSoundMem(                      int PanPal,                                     int SoundHandle ) ;						// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìƒpƒ“‚ğİ’è‚·‚é( 100•ª‚Ì1ƒfƒVƒxƒ‹’PˆÊ 0 ` 10000 )
 extern DXLIBAPI	int			ChangePanSoundMem(                   int PanPal,                                     int SoundHandle ) ;						// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìƒpƒ“‚ğİ’è‚·‚é( -255 ` 255 )
 extern DXLIBAPI	int			GetPanSoundMem(                                                                      int SoundHandle ) ;						// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìƒpƒ“‚ğæ“¾‚·‚é
-extern DXLIBAPI	int			SetVolumeSoundMem(                   int VolumePal,                                  int SoundHandle ) ;						// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìƒ{ƒŠƒ…[ƒ€‚ğİ’è‚·‚é( 100•ª‚Ì1ƒfƒVƒxƒ‹’PˆÊ 0 ` 10000 )
+extern DXLIBAPI	int			SetVolumeSoundMem(                   int VolumePal,                                  int SoundHandle ) ;						// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìƒ{ƒŠƒ…[ƒ€‚ğİ’è‚·‚é( 100•ª‚Ì1ƒfƒVƒxƒ‹’PˆÊ 0 ` 10000 ) 
 extern DXLIBAPI	int			ChangeVolumeSoundMem(                int VolumePal,                                  int SoundHandle ) ;						// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìƒ{ƒŠƒ…[ƒ€‚ğİ’è‚·‚é( 0 ` 255 )
 extern DXLIBAPI	int			GetVolumeSoundMem(                                                                   int SoundHandle ) ;						// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìƒ{ƒŠƒ…[ƒ€‚ğæ“¾‚·‚é( 100•ª‚Ì1ƒfƒVƒxƒ‹’PˆÊ 0 ` 10000 )
 extern DXLIBAPI	int			GetVolumeSoundMem2(                                                                  int SoundHandle ) ;						// ƒTƒEƒ“ƒhƒnƒ“ƒhƒ‹‚Ìƒ{ƒŠƒ…[ƒ€‚ğæ“¾‚·‚é( 0 ` 255 )
@@ -5013,6 +5194,8 @@ extern DXLIBAPI	int			MV1SetLoadModelAnimFilePath(						const TCHAR *FileName ) 
 extern DXLIBAPI	int			MV1SetLoadModelAnimFilePathWithStrLen(				const TCHAR *FileName, size_t FileNameLength ) ;					// “Ç‚İ‚Şƒ‚ƒfƒ‹‚É“K—p‚·‚éƒAƒjƒ[ƒVƒ‡ƒ“ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ğİ’è‚·‚éANULL‚ğ“n‚·‚Æİ’èƒŠƒZƒbƒg( Œ»İ‚Í PMD,PMX ‚Ì‚İ‚ÉŒø‰Ê‚ ‚è )
 extern DXLIBAPI	int			MV1SetLoadModelUsePackDraw(							int Flag ) ;														// “Ç‚İ‚Şƒ‚ƒfƒ‹‚ğ“¯•¡”•`‰æ‚É‘Î‰‚³‚¹‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:‘Î‰‚³‚¹‚é  FALSE:‘Î‰‚³‚¹‚È‚¢( ƒfƒtƒHƒ‹ƒg ) )A( u‘Î‰‚³‚¹‚év‚É‚·‚é‚Æ•`‰æ‚ª‚‘¬‚É‚È‚é‰Â”\«‚ª‚ ‚é‘ã‚í‚è‚ÉÁ”ïVRAM‚ª‘‚¦‚Ü‚· )
 extern DXLIBAPI	int			MV1SetLoadModelTriangleListUseMaxBoneNum(			int UseMaxBoneNum ) ;												// “Ç‚İ‚Şƒ‚ƒfƒ‹‚Ì‚Ğ‚Æ‚Â‚Ìƒgƒ‰ƒCƒAƒ“ƒOƒ‹ƒŠƒXƒg‚Åg—p‚Å‚«‚éÅ‘åƒ{[ƒ“”‚ğİ’è‚·‚é( UseMaxBoneNum ‚Åw’è‚Å‚«‚é’l‚Ì”ÍˆÍ‚Í 8 ` 54A 0 ‚ğw’è‚·‚é‚ÆƒfƒtƒHƒ‹ƒg“®ì‚É–ß‚é )
+extern DXLIBAPI	int			MV1SetLoadModelTextureLoad(							int Flag ) ;														// “Ç‚İ‚Şƒ‚ƒfƒ‹‚Åg—p‚·‚éƒeƒNƒXƒ`ƒƒƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Ş‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:“Ç‚İ‚Ş(ƒfƒtƒHƒ‹ƒg) FALSE:“Ç‚İ‚Ü‚È‚¢ )
+extern DXLIBAPI	int			MV1SetLoadModelIgnoreIK(							int IgnoreFlag ) ;													// “Ç‚İ‚Şƒ‚ƒfƒ‹‚ÌIKî•ñ‚ğ–³‹‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:–³‹‚·‚é  FALSE:–³‹‚µ‚È‚¢(ƒfƒtƒHƒ‹ƒg) )
 
 // ƒ‚ƒfƒ‹•Û‘¶ŠÖŒW
 extern DXLIBAPI	int			MV1SaveModelToMV1File(				int MHandle, const TCHAR *FileName,                        int SaveType DEFAULTPARAM( = MV1_SAVETYPE_NORMAL ) , int AnimMHandle DEFAULTPARAM( = -1 ) , int AnimNameCheck DEFAULTPARAM( = TRUE ) , int Normal8BitFlag DEFAULTPARAM( = 1 ) , int Position16BitFlag DEFAULTPARAM( = 1 ) , int Weight8BitFlag DEFAULTPARAM( = 0 ) , int Anim16BitFlag DEFAULTPARAM( = 1 ) ) ;		// w’è‚ÌƒpƒX‚Éƒ‚ƒfƒ‹‚ğ•Û‘¶‚·‚é( –ß‚è’l  0:¬Œ÷  -1:ƒƒ‚ƒŠ•s‘«  -2:g‚í‚ê‚Ä‚¢‚È‚¢ƒAƒjƒ[ƒVƒ‡ƒ“‚ª‚ ‚Á‚½ )
@@ -5096,7 +5279,9 @@ extern DXLIBAPI	float		MV1GetAttachAnimTotalTime(			int MHandle, int AttachIndex
 extern DXLIBAPI	int			MV1SetAttachAnimBlendRate(			int MHandle, int AttachIndex, float Rate DEFAULTPARAM( = 1.0f ) ) ;					// ƒAƒ^ƒbƒ`‚µ‚Ä‚¢‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒuƒŒƒ“ƒh—¦‚ğİ’è‚·‚é
 extern DXLIBAPI	float		MV1GetAttachAnimBlendRate(			int MHandle, int AttachIndex ) ;													// ƒAƒ^ƒbƒ`‚µ‚Ä‚¢‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒuƒŒƒ“ƒh—¦‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			MV1SetAttachAnimBlendRateToFrame(	int MHandle, int AttachIndex, int FrameIndex, float Rate, int SetChild DEFAULTPARAM( = TRUE ) ) ;	// ƒAƒ^ƒbƒ`‚µ‚Ä‚¢‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒuƒŒƒ“ƒh—¦‚ğİ’è‚·‚é( ƒtƒŒ[ƒ€’PˆÊ )
-extern DXLIBAPI	float		MV1GetAttachAnimBlendRateToFrame(	int MHandle, int AttachIndex, int FrameIndex ) ;									// ƒAƒ^ƒbƒ`‚µ‚Ä‚¢‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒuƒŒƒ“ƒh—¦‚ğİ’è‚·‚é( ƒtƒŒ[ƒ€’PˆÊ )
+extern DXLIBAPI	float		MV1GetAttachAnimBlendRateToFrame(	int MHandle, int AttachIndex, int FrameIndex ) ;									// ƒAƒ^ƒbƒ`‚µ‚Ä‚¢‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒuƒŒƒ“ƒh—¦‚ğæ“¾‚·‚é( ƒtƒŒ[ƒ€’PˆÊ )
+extern DXLIBAPI	int			MV1SetAttachAnimTimeToFrame(		int MHandle, int AttachIndex, int FrameIndex, float Time, int SetChild DEFAULTPARAM( = TRUE ) ) ;	// ƒAƒ^ƒbƒ`‚µ‚Ä‚¢‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶ŠÔ‚ğİ’è‚·‚é( ƒtƒŒ[ƒ€’PˆÊ )( Time ‚Éƒ}ƒCƒiƒX‚Ì’l‚ğ“n‚·‚Æİ’è‚ğ‰ğœ )
+extern DXLIBAPI	float		MV1GetAttachAnimTimeToFrame(		int MHandle, int AttachIndex, int FrameIndex ) ;									// ƒAƒ^ƒbƒ`‚µ‚Ä‚¢‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶ŠÔ‚ğæ“¾‚·‚é( ƒtƒŒ[ƒ€’PˆÊ )
 extern DXLIBAPI	int			MV1GetAttachAnim(					int MHandle, int AttachIndex ) ;													// ƒAƒ^ƒbƒ`‚µ‚Ä‚¢‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒAƒjƒ[ƒVƒ‡ƒ“ƒCƒ“ƒfƒbƒNƒX‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			MV1SetAttachAnimUseShapeFlag(		int MHandle, int AttachIndex, int UseFlag ) ;										// ƒAƒ^ƒbƒ`‚µ‚Ä‚¢‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒVƒFƒCƒv‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( UseFlag  TRUE:g—p‚·‚é( ƒfƒtƒHƒ‹ƒg )  FALSE:g—p‚µ‚È‚¢ )
 extern DXLIBAPI	int			MV1GetAttachAnimUseShapeFlag(		int MHandle, int AttachIndex ) ;													// ƒAƒ^ƒbƒ`‚µ‚Ä‚¢‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒVƒFƒCƒv‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é
@@ -5116,7 +5301,7 @@ extern DXLIBAPI	int			MV1GetAnimTargetFrame(				int MHandle, int AnimIndex, int 
 extern DXLIBAPI	int			MV1GetAnimTargetFrameKeySetNum(		int MHandle, int AnimIndex, int AnimFrameIndex ) ;									// w’è‚ÌƒAƒjƒ[ƒVƒ‡ƒ“‚ªƒ^[ƒQƒbƒg‚Æ‚·‚éƒtƒŒ[ƒ€—p‚ÌƒAƒjƒ[ƒVƒ‡ƒ“ƒL[ƒZƒbƒg‚Ì”‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			MV1GetAnimTargetFrameKeySet(		int MHandle, int AnimIndex, int AnimFrameIndex, int Index ) ;						// w’è‚ÌƒAƒjƒ[ƒVƒ‡ƒ“‚ªƒ^[ƒQƒbƒg‚Æ‚·‚éƒtƒŒ[ƒ€—p‚ÌƒAƒjƒ[ƒVƒ‡ƒ“ƒL[ƒZƒbƒgƒL[ƒZƒbƒgƒCƒ“ƒfƒbƒNƒX‚ğæ“¾‚·‚é
 
-extern DXLIBAPI	int			MV1GetAnimKeySetNum(				int MHandle ) ;																		// ƒ‚ƒfƒ‹‚ÉŠÜ‚Ü‚ê‚éƒAƒjƒ[ƒVƒ‡ƒ“ƒL[ƒZƒbƒg‚Ì‘”‚ğ“¾‚é
+extern DXLIBAPI	int			MV1GetAnimKeySetNum(				int MHandle ) ;																		// ƒ‚ƒfƒ‹‚ÉŠÜ‚Ü‚ê‚éƒAƒjƒ[ƒVƒ‡ƒ“ƒL[ƒZƒbƒg‚Ì‘”‚ğ“¾‚é 
 extern DXLIBAPI	int			MV1GetAnimKeySetType(				int MHandle, int AnimKeySetIndex ) ;												// w’è‚ÌƒAƒjƒ[ƒVƒ‡ƒ“ƒL[ƒZƒbƒg‚Ìƒ^ƒCƒv‚ğæ“¾‚·‚é( MV1_ANIMKEY_TYPE_QUATERNION “™ )
 extern DXLIBAPI	int			MV1GetAnimKeySetDataType(			int MHandle, int AnimKeySetIndex ) ;												// w’è‚ÌƒAƒjƒ[ƒVƒ‡ƒ“ƒL[ƒZƒbƒg‚Ìƒf[ƒ^ƒ^ƒCƒv‚ğæ“¾‚·‚é( MV1_ANIMKEY_DATATYPE_ROTATE “™ )
 extern DXLIBAPI	int			MV1GetAnimKeySetTimeType(			int MHandle, int AnimKeySetIndex ) ;												// w’è‚ÌƒAƒjƒ[ƒVƒ‡ƒ“ƒL[ƒZƒbƒg‚ÌƒL[‚ÌŠÔƒf[ƒ^ƒ^ƒCƒv‚ğæ“¾‚·‚é( MV1_ANIMKEY_TIME_TYPE_ONE “™ )
@@ -5401,15 +5586,23 @@ extern DXLIBAPI	int			Live2D_LoadModelWithStrLen(	const TCHAR *FilePath, size_t 
 extern DXLIBAPI	int			Live2D_DeleteModel(			int Live2DModelHandle ) ;													// Live2D ‚Ìƒ‚ƒfƒ‹‚ğíœ‚·‚é
 extern DXLIBAPI	int			Live2D_InitModel(			void ) ;																	// ‚·‚×‚Ä‚Ì Live2D ‚Ìƒ‚ƒfƒ‹‚ğíœ‚·‚é
 
+extern DXLIBAPI	int			Live2D_SetUserShader( int TargetShader /* DX_LIVE2D_SHADER_NORMAL_PIXEL “™ */ , int ShaderHandle DEFAULTPARAM( = -1 ) ) ;		// Live2D ‚Ìƒ‚ƒfƒ‹•`‰æ‚Åg—p‚·‚éƒVƒF[ƒ_[‚ğİ’è‚·‚é( ShaderHandle ‚É -1 ‚ğ“n‚·‚Æİ’è‚ğ‰ğœ )
+extern DXLIBAPI	int			Live2D_DrawCallback( void ( *Callback )( int Live2DModelHandle, int TextureIndex, void *UserData ), void *UserData ) ;			// Live2D ‚Ìƒ‚ƒfƒ‹•`‰æ‚Ì‘O‚ÉŒÄ‚Î‚ê‚éƒR[ƒ‹ƒoƒbƒNŠÖ”‚ğİ’è‚·‚é Callback ‚É NULL ‚ğ“n‚·‚Æİ’è‚ğ‰ğœ )
+extern DXLIBAPI	int			Live2D_SetUseAutoScaling( int UseFlag ) ;																// Live2D ‚Ìƒ‚ƒfƒ‹•`‰æ‚ğ‚·‚éÛ‚ÉA‰æ–ÊƒTƒCƒY‚É‰‚¶‚½ƒXƒP[ƒŠƒ“ƒO‚ğs‚¤‚©‚ğİ’è‚·‚é( UseFlag  TRUE:ƒXƒP[ƒŠƒ“ƒO‚ğs‚¤( ƒfƒtƒHƒ‹ƒg )  FALSE:ƒXƒP[ƒŠƒ“ƒO‚ğs‚í‚È‚¢ )
+extern DXLIBAPI	int			Live2D_SetUseAutoCentering( int UseFlag ) ;																// Live2D ‚Ìƒ‚ƒfƒ‹‚ğ‰æ–Ê‚Ì’†S‚É•`‰æ‚·‚é‚©‚ğİ’è‚·‚é( UseFlag   TRUE:‰æ–Ê‚Ì’†S‚É•`‰æ‚·‚é( ƒfƒtƒHƒ‹ƒg )   FALSE:‰æ–Ê‚Ì’†S‚É•`‰æ‚µ‚È‚¢ )
+extern DXLIBAPI	int			Live2D_SetUseReverseYAxis( int UseFlag ) ;																// Live2D_Model_SetTranslate ‚Åw’è‚·‚é•½sˆÚ“®’l‚Ì y ‚ÌŒü‚«‚ğ”½“]‚·‚é‚©‚ğİ’è‚·‚é( UseFlag   TRUE:”½“]‚·‚é( ƒfƒtƒHƒ‹ƒg )   FALSE:”½“]‚µ‚È‚¢ )
+
 extern DXLIBAPI	int			Live2D_Model_Update(			int Live2DModelHandle, float DeltaTimeSeconds ) ;						// Live2D ‚Ìƒ‚ƒfƒ‹‚Ìó‘Ô‚ğXV‚·‚é
 extern DXLIBAPI	int			Live2D_Model_SetTranslate(		int Live2DModelHandle, float x, float y ) ;								// Live2D ‚Ìƒ‚ƒfƒ‹‚ÌˆÊ’u‚ğİ’è‚·‚é
 extern DXLIBAPI	int			Live2D_Model_SetExtendRate(		int Live2DModelHandle, float ExRateX, float ExRateY ) ;					// Live2D ‚Ìƒ‚ƒfƒ‹‚ÌŠg‘å—¦‚ğİ’è‚·‚é
 extern DXLIBAPI	int			Live2D_Model_SetRotate(			int Live2DModelHandle, float RotAngle ) ;								// Live2D ‚Ìƒ‚ƒfƒ‹‚Ì‰ñ“]‚ğİ’è‚·‚é
 extern DXLIBAPI	int			Live2D_Model_Draw(				int Live2DModelHandle ) ;												// Live2D ‚Ìƒ‚ƒfƒ‹‚ğ•`‰æ‚·‚é
 
-extern DXLIBAPI	int			Live2D_Model_StartMotion(				int Live2DModelHandle, const TCHAR *group,						int no ) ;							// Live2D ‚Ìƒ‚ƒfƒ‹‚Ìw’è‚Ìƒ‚[ƒVƒ‡ƒ“‚ğÄ¶‚·‚é
-extern DXLIBAPI	int			Live2D_Model_StartMotionWithStrLen(		int Live2DModelHandle, const TCHAR *group, size_t groupLength,	int no ) ;							// Live2D ‚Ìƒ‚ƒfƒ‹‚Ìw’è‚Ìƒ‚[ƒVƒ‡ƒ“‚ğÄ¶‚·‚é
+extern DXLIBAPI	int			Live2D_Model_StartMotion(				int Live2DModelHandle, const TCHAR *group,						int no, float fadeInSeconds DEFAULTPARAM( = -1.0f ) , float fadeOutSeconds DEFAULTPARAM( = -1.0f ) , int isLoopFadeIn DEFAULTPARAM( = TRUE ) ) ;	// Live2D ‚Ìƒ‚ƒfƒ‹‚Ìw’è‚Ìƒ‚[ƒVƒ‡ƒ“‚ğÄ¶‚·‚é
+extern DXLIBAPI	int			Live2D_Model_StartMotionWithStrLen(		int Live2DModelHandle, const TCHAR *group, size_t groupLength,	int no, float fadeInSeconds DEFAULTPARAM( = -1.0f ) , float fadeOutSeconds DEFAULTPARAM( = -1.0f ) , int isLoopFadeIn DEFAULTPARAM( = TRUE ) ) ;	// Live2D ‚Ìƒ‚ƒfƒ‹‚Ìw’è‚Ìƒ‚[ƒVƒ‡ƒ“‚ğÄ¶‚·‚é
+extern DXLIBAPI	int			Live2D_Model_GetLastPlayMotionNo(		int Live2DModelHandle ) ;																			// Live2D ‚Ìƒ‚ƒfƒ‹‚ÅÅŒã‚ÉÄ¶‚µ‚½ƒ‚[ƒVƒ‡ƒ“‚ÌƒOƒ‹[ƒv“à‚Ì”Ô†‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			Live2D_Model_IsMotionFinished(			int Live2DModelHandle ) ;																			// Live2D ‚Ìƒ‚ƒfƒ‹‚Ìƒ‚[ƒVƒ‡ƒ“Ä¶‚ªI—¹‚µ‚Ä‚¢‚é‚©‚ğæ“¾‚·‚é( –ß‚è’l  TRUE:Ä¶‚ªI—¹‚µ‚Ä‚¢‚é  FALSE:Ä¶’† )
+extern DXLIBAPI	float		Live2D_Model_GetMotionPlayTime(			int Live2DModelHandle ) ;																			// Live2D ‚Ìƒ‚ƒfƒ‹‚Ìƒ‚[ƒVƒ‡ƒ“Ä¶ŠÔ‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			Live2D_Model_SetExpression(				int Live2DModelHandle, const TCHAR *expressionID ) ;												// Live2D ‚Ìƒ‚ƒfƒ‹‚Ìw’è‚Ì•\îƒ‚[ƒVƒ‡ƒ“‚ğİ’è‚·‚é
 extern DXLIBAPI	int			Live2D_Model_SetExpressionWithStrLen(	int Live2DModelHandle, const TCHAR *expressionID, size_t expressionIDLength ) ;						// Live2D ‚Ìƒ‚ƒfƒ‹‚Ìw’è‚Ì•\îƒ‚[ƒVƒ‡ƒ“‚ğİ’è‚·‚é
 extern DXLIBAPI	int			Live2D_Model_HitTest(					int Live2DModelHandle, const TCHAR *hitAreaName,							float x, float y ) ;	// w’è‚ÌÀ•W‚ª Live2D ‚Ìƒ‚ƒfƒ‹‚Ìw’è‚Ì“–‚½‚è”»’è‚Ì‹éŒ`”ÍˆÍ“à‚©”»’è‚·‚é( TRUE:‹éŒ`”ÍˆÍ“à  FALSE:‹éŒ`”ÍˆÍŠO )
@@ -5446,6 +5639,8 @@ extern DXLIBAPI	int			Live2D_Model_GetEyeBlinkParameterCount(				int Live2DModel
 extern DXLIBAPI	const TCHAR *Live2D_Model_GetEyeBlinkParameterId(				int Live2DModelHandle, int index ) ;													// Live2D ‚Ìƒ‚ƒfƒ‹‚Ì–Úƒpƒ`‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ƒpƒ‰ƒ[ƒ^‚ÌID‚ğæ“¾‚·‚é
 extern DXLIBAPI	int			Live2D_Model_GetLipSyncParameterCount(				int Live2DModelHandle ) ;																// Live2D ‚Ìƒ‚ƒfƒ‹‚ÌƒŠƒbƒvƒVƒ“ƒN‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ƒpƒ‰ƒ[ƒ^‚Ì”‚ğæ“¾‚·‚é
 extern DXLIBAPI	const TCHAR *Live2D_Model_GetLipSyncParameterId(				int Live2DModelHandle, int index ) ;													// Live2D ‚Ìƒ‚ƒfƒ‹‚ÌƒŠƒbƒvƒVƒ“ƒN‚ÉŠÖ˜A•t‚¯‚ç‚ê‚½ƒpƒ‰ƒ[ƒ^‚ÌID‚ğæ“¾‚·‚é
+extern DXLIBAPI	float		Live2D_Model_GetCanvasWidth(						int Live2DModelHandle ) ;																// Live2D ‚Ìƒ‚ƒfƒ‹‚ÌƒLƒƒƒ“ƒoƒX‚Ì‰¡•‚ğæ“¾‚·‚é
+extern DXLIBAPI	float		Live2D_Model_GetCanvasHeight(						int Live2DModelHandle ) ;																// Live2D ‚Ìƒ‚ƒfƒ‹‚ÌƒLƒƒƒ“ƒoƒX‚Ìc•‚ğæ“¾‚·‚é
 
 #endif // DX_NON_LIVE2D_CUBISM4
 

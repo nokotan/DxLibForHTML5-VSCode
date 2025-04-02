@@ -77,7 +77,7 @@
                 "-c", "-o", "Main.o",
 
                 // Compiler Flags
-                "-O2", "-std=c++17",
+                "-O3", "-std=c++17",
                 "-pthread", "-fwasm-exceptions",
 
                 // Include Directory
@@ -100,7 +100,7 @@
                 "-o", "index.html",
 
                 // Compiler Flags
-                "-O2", "-std=c++17",
+                "-Os", "-std=c++17",
                 "-pthread", "-fwasm-exceptions",
 
                 // Library Directory
@@ -108,7 +108,7 @@
 
                 // Dependent Libraries
                 "-sUSE_BULLET=1", "-sUSE_FREETYPE=1", 
-                "-sUSE_OGG=1", "-sUSE_VORBIS=1", "-sUSE_ZLIB=1",
+                "-sUSE_OGG=1", "-sUSE_VORBIS=1", "-sUSE_ZLIB=1", "-sDYNCALLS=1",
                 "-lDxDrawFunc", "-lDxUseCLib", "-lDxLib",
 
                 // em++ Specific Configurations

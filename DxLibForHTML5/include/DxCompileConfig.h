@@ -2,7 +2,7 @@
 //
 //		ＤＸライブラリ　コンパイルコンフィグヘッダファイル
 //
-//				Ver 3.23 
+//				Ver 3.24d
 //
 // ----------------------------------------------------------------------------
 
@@ -49,7 +49,10 @@
 #define DX_NON_MOVIE
 
 // ＢＭＰ画像の読み込み機能がいらない方は次のコメントを外してください
-// #define DX_NON_BMPREAD
+#define DX_NON_BMPREAD
+
+// Switch の MP4 再生機能がいらない方は次のコメントを外してください
+//#define DX_NON_NSW_MP4
 
 // ＴＧＡ画像の読み込み機能がいらない方は次のコメントを外してください
 // #define DX_NON_TGA
@@ -76,13 +79,13 @@
 // #define DX_NON_GRAPHICS
 
 // ソフトウエア２Ｄ描画がいらない方は次のコメントを外してください
-#define DX_NON_2DDRAW
+// #define DX_NON_2DDRAW
 
 // 標準 WAVE ファイル以外の音声ファイルを使用しない方は次のコメントを外してください
 //#define DX_NON_ACM
 
 // 標準 WAVE ファイルを使用しない方は次のコメントを外してください
-// #define DX_NON_WAVE
+#define DX_NON_WAVE
 
 // DirectShow を使用した MP3 ファイルのデコードを行わない場合は次のコメントをはずしてください
 //#define DX_NON_DSHOW_MP3
@@ -151,19 +154,19 @@
 //#define DX_NON_PRINTF_DX
 
 // 非同期読み込みを無効にする場合は次のコメントを外して下さい
-#define DX_NON_ASYNCLOAD
+//#define DX_NON_ASYNCLOAD
 
 // ファイル保存機能を無効にする場合は次のコメントを外して下さい
 //#define DX_NON_SAVEFUNCTION
 
 // ソフトウェアで扱うイメージを無効にする場合は次のコメントを外して下さい
-#define DX_NON_SOFTIMAGE
+// #define DX_NON_SOFTIMAGE
 
 // フォント描画機能を無効にする場合は次のコメントを外して下さい
 //#define DX_NON_FONT
 
 // ブラウザ依存のフォント描画機能を有効にする場合は次のコメントを外して下さい
-// #define DX_USE_BROWSER_FONT
+#define DX_USE_BROWSER_FONT
 
 // サウンド再生機能( ソフトウエアサウンド、MIDI含む )を無効にする場合は次のコメントを外して下さい
 //#define DX_NON_SOUND
@@ -172,7 +175,7 @@
 //#define DX_NON_INPUT
 
 // マルチスレッドを使用しない場合は次のコメントを外してください
-#define DX_NON_MULTITHREAD
+//#define DX_NON_MULTITHREAD
 
 // 各ハンドルのエラーチェックを無効にする場合は次のコメントを外してください( 若干高速化される代わりに無効なハンドルを関数に渡すと即不正なメモリアクセスエラーが発生するようになります )
 // #define DX_NON_HANDLE_ERROR_CHECK
@@ -191,6 +194,9 @@
 
 // Live2D Cubism 4 関連の機能を使用しない場合は次のコメントを外してください
 #define DX_NON_LIVE2D_CUBISM4
+
+// ウィンドウを作成しない場合は次のコメントを外してください
+//#define DX_NON_WINDOW
 
 #ifndef __cplusplus
 	#ifndef DX_COMPILE_TYPE_C_LANGUAGE
@@ -249,10 +255,6 @@
 #define DX_NON_DIRECT3D9
 #endif
 
-#ifdef EMSCRIPTEN
-#define DX_NON_MULTITHREAD
-#endif
-
 
 
 
@@ -272,7 +274,23 @@
 #define DX_NON_OPUS
 #define DX_NON_MODEL
 #define DX_NON_SHADERCODE_BINARY
+#define DX_NON_INPUTSTRING
 #endif
+
+#ifdef DX_NON_WINDOW
+	#ifndef DX_NON_GRAPHICS
+		#define DX_NON_GRAPHICS
+	#endif
+	#ifndef DX_NON_SOUND
+		#define DX_NON_SOUND
+	#endif
+	#ifndef DX_NON_INPUT
+		#define DX_NON_INPUT
+	#endif
+	#ifndef DX_NON_NETWORK
+		#define DX_NON_NETWORK
+	#endif
+#endif // DX_NON_WINDOW
 
 #ifdef DX_NON_GRAPHICS
 	#ifndef DX_NON_FONT
@@ -310,6 +328,9 @@
 	#endif
 	#ifndef DX_NOTUSE_DRAWFUNCTION
 		#define DX_NOTUSE_DRAWFUNCTION
+	#endif
+	#ifndef DX_NON_LIVE2D_CUBISM4
+		#define DX_NON_LIVE2D_CUBISM4
 	#endif
 #endif // DX_NON_GRAPHICS
 
